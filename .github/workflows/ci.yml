@@ -1,0 +1,26 @@
+name: Build and Deploy
+
+# 给予工作流写权限，因为需要向 gh-pages 分支提交代码
+permissions:
+  contents: write
+
+on:
+    push:
+        branches:
+            - website # 这里只配置了 website 分支，所以只有推送 website 分支才会触发以下任务
+jobs:
+    build-and-deploy:
+        concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout 🛎️
+              uses: actions/checkout@v6
+            - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
+              run: |
+                npm ci
+                npm run build
+            - name: Deploy 🚀
+              uses: JamesIves/github-pages-deploy-action@v4
+              with:
+                  branch: gh-pages # 部署后提交到 gh-pages 分支
+                  folder: dist # 打包好的目录名称

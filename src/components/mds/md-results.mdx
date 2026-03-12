@@ -1,0 +1,18 @@
+# Results
+
+![](./pic/results-1.jpg)
+
+**Results of 3 SOTA VTON models and 4 general-purpose image editing models on 4 real representative examples.** QIE-2509 = Qwen-Image-Edit-2509, NB = Nano Banana, N Ref = Using a model image and multiple single garment images as input, 2 Ref = Using a model image and an OOTD image as input. A yellow box denotes the difference with the look image (GT). A black arrow indicates a distinct artifact boundary.
+
+![](./pic/result-table.jpg)
+
+**Quantitative comparison.** We report results on classical VTON metrics and accuracy metrics judged by VLM. QIE-2509 = Qwen-Image-Edit-2509, NB = Nano Banana, NBP = Nano Banana Pro.
+
+![](./pic/garment-acc.jpg)
+
+**Garment consistency** with respect to the number of reference garment images, group by different types of model. With the same sample, the result by 2-reference strategy (1 model image + 1 OOTD image) often outperforms N-reference strategy (1 model image + N single garment images).
+
+![](./pic/text-modality.jpg)
+
+**The contribution of text modality.** Garments2Look introduces rich structured textual annotations, a dimension largely absent in traditional VTON datasets. These beyond-vision features are essential for scaling VTON to realistic, multi-layered wardrobes and attribute-sensitive fashion applications.
+
