@@ -1,0 +1,42 @@
+{
+  "source": "mytheresa",
+  "gender": "girls",
+  "outfit_info": {
+    "style": "Contemporary Urban Style",
+    "season": "Autumn",
+    "occasion": "Daily Wear",
+    "color_palette": [
+      "Olive Green",
+      "Lavender",
+      "Beige",
+      "Black",
+      "Purple"
+    ],
+    "theme": "Layering and Practicality with Feminine Accents",
+    "outfit_description": "The outfit combines a soft lavender lace dress with a practical olive green puffer coat, embodying a balanced urban and feminine look. Complemented by beige vintage check sandals and a raffia tote, it showcases comfort and style fit for a rainy day in the city.",
+    "model_attributes": {
+      "body": "Young, slender physique with natural posture radiating youthful confidence and relaxed charm.",
+      "pose": "Standing straight with hands gently holding the tote bag in front, exuding calm and poise.",
+      "background": "Urban rainy street scene with blurred passersby and colorful illuminated billboards creating a vibrant city atmosphere."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P01055343",
+        "P01074004"
+      ],
+      "styling_techniques": {
+        "P01074004": "worn fully buttoned, sleeves slightly rolled up"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": false,
+  "is_official_look": false,
+  "outfit": {
+    "P01055343": "purple bow-detail lace dress",
+    "P01074004": "green hooded puffer coat",
+    "P00761840": "multicoloured vintage check leather sandals",
+    "P01057717": "beige raffia-effect tote bag with purple accents",
+    "P01128005": "pink glitter watch"
+  }
+}

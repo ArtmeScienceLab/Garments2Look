@@ -30,6 +30,10 @@ export default {
 
 <style>
 
+html {
+  overflow-y: scroll;
+}
+
 h1 {
   font-family: "MyFont", Verdana, sans-serif;
   letter-spacing: 2px;

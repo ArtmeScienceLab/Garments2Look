@@ -1,0 +1,42 @@
+{
+  "source": "mytheresa",
+  "gender": "girls",
+  "outfit_info": {
+    "style": "Preppy Casual",
+    "season": "Autumn",
+    "occasion": "Daily Wear, Outdoor Outing",
+    "color_palette": [
+      "Black",
+      "Forest Green",
+      "Beige",
+      "Red",
+      "Brown"
+    ],
+    "theme": "Cozy Layers & Modern Comfort",
+    "outfit_description": "A charming layered ensemble features a green plaid dress beneath a black puffer jacket and relaxed beige corduroy pants. White and pink sneakers add a sporty touch, while a distinctive monogrammed tote bag with red trim completes this cozy yet stylish look, perfect for an autumn outdoor adventure.",
+    "model_attributes": {
+      "body": "A young girl with long, straight brown hair and a slender physique, conveying a youthful and approachable demeanor.",
+      "pose": "Standing upright with a gentle lean, looking slightly to the right with a pleasant, relaxed smile on her face.",
+      "background": "A whimsical, moss-covered forest scene featuring large trees, string lights, autumn foliage, and playful gnome figures with miniature snacks."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P01126937",
+        "P00587268"
+      ],
+      "styling_techniques": {
+        "P01126937": "Worn over pants"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": false,
+  "is_official_look": false,
+  "outfit": {
+    "P01126937": "green tartan dress",
+    "P00587268": "blue zipped cotton-blend hoodie",
+    "P01093024": "beige corduroy pants",
+    "P01076974": "pink junior sneakers",
+    "P01003420": "bag"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "source": "mytheresa",
+  "gender": "girls",
+  "outfit_info": {
+    "style": "Casual Style",
+    "season": "Autumn",
+    "occasion": "Daily Wear",
+    "color_palette": [
+      "Light Blue",
+      "Burgundy",
+      "White",
+      "Black",
+      "Grey",
+      "Rose Gold"
+    ],
+    "theme": "Cozy Comfort and Playful Charm",
+    "outfit_description": "A young model wears a layered casual outfit, featuring a light blue denim jacket over a printed sweatshirt, paired with burgundy sweatpants and black combat boots. Accessories include a grey beanie with a teddy bear and a sequined crossbody bag, creating a cozy yet playful look suitable for an outdoor autumn day.",
+    "model_attributes": {
+      "body": "The model is a child with a slender build, exuding a natural and curious demeanor during outdoor exploration.",
+      "pose": "Captured in a low crouch, the model leans forward to observe mushrooms on a log, indicating playful curiosity.",
+      "background": "A serene, misty outdoor setting frames a tranquil river and a distant arched bridge under a soft, diffused morning light."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P01123803",
+        "P01029121",
+        "P01073080"
+      ],
+      "styling_techniques": {
+        "P01029121": "unbuttoned",
+        "P01076616": "cuffed",
+        "P01073331": "worn on wrist",
+        "P00951606": "worn crossbody"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": false,
+  "is_official_look": false,
+  "outfit": {
+    "P01123803": "white sweatshirt",
+    "P01029121": "blue hooded denim jacket",
+    "P01076616": "burgundy logo cotton velvet sweatpants",
+    "P01041987": "boots",
+    "P00951606": "metallic smile sequined crossbody bag",
+    "P01073080": "grey feather-trimmed wool beanie",
+    "P01073331": "beige check cotton scrunchie"
+  }
+}

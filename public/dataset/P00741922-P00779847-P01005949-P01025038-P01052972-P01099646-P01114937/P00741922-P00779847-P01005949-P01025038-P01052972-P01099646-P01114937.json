@@ -1,0 +1,46 @@
+{
+  "source": "mytheresa",
+  "gender": "women",
+  "outfit_info": {
+    "style": "Modern Professional",
+    "season": "Autumn",
+    "occasion": "Professional Seminar",
+    "color_palette": [
+      "Black",
+      "Gold",
+      "Brown"
+    ],
+    "theme": "Understated Authority",
+    "outfit_description": "A sleek black silk gown is impeccably styled with a sharp, cropped wool jacket, exuding modern professionalism. Gold-accented loafers and a matching belt add subtle elegance. Oversized sunglasses and delicate heart hoop earrings complete this sophisticated and authoritative ensemble, perfect for a focused presentation.",
+    "model_attributes": {
+      "body": "Slender, poised, and elegant, she conveys an air of composed confidence and intellect.",
+      "pose": "Standing upright with a slight tilt of the head, holding a notepad and pen, engaged and attentive.",
+      "background": "An outdoor setting with wooden cabins and trees, surrounded by an attentive audience on the ground."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P01005949",
+        "P01052972",
+        "P01099646"
+      ],
+      "styling_techniques": {
+        "P00779847": "worn on eyes",
+        "P01052972": "belted",
+        "P01099646": "worn open"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": false,
+  "is_official_look": false,
+  "outfit": {
+    "P01005949": "black silk charmeuse gown",
+    "P01099646": "black wool-blend jacket",
+    "P01025038": "brown leather loafers",
+    "P01114937": "black leather tote bag",
+    "P00779847": "black oversized sunglasses",
+    "P00741922": "gold heart charm hoop earrings",
+    "P01052972": "black leather belt",
+    "UM00044995": "gold ring"
+  }
+}

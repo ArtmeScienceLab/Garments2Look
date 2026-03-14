@@ -1,0 +1,43 @@
+{
+  "source": "mytheresa",
+  "gender": "women",
+  "outfit_info": {
+    "style": "Urban Casual",
+    "season": "Autumn",
+    "occasion": "Daily Wear, Urban Exploration",
+    "color_palette": [
+      "Black",
+      "Navy",
+      "Light Grey",
+      "White"
+    ],
+    "theme": "Modern Utility, Comfortable Style",
+    "outfit_description": "This outfit presents a blend of urban functionality and sophisticated comfort. A translucent technical jacket layers over a light grey tee, paired with dark wide-leg trousers. Black ankle boots and a sleek cylindrical bag complete the look, cinched by a logo belt. The ensemble exudes a modern, practical, and effortlessly chic aesthetic suitable for city exploration.",
+    "model_attributes": {
+      "body": "The model exhibits a slender and athletic physique, with a composed yet slightly contemplative demeanor, embodying effortless urban style.",
+      "pose": "The model is captured in a dynamic, mid-stride pose, looking down and slightly to the side, conveying movement and a thoughtful expression.",
+      "background": "The background is an ethereal, bioluminescent forest with glowing mushrooms and mystical creatures, creating a fantastical, otherworldly ambiance."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P01012440",
+        "P00951042"
+      ],
+      "styling_techniques": {
+        "P01012440": "tucked-in",
+        "P00951042": "partially unzipped, sleeves pushed up, hood worn up"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": false,
+  "is_official_look": false,
+  "outfit": {
+    "P01012440": "grey cotton jersey t-shirt",
+    "P00951042": "white technical hooded jacket",
+    "P01115433": "blue wool wide-leg pants",
+    "P01004526": "boots",
+    "P00947443": "black leather tote bag",
+    "P00632317": "black logo leather belt"
+  }
+}

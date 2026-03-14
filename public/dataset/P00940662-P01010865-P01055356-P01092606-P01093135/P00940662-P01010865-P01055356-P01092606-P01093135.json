@@ -1,0 +1,43 @@
+{
+  "source": "mytheresa",
+  "gender": "girls",
+  "outfit_info": {
+    "style": "Whimsical Romantic Style",
+    "season": "Spring",
+    "occasion": "Daily Wear",
+    "color_palette": [
+      "lavender",
+      "blue",
+      "pink",
+      "red",
+      "green",
+      "white"
+    ],
+    "theme": "Playful Florals and Soft Embellishments",
+    "outfit_description": "The ensemble features a lilac floral cotton-blend shirt layered over a blue embroidered cotton dress, paired with light pink satin sandals adorned with embellishments. The look is accessorized with a floral canvas tote bag and a embellished headband, blending youthful charm with delicate details.",
+    "model_attributes": {
+      "body": "Young girl with slender physique, soft expressive face, natural wavy hair, and calm confident demeanor.",
+      "pose": "Standing straight with slight weight on one leg, hands relaxed holding the bag strap, gaze forward and composed.",
+      "background": "Night sky with meteor shower, ancient ruins with stone columns, and picnic setup with cushions and lantern."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P01092606",
+        "P01055356"
+      ],
+      "styling_techniques": {
+        "P01055356": "worn unbuttoned as outer shirt"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": false,
+  "is_official_look": false,
+  "outfit": {
+    "P01092606": "blue embroidered cotton gauze dress",
+    "P01055356": "purple floral cotton-blend shirt",
+    "P01010865": "pink embellished satin sandals",
+    "P00940662": "bag",
+    "P01093135": "pink embellished headband"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "source": "mytheresa",
+  "gender": "women",
+  "outfit_info": {
+    "style": "Romantic Style",
+    "season": "Spring",
+    "occasion": "Daytime Event, Elegant Casual",
+    "color_palette": [
+      "Black",
+      "Earthy Floral Tones (Orange, Brown, Peach)",
+      "Tan",
+      "Dark Blue"
+    ],
+    "theme": "Elegant Floral Charm",
+    "outfit_description": "A sophisticated look features a black floral midi dress paired with a dark cardigan for elegant layering. Tan woven accessories and pearl drop earrings complete the refined ensemble. The overall impression is one of timeless grace, suitable for a charming outdoor event.",
+    "model_attributes": {
+      "body": "The model has a slender physique and presents a natural, poised demeanor with classic appeal.",
+      "pose": "The model stands gracefully, looking directly forward, holding a book in one hand and her bag's strap in the other.",
+      "background": "A picturesque rustic cottage, adorned with climbing cream and peach roses, provides a charming garden setting."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P01101088",
+        "P00993397"
+      ],
+      "styling_techniques": {
+        "P00993397": "worn open"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": false,
+  "is_official_look": false,
+  "outfit": {
+    "P01101088": "black floral linen and silk organza midi dress",
+    "P00993397": "black wool-blend cardigan",
+    "P01063506": "shoes",
+    "P00908493": "brown woven leather shoulder bag",
+    "P00871983": "gold drop earrings with pearls",
+    "UM00050545": "thin black leather belt"
+  }
+}

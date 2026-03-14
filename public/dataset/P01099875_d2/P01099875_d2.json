@@ -1,0 +1,42 @@
+{
+  "source": "mytheresa",
+  "gender": "women",
+  "outfit_info": {
+    "style": "Street Style",
+    "season": "Autumn",
+    "occasion": "Casual Outing",
+    "color_palette": [
+      "Black",
+      "White",
+      "Silver",
+      "Teal"
+    ],
+    "theme": "Texture Contrast and Modern Silhouettes",
+    "outfit_description": "A striking urban ensemble featuring an oversized black leather jacket layered over a flowing white lace-trimmed midi dress. This is paired with relaxed black leather wide-leg pants and dynamic silver sneakers, completed by a chic black leather tote, blending edgy and ethereal styles.",
+    "model_attributes": {
+      "body": "Slender physique with a relaxed posture, exuding a confident and contemporary fashion sensibility.",
+      "pose": "Standing casually with one hand holding a bag, facing forward with a calm and natural demeanor.",
+      "background": "A minimalist, clean white studio background provides stark contrast, highlighting the outfit."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P01088668",
+        "P01088645"
+      ],
+      "styling_techniques": {
+        "P01088645": "Unzipped",
+        "P01088668": "Worn over pants"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": true,
+  "is_official_look": true,
+  "outfit": {
+    "P01088668": "dress",
+    "P01088645": "black logo leather jacket",
+    "P01088758": "pants",
+    "P01099875": "sneakers",
+    "P01001248": "black bow-detail leather tote bag"
+  }
+}

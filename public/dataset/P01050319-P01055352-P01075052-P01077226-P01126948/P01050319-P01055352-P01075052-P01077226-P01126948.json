@@ -1,0 +1,46 @@
+{
+  "source": "mytheresa",
+  "gender": "girls",
+  "outfit_info": {
+    "style": "Sweet Preppy",
+    "season": "Spring",
+    "occasion": "Special Outing",
+    "color_palette": [
+      "Light Blue",
+      "Blush Pink",
+      "Cream",
+      "White",
+      "Navy Blue",
+      "Red",
+      "Dark Green"
+    ],
+    "theme": "Playful Elegance",
+    "outfit_description": "A delicate pink slip dress peeks from under a soft blue cardigan, paired with a pleated cream skirt. White ruffled ballet flats and a charming gingham bag complete this sweet ensemble, creating a whimsical and elegant look perfect for a special outing at dusk.",
+    "model_attributes": {
+      "body": "The model is a young girl with a slender, active physique, exuding a gentle and lively demeanor.",
+      "pose": "Captured mid-stride on the beach, the model looks down with a joyful smile, conveying a sense of playful movement.",
+      "background": "A serene nocturnal beach scene featuring dark sand, gentle ocean waves, a bright full moon, and mystical glowing specks."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P01126948",
+        "P01075052",
+        "P01077226"
+      ],
+      "styling_techniques": {
+        "P01126948": "tucked-in as a top",
+        "P01077226": "unbuttoned"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": false,
+  "is_official_look": false,
+  "outfit": {
+    "P01126948": "dress",
+    "P01077226": "blue cotton and wool cardigan",
+    "P01075052": "beige knitted wool-blend skirt",
+    "P01050319": "white ruffled leather ballet flats",
+    "P01055352": "blue floral-appliqué gingham taffeta bag"
+  }
+}

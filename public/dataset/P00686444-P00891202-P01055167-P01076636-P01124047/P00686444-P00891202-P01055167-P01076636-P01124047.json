@@ -1,0 +1,46 @@
+{
+  "source": "mytheresa",
+  "gender": "girls",
+  "outfit_info": {
+    "style": "Playful Casual",
+    "season": "Spring",
+    "occasion": "Casual Outing, Daily Wear",
+    "color_palette": [
+      "Light Pink",
+      "Cream",
+      "Blue",
+      "Fuchsia",
+      "Green",
+      "Black",
+      "White"
+    ],
+    "theme": "Floral Whimsy and Playful Comfort",
+    "outfit_description": "A charming ensemble features a sheer, ruffled polka-dot dress layered with a quilted floral vest for a whimsical touch. Paired with casual jeans and sneakers, and a vibrant floral tote, the look is playful and comfortable, perfect for a cheerful day out.",
+    "model_attributes": {
+      "body": "A young girl with a slender build and a bright, innocent smile, exuding cheerful and lively energy.",
+      "pose": "The model stands front-facing, holding a tote bag, with a gentle, relaxed stance, conveying approachability and confidence.",
+      "background": "A whimsical, outdoor setting featuring a vibrant mushroom house and garden gnomes on green grass, evoking a fairy-tale scene."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P01076636",
+        "P01124047"
+      ],
+      "styling_techniques": {
+        "P00891202": "cuffed hems",
+        "P01055167": "one-shoulder and handheld"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": false,
+  "is_official_look": false,
+  "outfit": {
+    "P01076636": "dress",
+    "P01124047": "multicoloured floral quilted cotton vest",
+    "P00891202": "blue straight jeans",
+    "P00686444": "black leather sneakers",
+    "P01055167": "multicoloured floral canvas tote bag",
+    "UM00048374": "gold hoop earrings"
+  }
+}

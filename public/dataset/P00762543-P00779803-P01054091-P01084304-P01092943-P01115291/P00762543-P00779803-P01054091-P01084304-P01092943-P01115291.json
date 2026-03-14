@@ -1,0 +1,44 @@
+{
+  "source": "mytheresa",
+  "gender": "women",
+  "outfit_info": {
+    "style": "Dynamic Chic",
+    "season": "Autumn",
+    "occasion": "Fashion Editorial",
+    "color_palette": [
+      "Light Grey",
+      "Black",
+      "Red",
+      "Beige"
+    ],
+    "theme": "Dynamic Elegance and Urban Edge",
+    "outfit_description": "A sleek black turtleneck is layered under a silver ruffled satin top, creating a dramatic contrast. Paired with minimalist sneakers and a vibrant red bucket bag, the look is accessorized with cat-eye sunglasses and a dark baseball cap, embodying an active, fashion-forward urban aesthetic.",
+    "model_attributes": {
+      "body": "The model has a lean, athletic physique, conveying strength and grace.",
+      "pose": "She is captured mid-air, leaping dynamically with arms extended, suggesting agility and movement.",
+      "background": "A fantastical, steampunk-inspired cityscape at dusk, under an eclipse, creating a dramatic, ethereal setting."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P01115291",
+        "P01054091"
+      ],
+      "styling_techniques": {
+        "P01054091": "Layered over turtleneck, cropped effect",
+        "P00762543": "Waist-worn"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": false,
+  "is_official_look": false,
+  "outfit": {
+    "P01115291": "grey cashmere turtleneck top",
+    "P01054091": "silver ruffled satin bodysuit",
+    "UM00068158": "black knit shorts",
+    "P01092943": "beige suede-trimmed mesh sneakers",
+    "P00762543": "red canvas bucket bag",
+    "P01084304": "black logo denim baseball cap",
+    "P00779803": "neutral cat-eye sunglasses"
+  }
+}

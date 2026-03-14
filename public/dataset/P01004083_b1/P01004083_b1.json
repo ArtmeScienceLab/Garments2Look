@@ -1,0 +1,37 @@
+{
+  "source": "mytheresa",
+  "gender": "women",
+  "outfit_info": {
+    "style": "Chic Casual",
+    "season": "Spring",
+    "occasion": "Daily Wear, Casual Chic",
+    "color_palette": [
+      "White",
+      "Blue Denim",
+      "Burgundy",
+      "Gold"
+    ],
+    "theme": "Effortless Chic, Polished Comfort",
+    "outfit_description": "A crisp white bow-detail cotton poplin shirt is neatly tucked into a classic blue denim midi skirt. Rich burgundy leather ballet flats and a matching tote bag add a sophisticated contrast, creating an effortless yet polished casual ensemble perfect for spring or autumn days.",
+    "model_attributes": {
+      "body": "Slender and well-proportioned, the model presents a poised and graceful demeanor with a short bob haircut.",
+      "pose": "Standing front-facing with arms slightly bent and hands relaxed, exuding a calm and confident presence.",
+      "background": "A clean, minimalistic, and uniformly lit white studio background, highlighting the outfit without distractions."
+    },
+    "dressing_details": {
+      "layering_structure": [],
+      "styling_techniques": {
+        "P00940006": "Partially unbuttoned, Drawstring tie hanging loose, Tucked-in (front)"
+      }
+    }
+  },
+  "section": "test",
+  "is_official_outfit": true,
+  "is_official_look": true,
+  "outfit": {
+    "P00940006": "white shirt",
+    "P01004083": "blue denim midi skirt",
+    "P00993621": "burgundy horsebit leather ballet flats",
+    "P00995770": "burgundy leather tote bag"
+  }
+}

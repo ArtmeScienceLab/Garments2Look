@@ -1,0 +1,41 @@
+{
+  "source": "mytheresa",
+  "gender": "women",
+  "outfit_info": {
+    "style": "Modern Chic Style",
+    "season": "Autumn",
+    "occasion": "Commuting",
+    "color_palette": [
+      "Brown",
+      "Black",
+      "White"
+    ],
+    "theme": "Sophisticated Urban Layering",
+    "outfit_description": "This outfit presents a modern sophisticated look featuring a loose-fitting brown coat over a crisp white tank top and a sleek black leather midi skirt. Paired with elegant Mary Jane pumps and a matching tote, it exudes contemporary chic. The ensemble's neutral palette creates a polished and versatile aesthetic suitable for urban settings.",
+    "model_attributes": {
+      "body": "Slender and poised, the model stands with an upright and confident demeanor, showcasing the outfit's silhouette effectively.",
+      "pose": "The model stands front-facing, left hand holding the bag, right hand lightly touching the coat, exuding quiet confidence.",
+      "background": "A clean, minimalist white studio background ensures full focus on the model and the intricate details of the attire."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P00726420",
+        "P00787009"
+      ],
+      "styling_techniques": {
+        "P00787009": "worn open",
+        "P00726420": "tucked-in"
+      }
+    }
+  },
+  "section": "test",
+  "is_official_outfit": true,
+  "is_official_look": true,
+  "outfit": {
+    "P00726420": "white tank top",
+    "P00787009": "brown asymmetric coat",
+    "P00787012": "black leather midi skirt",
+    "P00789408": "black leather Mary Jane pumps",
+    "P00808722": "black Re-Nylon tote bag"
+  }
+}

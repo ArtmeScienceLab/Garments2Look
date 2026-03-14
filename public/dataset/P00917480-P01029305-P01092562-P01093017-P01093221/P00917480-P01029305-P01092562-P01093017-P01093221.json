@@ -1,0 +1,42 @@
+{
+  "source": "mytheresa",
+  "gender": "girls",
+  "outfit_info": {
+    "style": "Whimsical Casual",
+    "season": "Autumn",
+    "occasion": "Outdoor Event",
+    "color_palette": [
+      "White",
+      "Orange",
+      "Pastel Multi-color",
+      "Pink",
+      "Yellow"
+    ],
+    "theme": "Playful Layering and Youthful Charm",
+    "outfit_description": "A charming, layered ensemble features a white lace dress topped with a colorful knitted vest. An orange balaclava-style hood adds warmth and whimsy, complemented by a cheerful daisy crossbody bag and delicate pink ballet flats. The look is vibrant and perfectly suited for a festive autumn gathering.",
+    "model_attributes": {
+      "body": "A young girl with a slender build, standing confidently and cheerfully.",
+      "pose": "The model stands squarely facing the camera, with a bright, genuine smile and relaxed posture.",
+      "background": "An outdoor setting with a scenic lake, a large building, and autumnal trees under golden hour sunlight, suggesting an event."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P00917480",
+        "P01093017"
+      ],
+      "styling_techniques": {
+        "P01093221": "worn crossbody"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": false,
+  "is_official_look": false,
+  "outfit": {
+    "P00917480": "dress",
+    "P01093017": "sweater vest",
+    "P01029305": "pink sequined ballet flats",
+    "P01093221": "yellow daisy fleece crossbody bag",
+    "P01092562": "orange heart knitted hood"
+  }
+}

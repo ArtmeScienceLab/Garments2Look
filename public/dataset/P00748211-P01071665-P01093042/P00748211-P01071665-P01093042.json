@@ -1,0 +1,42 @@
+{
+  "source": "mytheresa",
+  "gender": "girls",
+  "outfit_info": {
+    "style": "Casual Street Style",
+    "season": "Autumn",
+    "occasion": "Daily Wear",
+    "color_palette": [
+      "Yellow",
+      "Pink",
+      "Purple",
+      "Blue",
+      "Black",
+      "Red"
+    ],
+    "theme": "Playful Vibrancy and Comfort",
+    "outfit_description": "The outfit features a vibrant floral puffer jacket layered over a graphic cotton jersey T-shirt, paired with casual denim shorts and sporty sock sneakers. This look embodies youthful energy with bold colors and prints, balancing warmth and breathability for dynamic everyday wear.",
+    "model_attributes": {
+      "body": "Youthful, slim physique with natural posture and a joyful, confident facial expression.",
+      "pose": "Mid-air jump with arms extended outward, legs slightly bent, expressing motion and carefree energy.",
+      "background": "Surreal, colorful fantasy environment filled with large floating orbs and small fantastical creatures in chef hats."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P01071665",
+        "P01093042"
+      ],
+      "styling_techniques": {
+        "P01093042": "unbuttoned"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": false,
+  "is_official_look": false,
+  "outfit": {
+    "P01071665": "pink cotton jersey graphic t-shirt",
+    "P01093042": "multicoloured floral printed puffer jacket",
+    "UM00048406": "blue denim shorts with patches",
+    "P00748211": "black sock sneakers with red and white soles"
+  }
+}

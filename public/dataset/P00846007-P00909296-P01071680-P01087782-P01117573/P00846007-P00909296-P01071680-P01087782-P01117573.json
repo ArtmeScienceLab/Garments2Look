@@ -1,0 +1,44 @@
+{
+  "source": "mytheresa",
+  "gender": "girls",
+  "outfit_info": {
+    "style": "Casual Style",
+    "season": "Spring",
+    "occasion": "Daily Wear",
+    "color_palette": [
+      "navy blue",
+      "pink",
+      "black",
+      "leopard print",
+      "white"
+    ],
+    "theme": "Youthful Comfort and Playful Contrast",
+    "outfit_description": "The outfit mixes a navy blue cotton dress layered over a pink skirt, paired with a cropped denim jacket and bold leopard-print sneakers. The combination creates a casual, comfortable look with playful contrasts and a modern youthful feel, complemented by a practical black backpack.",
+    "model_attributes": {
+      "body": "Young girl with a slender build, soft features, and naturally wavy medium-length brown hair.",
+      "pose": "Standing confidently with legs apart, holding a tablet in one hand and the backpack strap with the other.",
+      "background": "Dreamlike sky with soft clouds, rainbows, and whimsical winged animals, creating a magical atmosphere."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P01087782",
+        "P01071680",
+        "P00909296"
+      ],
+      "styling_techniques": {
+        "P00909296": "rolled-up sleeves, cropped jacket",
+        "P01071680": "layered over pink skirt"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": false,
+  "is_official_look": false,
+  "outfit": {
+    "P01071680": "blue cotton dress",
+    "P00909296": "blue cotton jacket",
+    "P01087782": "pink pleated denim skirt",
+    "P01117573": "leopard-print brown sneakers",
+    "P00846007": "black logo backpack"
+  }
+}
