@@ -61,6 +61,9 @@ const handleClose = () => {
 }
 
 const cache = new Map<string, OutfitJson>()
+// 本地 dev 时 public 在根路径；部署到 GitHub Pages 时用 BASE_URL（/Garments2Look/），保证末尾有斜杠
+const _base = import.meta.env.DEV ? '/' : (import.meta.env.BASE_URL || '/')
+const baseUrl = _base.endsWith('/') ? _base : _base + '/'
 
 const loadDetail = async () => {
   if (!props.outfitId || !props.visible) return
@@ -72,7 +75,7 @@ const loadDetail = async () => {
   loading.value = true
   error.value = null
   try {
-    const res = await fetch(`/dataset/${props.outfitId}/${props.outfitId}.json`)
+    const res = await fetch(`${baseUrl}dataset/${props.outfitId}/${props.outfitId}.json`)
     if (!res.ok) {
       throw new Error(`加载失败: ${res.status}`)
     }
@@ -89,19 +92,19 @@ const loadDetail = async () => {
 
 function onLookImageError() {
   if (props.outfitId && lookImageSrc.value.endsWith('.jpg')) {
-    lookImageSrc.value = `/dataset/${props.outfitId}/images/look/${props.outfitId}.png`
+    lookImageSrc.value = `${baseUrl}dataset/${props.outfitId}/images/look/${props.outfitId}.png`
   }
 }
 
 // garment 图：dataset/{outfit_id}/images/garments/{garment_id}/{garment_id}.jpg，失败则试 .png，再失败用占位图
 const garmentImageFallback = ref<Record<string, string>>({})
-const GARMENT_PLACEHOLDER = '/dataset/loading.jpg'
+const GARMENT_PLACEHOLDER = `${baseUrl}dataset/loading.jpg`
 
 function getGarmentImageSrc(garmentId: string): string {
   const key = `${props.outfitId}:${garmentId}`
   const fallback = garmentImageFallback.value[key]
   if (fallback) return fallback
-  return `/dataset/${props.outfitId}/images/garments/${garmentId}/${garmentId}.jpg`
+  return `${baseUrl}dataset/${props.outfitId}/images/garments/${garmentId}/${garmentId}.jpg`
 }
 
 function onGarmentImageError(garmentId: string) {
@@ -110,7 +113,7 @@ function onGarmentImageError(garmentId: string) {
   if (!existing) {
     garmentImageFallback.value = {
       ...garmentImageFallback.value,
-      [key]: `/dataset/${props.outfitId}/images/garments/${garmentId}/${garmentId}.png`,
+      [key]: `${baseUrl}dataset/${props.outfitId}/images/garments/${garmentId}/${garmentId}.png`,
     }
   } else if (existing.endsWith('.png')) {
     garmentImageFallback.value = { ...garmentImageFallback.value, [key]: GARMENT_PLACEHOLDER }
@@ -133,7 +136,7 @@ watch(
   () => props.outfitId,
   (id) => {
     if (id) {
-      lookImageSrc.value = `/dataset/${id}/images/look/${id}.jpg`
+      lookImageSrc.value = `${baseUrl}dataset/${id}/images/look/${id}.jpg`
       garmentImageFallback.value = {}
     }
   },

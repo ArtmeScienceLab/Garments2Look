@@ -7,6 +7,10 @@ const props = defineProps<{
   orderList: string[]
 }>()
 
+// 本地 dev 时 public 在根路径；部署到 GitHub Pages 时用 BASE_URL（/Garments2Look/），保证末尾有斜杠
+const _base = import.meta.env.DEV ? '/' : (import.meta.env.BASE_URL || '/')
+const baseUrl = _base.endsWith('/') ? _base : _base + '/'
+
 // 最小和最大列数
 const MIN_COLS = 4
 const MAX_COLS = 8
@@ -142,9 +146,9 @@ const displayItems = computed<DisplayItem[]>(() => {
       if (id) {
         items.push({
           id,
-          mainSrc: `/dataset/${id}/images/look/${id}.jpg`,
-          overlaySrc: `/dataset/${id}/images/segment/color_segmentation.png`,
-          skeletonSrc: `/dataset/${id}/images/dwpose/${id}.png`,
+          mainSrc: `${baseUrl}dataset/${id}/images/look/${id}.jpg`,
+          overlaySrc: `${baseUrl}dataset/${id}/images/segment/color_segmentation.png`,
+          skeletonSrc: `${baseUrl}dataset/${id}/images/dwpose/${id}.png`,
         })
         continue
       }
@@ -153,9 +157,9 @@ const displayItems = computed<DisplayItem[]>(() => {
     // 没有显式指定 id 的格子统一使用 loading 占位图
     items.push({
       id: `placeholder-${currentPage.value}-${i}`,
-      mainSrc: '/dataset/loading.jpg',
-      overlaySrc: '/dataset/loading.jpg',
-      skeletonSrc: '/dataset/loading.jpg',
+      mainSrc: `${baseUrl}dataset/loading.jpg`,
+      overlaySrc: `${baseUrl}dataset/loading.jpg`,
+      skeletonSrc: `${baseUrl}dataset/loading.jpg`,
     })
   }
 
@@ -175,7 +179,7 @@ function onLookImageError(item: DisplayItem) {
   if (tried.endsWith('.jpg')) {
     lookUrlCache.value = {
       ...lookUrlCache.value,
-      [item.id]: `/dataset/${item.id}/images/look/${item.id}.png`,
+      [item.id]: `${baseUrl}dataset/${item.id}/images/look/${item.id}.png`,
     }
   }
 }
