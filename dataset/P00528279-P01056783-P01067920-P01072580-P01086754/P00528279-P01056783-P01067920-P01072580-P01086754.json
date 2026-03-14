@@ -1,0 +1,43 @@
+{
+  "source": "mytheresa",
+  "gender": "women",
+  "outfit_info": {
+    "style": "Street Style",
+    "season": "Autumn",
+    "occasion": "Daily Wear",
+    "color_palette": [
+      "Black",
+      "Brown",
+      "Light Blue",
+      "Pink",
+      "Yellow"
+    ],
+    "theme": "Urban Comfort and Edgy Practicality",
+    "outfit_description": "This urban-inspired outfit features a vibrant printed mesh top beneath a black leather jacket, paired with sleek black stirrup leggings. Brown suede sneakers and a matching shoulder bag complete the look. It's a casual yet edgy ensemble, perfectly suited for a rainy city day, blending comfort with a cool, effortless vibe.",
+    "model_attributes": {
+      "body": "Slender physique with wet, styled hair, exuding a confident and raw demeanor while engaging the camera.",
+      "pose": "Standing frontally with a slight lean, holding and eating a sandwich, looking directly at the viewer.",
+      "background": "Rainy urban street scene with brick buildings, vibrant graffiti, and blurred street activity in the distance."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P01072580",
+        "P01067920"
+      ],
+      "styling_techniques": {
+        "P01067920": "unzipped",
+        "P00528279": "stirrups worn under foot"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": false,
+  "is_official_look": false,
+  "outfit": {
+    "P01072580": "blue printed striped mesh T-shirt",
+    "P01067920": "black leather jacket",
+    "P00528279": "black high-rise stretch-jersey stirrup leggings",
+    "P01086754": "brown croc-effect suede sneakers",
+    "P01056783": "brown leather shoulder bag"
+  }
+}

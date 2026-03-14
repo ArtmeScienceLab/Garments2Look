@@ -1,0 +1,41 @@
+{
+  "source": "mytheresa",
+  "gender": "girls",
+  "outfit_info": {
+    "style": "Youthful Chic",
+    "season": "Autumn/Winter",
+    "occasion": "Daily Wear",
+    "color_palette": [
+      "Black",
+      "Leopard print (Brown/Black)",
+      "Pink",
+      "Beige"
+    ],
+    "theme": "Whimsical Warmth and Pattern Play",
+    "outfit_description": "A young model showcases a warm, stylish ensemble featuring a black puffer coat over a playful leopard-print blouse and a chic pink tweed skirt. Paired with cozy boots and a whimsical shoulder bag, the look is practical yet fashionable for colder days, exuding a youthful charm.",
+    "model_attributes": {
+      "body": "Slender and youthful physique with a poised, confident posture, embodying a childlike grace.",
+      "pose": "Standing front-facing, head slightly tilted, one hand holding a shoulder bag, exuding a calm and direct gaze.",
+      "background": "Fantastical, pastel-colored landscape featuring whimsical castles and flying objects, populated by animated cat characters."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P01095233",
+        "P01072233"
+      ],
+      "styling_techniques": {
+        "P01072233": "Unzipped/Open"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": false,
+  "is_official_look": false,
+  "outfit": {
+    "P01095233": "multicoloured leopard-print cotton blouse",
+    "P01072233": "black logo down coat",
+    "P01081078": "pink tweed skirt",
+    "P00966252": "boots",
+    "P01019368": "gold metallic leather bear-face bag"
+  }
+}

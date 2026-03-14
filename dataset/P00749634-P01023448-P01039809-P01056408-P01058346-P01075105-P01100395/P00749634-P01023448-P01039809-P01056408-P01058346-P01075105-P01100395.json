@@ -1,0 +1,45 @@
+{
+  "source": "mytheresa",
+  "gender": "women",
+  "outfit_info": {
+    "style": "Casual Chic",
+    "season": "Summer",
+    "occasion": "Daily Wear, Outdoor Activity",
+    "color_palette": [
+      "Blue",
+      "Navy",
+      "Brown",
+      "Black",
+      "White",
+      "Gold"
+    ],
+    "theme": "Effortless Summer Comfort, Relaxed Elegance",
+    "outfit_description": "This ensemble features a vibrant blue striped shirt paired with dark wash wide-leg jeans, creating a balanced and relaxed silhouette. Accessorized with a chic studded shoulder bag, a classic leather belt, comfortable slip-on sneakers, statement earrings, and stylish sunglasses, it embodies effortless summer elegance perfect for a casual outdoor gathering.",
+    "model_attributes": {
+      "body": "The model possesses a lean physique, standing confidently with an approachable and relaxed demeanor.",
+      "pose": "She stands upright, one hand casually slipped into a pocket, looking directly with a serene expression.",
+      "background": "A sun-drenched outdoor earthen court, possibly a pétanque area, with blurred people and distant stone buildings."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P01075105",
+        "P01056408"
+      ],
+      "styling_techniques": {
+        "P01075105": "partially unbuttoned, sleeves rolled up, tucked-in"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": false,
+  "is_official_look": false,
+  "outfit": {
+    "P01075105": "blue striped shirt",
+    "P01100395": "blue wide-leg jeans",
+    "P01058346": "grey low-top slip-on sneakers",
+    "P01056408": "black leather shoulder bag with studs",
+    "P01023448": "brown square sunglasses",
+    "P00749634": "gold mini hoop earrings with gemstones",
+    "P01039809": "brown leather belt"
+  }
+}

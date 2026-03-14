@@ -1,0 +1,47 @@
+{
+  "source": "mytheresa",
+  "gender": "women",
+  "outfit_info": {
+    "style": "Casual Chic",
+    "season": "Autumn",
+    "occasion": "Leisurely Social Gathering",
+    "color_palette": [
+      "White",
+      "Teal",
+      "Olive Green",
+      "Black",
+      "Taupe",
+      "Red"
+    ],
+    "theme": "Effortless Elegance with Playful Patterns",
+    "outfit_description": "A chic ensemble features a vibrant patterned silk shirt paired with relaxed wide-leg olive pants. A black wool sweater draped over the shoulders adds sophistication, complemented by a sleek leather belt, loafers, and a structured tote bag. This creates an elegant, comfortable look suitable for a leisurely outing.",
+    "model_attributes": {
+      "body": "The model has a slender figure, presenting a calm, composed demeanor with elegant posture.",
+      "pose": "Standing upright with one hand casually in a pant pocket, she gazes directly at the viewer with a neutral expression.",
+      "background": "A misty, serene dockside scene features a moored sailboat and older men examining curios on a wooden table."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P01045238",
+        "P01006546"
+      ],
+      "styling_techniques": {
+        "P01045238": "partially tucked-in",
+        "P01006546": "draped over shoulders",
+        "P01088627": "cinched at the waist"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": false,
+  "is_official_look": false,
+  "outfit": {
+    "P01045238": "green and white printed oversized silk shirt",
+    "P01006546": "black virgin wool sweater",
+    "P00958883": "green monogram silk wide-leg pants",
+    "P01086791": "black leather loafers",
+    "P00999111": "taupe leather tote bag",
+    "P00431909": "red leather studded bracelet",
+    "P01088627": "black leather belt"
+  }
+}

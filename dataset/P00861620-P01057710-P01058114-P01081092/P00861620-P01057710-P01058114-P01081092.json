@@ -1,0 +1,40 @@
+{
+  "source": "mytheresa",
+  "gender": "girls",
+  "outfit_info": {
+    "style": "Chic Contemporary Style",
+    "season": "Autumn",
+    "occasion": "Outdoor, Evening Event",
+    "color_palette": [
+      "black",
+      "dark blue",
+      "beige",
+      "floral multicolor"
+    ],
+    "theme": "Modern Elegance with Artistic Flair",
+    "outfit_description": "The outfit features a black quilted dress layered over dark blue jeans, combining texture and structure. Paired with beige leather ballet flats and a floral leather tote, it delivers a sophisticated yet approachable look suitable for an autumn evening event. The ensemble balances warmth and style seamlessly.",
+    "model_attributes": {
+      "body": "Slender youthful physique with long hair, calm expression, and poised presence.",
+      "pose": "Standing straight with relaxed arms, neutral facial expression, holding a handbag naturally.",
+      "background": "Historic amphitheater setting with a live jazz band, soft ambient lighting, audience seated on ground."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P00861620",
+        "P01081092"
+      ],
+      "styling_techniques": {
+        "P01081092": "Layered over jeans, dress worn as outerwear"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": false,
+  "is_official_look": false,
+  "outfit": {
+    "P01081092": "black paneled quilted dress",
+    "P00861620": "blue denim jeans",
+    "P01058114": "pink appliqué leather ballet flats",
+    "P01057710": "white floral leather tote bag"
+  }
+}

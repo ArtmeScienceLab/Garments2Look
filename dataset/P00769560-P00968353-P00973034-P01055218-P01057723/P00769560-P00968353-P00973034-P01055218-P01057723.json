@@ -1,0 +1,45 @@
+{
+  "source": "mytheresa",
+  "gender": "girls",
+  "outfit_info": {
+    "style": "Playful Chic",
+    "season": "Autumn",
+    "occasion": "Casual Outing",
+    "color_palette": [
+      "White",
+      "Navy Blue",
+      "Black",
+      "Leopard Print",
+      "Blue"
+    ],
+    "theme": "Layered textures with playful contrasts",
+    "outfit_description": "A charming and eclectic ensemble features a cream sporty dress layered over blue floral shorts, topped by a cozy faux shearling vest. A leopard print belt cinches the waist, adding a bold accent. Black combat boots complete this playful yet edgy look, perfect for a stylish and comfortable outing.",
+    "model_attributes": {
+      "body": "A young, slender child with a bright, confident demeanor, showcasing the outfit with a vibrant presence.",
+      "pose": "Standing confidently with hands on hips, displaying a wide, engaging smile directly at the viewer.",
+      "background": "A fantastical 'Interstellar Rodeo' arena setting, featuring a cosmic sky and quirky alien audience figures."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P01055218",
+        "P00769560",
+        "P01057723",
+        "P00973034"
+      ],
+      "styling_techniques": {
+        "P01057723": "cinched at waist",
+        "P01055218": "peeking out from under dress hem"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": false,
+  "is_official_look": false,
+  "outfit": {
+    "P00769560": "white horsebit cotton dress",
+    "P00973034": "white faux shearling vest",
+    "P01055218": "blue floral ruffled cotton shorts",
+    "P00968353": "black leather ankle boots",
+    "P01057723": "brown leopard-print leather belt"
+  }
+}

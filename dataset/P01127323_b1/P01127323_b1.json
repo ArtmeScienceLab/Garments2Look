@@ -1,0 +1,41 @@
+{
+  "source": "mytheresa",
+  "gender": "women",
+  "outfit_info": {
+    "style": "Modern Casual",
+    "season": "Winter",
+    "occasion": "Daily Wear, Commuting, Casual Outing",
+    "color_palette": [
+      "Beige",
+      "Brown",
+      "Red",
+      "Multicolor"
+    ],
+    "theme": "Warmth and Texture, Contrast and Chic",
+    "outfit_description": "A cozy yet chic ensemble featuring a warm teddy down jacket over a patterned virgin wool sweater. This is paired with a vibrant quilted mini skirt and elegant knee-high leather boots. A suede tote bag completes the sophisticated, cold-weather look, blending comfort with a stylish edge.",
+    "model_attributes": {
+      "body": "The model has a slender physique, standing gracefully with a natural and poised demeanor.",
+      "pose": "Standing upright with both feet planted, holding a handbag casually with one hand, facing forward.",
+      "background": "A clean and minimalist plain white studio background, providing clear focus on the outfit."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P01095755",
+        "P01127323"
+      ],
+      "styling_techniques": {
+        "P01127323": "partially unzipped"
+      }
+    }
+  },
+  "section": "test",
+  "is_official_outfit": true,
+  "is_official_look": true,
+  "outfit": {
+    "P01095755": "sweater",
+    "P01127323": "beige teddy down jacket",
+    "P01068131": "red technical mini skirt",
+    "P01122022": "brown leather knee-high boots",
+    "P01076449": "brown suede tote bag"
+  }
+}

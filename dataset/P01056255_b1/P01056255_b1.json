@@ -1,0 +1,35 @@
+{
+  "source": "mytheresa",
+  "gender": "women",
+  "outfit_info": {
+    "style": "Resort Casual",
+    "season": "Summer",
+    "occasion": "Vacation, Daily Wear, Outdoor Gathering",
+    "color_palette": [
+      "Off-white",
+      "Black",
+      "Red",
+      "Green"
+    ],
+    "theme": "Playful Summer Vibes, Bohemian Chic",
+    "outfit_description": "A fresh and vibrant summer ensemble featuring an off-white fringed crop top paired with playful floral embroidered shorts. Black raffia accessories and comfortable platform slides complete this laid-back yet stylish look, perfect for warm-weather adventures and relaxed outings.",
+    "model_attributes": {
+      "body": "The model possesses a slender and athletic build, standing poised and confident, showcasing the outfit's relaxed fit.",
+      "pose": "Standing full-length, front-facing, holding a bag casually by her side, exuding a relaxed and natural demeanor.",
+      "background": "A clean, minimalist white studio background provides stark contrast, highlighting the outfit without distractions."
+    },
+    "dressing_details": {
+      "layering_structure": [],
+      "styling_techniques": {}
+    }
+  },
+  "section": "test",
+  "is_official_outfit": true,
+  "is_official_look": true,
+  "outfit": {
+    "P01056231": "top",
+    "P01056255": "white floral denim shorts",
+    "P01057098": "black platform slides",
+    "P01056204": "black raffia shoulder bag"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "source": "mytheresa",
+  "gender": "girls",
+  "outfit_info": {
+    "style": "Whimsical Casual",
+    "season": "Autumn",
+    "occasion": "Outdoor Play",
+    "color_palette": [
+      "Pastel Pink",
+      "Beige",
+      "Light Blue",
+      "Cream",
+      "Pale Yellow"
+    ],
+    "theme": "Playful Layering with Pastel Hues",
+    "outfit_description": "A charming layered ensemble features a delicate pink dress under a cozy knit vest, paired with light wash jeans and warm cream boots. A striped sun hat and a sweet pink bucket bag complete this whimsical and comfortable look, ideal for a cheerful outdoor adventure.",
+    "model_attributes": {
+      "body": "A young girl with a slender build and healthy appearance, radiating youthful joy and confidence.",
+      "pose": "Standing facing forward with a gentle lean, arms relaxed, one hand holding the bag strap, displaying a warm smile.",
+      "background": "A vibrant field of wildflowers at sunset, featuring a whimsical unicorn statue and a rustic signpost, creating a magical ambiance."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P01076632",
+        "P01024135"
+      ],
+      "styling_techniques": {
+        "P01024135": "layered over dress",
+        "P00844694": "worn crossbody"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": false,
+  "is_official_look": false,
+  "outfit": {
+    "P01076632": "pink caped cotton dress",
+    "P01024135": "beige knitted cotton vest",
+    "P01141112": "blue embroidered wide-leg jeans",
+    "P00716431": "beige shearling-lined leather boots",
+    "P00844694": "pink embellished suede bucket bag",
+    "P00824148": "yellow and white striped cotton sun hat"
+  }
+}

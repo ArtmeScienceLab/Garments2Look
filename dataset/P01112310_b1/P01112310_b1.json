@@ -1,0 +1,44 @@
+{
+  "source": "mytheresa",
+  "gender": "women",
+  "outfit_info": {
+    "style": "Classic Casual",
+    "season": "Autumn",
+    "occasion": "Daily Wear",
+    "color_palette": [
+      "Cream",
+      "Light Blue",
+      "Camel Brown",
+      "Black",
+      "Dark Brown"
+    ],
+    "theme": "Classic Comfort and Warmth",
+    "outfit_description": "This outfit presents a blend of relaxed comfort and classic sophistication. A light blue denim shirt is layered under a cream cable-knit cardigan, paired with pleated wide-leg corduroy pants. A black belt cinches the waist, complemented by dark brown loafers and a matching leather tote bag, creating a warm, polished, and effortlessly stylish look.",
+    "model_attributes": {
+      "body": "The model has a slender physique and presents a poised, natural stance.",
+      "pose": "Standing front-facing, one hand subtly resting by her side, holding the bag, conveying an understated elegance.",
+      "background": "A minimalist, solid white studio background ensures the focus remains entirely on the outfit and model."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P01023650",
+        "P01112310"
+      ],
+      "styling_techniques": {
+        "P01023650": "partially unbuttoned, tucked-in",
+        "P01112310": "worn open"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": true,
+  "is_official_look": true,
+  "outfit": {
+    "P01023650": "blue denim shirt",
+    "P01112310": "white cable-knit wool and cashmere cardigan",
+    "P01070873": "beige cotton corduroy wide-leg pants",
+    "P01096432": "brown leather penny loafers",
+    "P01007248": "brown leather tote bag",
+    "P01056453": "brown leather belt"
+  }
+}

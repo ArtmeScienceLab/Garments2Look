@@ -1,0 +1,44 @@
+{
+  "source": "mytheresa",
+  "gender": "women",
+  "outfit_info": {
+    "style": "Elegant Casual",
+    "season": "Autumn",
+    "occasion": "Smart Casual Outing",
+    "color_palette": [
+      "Burgundy",
+      "Blue",
+      "Pink",
+      "Black",
+      "Gold"
+    ],
+    "theme": "Feminine Grace and Warmth",
+    "outfit_description": "The outfit features a flowing burgundy floral midi dress, gracefully accessorized with a soft pink wool scarf and a structured black shoulder bag. Completing the look are classic dark pumps and a delicate gold necklace, presenting an elegant and feminine ensemble suitable for a refined outing.",
+    "model_attributes": {
+      "body": "Slender and poised, the model stands with natural elegance, showcasing the garment's fluid silhouette and long limbs.",
+      "pose": "The model stands front-facing, left arm slightly bent, right arm relaxed, head slightly tilted, exuding calm confidence.",
+      "background": "A dimly lit, traditional Asian eatery with wooden stools, tiled walls, and diners creates an atmospheric, vintage setting."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P01081516",
+        "P00806175",
+        "P00697636"
+      ],
+      "styling_techniques": {
+        "P00697636": "draped around neck",
+        "P00956525": "over the shoulder"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": false,
+  "is_official_look": false,
+  "outfit": {
+    "P01081516": "red floral crêpe midi dress",
+    "P01078473": "pumps",
+    "P00956525": "black leather shoulder bag",
+    "P00806175": "gold necklace with sapphires",
+    "P00697636": "pink fringed wool scarf"
+  }
+}

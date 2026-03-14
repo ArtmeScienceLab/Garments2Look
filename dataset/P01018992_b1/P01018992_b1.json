@@ -1,0 +1,35 @@
+{
+  "source": "mytheresa",
+  "gender": "women",
+  "outfit_info": {
+    "style": "Contemporary Minimalist",
+    "season": "Spring/Summer",
+    "occasion": "Evening Wear, Fashion Event",
+    "color_palette": [
+      "Black",
+      "Off-white"
+    ],
+    "theme": "Sleek Sophistication",
+    "outfit_description": "This ensemble features a sculpted, strapless black top with a striking cut-out, paired with fluid black wide-leg trousers. Chunky black platform boots complete the monochromatic silhouette, exuding a bold, contemporary minimalist aesthetic. The look is effortlessly chic, blending modern design with comfortable, flowing elements for a sophisticated statement.",
+    "model_attributes": {
+      "body": "The model has a slender physique and confident posture, showcasing the outfit's lines.",
+      "pose": "Standing front-facing with one hand casually in a pocket, holding a bag, exuding relaxed confidence.",
+      "background": "A clean, plain white studio background emphasizes the outfit without distractions."
+    },
+    "dressing_details": {
+      "layering_structure": [],
+      "styling_techniques": {
+        "P01018992": "Drawstring exposed"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": true,
+  "is_official_look": true,
+  "outfit": {
+    "P01018851": "black jersey bustier",
+    "P01018992": "black drawstring straight pants",
+    "P00938892": "black leather platform ankle boots",
+    "UM00014180": "black leather shoulder bag"
+  }
+}

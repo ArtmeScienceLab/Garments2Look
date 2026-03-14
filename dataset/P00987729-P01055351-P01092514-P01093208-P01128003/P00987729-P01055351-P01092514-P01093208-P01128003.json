@@ -1,0 +1,45 @@
+{
+  "source": "mytheresa",
+  "gender": "girls",
+  "outfit_info": {
+    "style": "Casual Style",
+    "season": "Autumn",
+    "occasion": "Daily Wear",
+    "color_palette": [
+      "black",
+      "yellow",
+      "blue",
+      "pink",
+      "white",
+      "red"
+    ],
+    "theme": "Comfort and Playful Details",
+    "outfit_description": "The outfit features a cozy fleece jacket with heart motifs layered over a simple white top, paired with comfortable floral-patterned sweatpants. Glittery accessories and soft sneakers complete the look, creating a playful yet relaxed daily wear vibe suited for cooler weather.",
+    "model_attributes": {
+      "body": "Youthful girl with a petite and natural physique, exuding a cheerful and approachable aura.",
+      "pose": "Sitting cross-legged facing forward with relaxed shoulders, smiling brightly, expressing comfort and happiness.",
+      "background": "Soft, pastel-themed fairy-tale setting with clouds, fireworks, marshmallows, and a colorful unicorn."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "UM00048394",
+        "P01092514"
+      ],
+      "styling_techniques": {
+        "P01092514": "unzipped"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": false,
+  "is_official_look": false,
+  "outfit": {
+    "UM00048394": "white crewneck t-shirt",
+    "P01092514": "jacket",
+    "P01093208": "blue floral sweatpants",
+    "P00987729": "silver Super-Star glitter leather sneakers",
+    "P01128003": "pink Tut sequined glitter shoulder bag",
+    "P01055351": "blue embellished polka-dot denim hair clip",
+    "UM00048395": "white socks"
+  }
+}

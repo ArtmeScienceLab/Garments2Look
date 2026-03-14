@@ -1,0 +1,42 @@
+{
+  "source": "mytheresa",
+  "gender": "girls",
+  "outfit_info": {
+    "style": "Romantic Style",
+    "season": "Spring",
+    "occasion": "Outdoor",
+    "color_palette": [
+      "cream",
+      "light blue",
+      "orange",
+      "brown",
+      "beige"
+    ],
+    "theme": "Delicate Layers and Floral Inspiration",
+    "outfit_description": "The look combines a light blue shirred cotton top with scalloped embroidery layered under a cream cable-knit cardigan, paired with a floral lace-trimmed skirt. Ribbed tights and shearling-lined suede boots complement the softness, creating an airy, tender, and nature-inspired outfit suitable for spring outings.",
+    "model_attributes": {
+      "body": "Young girl with slender physique, soft features, and gentle, natural demeanor exuding innocence and calm.",
+      "pose": "Standing on a dirt path holding a flower basket, head slightly tilted down, gaze focused on the flower in her hand.",
+      "background": "A lush green setting with sunlit trees, wildflowers, and soft focus depth enhancing pastoral and tranquil ambiance."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P01050689",
+        "P01079464"
+      ],
+      "styling_techniques": {
+        "P01079464": "buttoned-up"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": false,
+  "is_official_look": false,
+  "outfit": {
+    "P01050689": "blue shirred cotton top",
+    "P01079464": "white embellished cable-knit cardigan",
+    "P01050696": "multicoloured floral lace-trimmed cotton skirt",
+    "P01103160": "brown embroidered shearling-lined suede boots",
+    "P01126809": "pink cotton-blend tights"
+  }
+}

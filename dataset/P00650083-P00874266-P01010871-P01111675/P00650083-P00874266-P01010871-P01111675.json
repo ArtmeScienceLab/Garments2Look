@@ -1,0 +1,40 @@
+{
+  "source": "mytheresa",
+  "gender": "girls",
+  "outfit_info": {
+    "style": "Fantasy Chic",
+    "season": "Spring",
+    "occasion": "Themed Event",
+    "color_palette": [
+      "Cream",
+      "Pink",
+      "Multi-color"
+    ],
+    "theme": "Whimsical Playfulness and Contrast",
+    "outfit_description": "A whimsical ensemble features a tiered cream tulle dress with ruffled detailing, paired unexpectedly with vibrant multi-colored sneakers. A sweet pink bow-detail shoulder bag and sheer dark wings complete this playful, fantasy-inspired look, creating a blend of ethereal charm and sporty modernity.",
+    "model_attributes": {
+      "body": "A slender young model with a natural, youthful physique, exuding an energetic and lively presence.",
+      "pose": "The model stands confidently, smiling, with one arm slightly raised, conveying a cheerful and dynamic posture.",
+      "background": "A mystical, dark forest scene with glowing mushrooms, ghostly figures, laser lights, and an ominous eclipse."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P00874266",
+        "P01111675"
+      ],
+      "styling_techniques": {
+        "P01010871": "worn cross-body",
+        "P01111675": "attached to back"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": false,
+  "is_official_look": false,
+  "outfit": {
+    "P00874266": "dress",
+    "P00650083": "multicoloured faux leather sneakers",
+    "P01010871": "bag",
+    "P01111675": "black embellished tulle wings"
+  }
+}

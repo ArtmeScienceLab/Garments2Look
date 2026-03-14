@@ -1,0 +1,37 @@
+{
+  "source": "mytheresa",
+  "gender": "women",
+  "outfit_info": {
+    "style": "Elegant Chic",
+    "season": "Autumn",
+    "occasion": "Daily Wear, Commuting, Business Casual",
+    "color_palette": [
+      "Camel",
+      "Black",
+      "Gold"
+    ],
+    "theme": "Monochromatic Sophistication and Modern Comfort",
+    "outfit_description": "A refined monochromatic ensemble featuring a camel turtleneck sweater with modern shoulder detailing and a matching midi skirt. Accentuated by a sleek black clutch and mules, with subtle gold earrings, creating an effortlessly sophisticated and polished aesthetic.",
+    "model_attributes": {
+      "body": "The model possesses a tall, slender physique, showcasing the garment's lines gracefully and with understated elegance.",
+      "pose": "The model stands with a relaxed yet poised stance, hands gently clasped, conveying confidence.",
+      "background": "A minimalist white studio background, ensuring full focus on the attire."
+    },
+    "dressing_details": {
+      "layering_structure": [],
+      "styling_techniques": {
+        "P01053758": "tucked-in"
+      }
+    }
+  },
+  "section": "test",
+  "is_official_outfit": true,
+  "is_official_look": true,
+  "outfit": {
+    "P01053758": "brown wool turtleneck sweater",
+    "P01053755": "beige wool-blend midi skirt",
+    "P01080786": "shoes",
+    "P01019048": "black leather clutch",
+    "P01003706": "gold Lennox earrings"
+  }
+}
