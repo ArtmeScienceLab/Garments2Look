@@ -96,27 +96,54 @@ function onLookImageError() {
   }
 }
 
-// garment 图：dataset/{outfit_id}/images/garments/{garment_id}/{garment_id}.jpg，失败则试 .png，再失败用占位图
+// garment 图：优先用 thumbnail/ 下缩略图，失败再 dataset 原图 .jpg → .png → 占位图
 const garmentImageFallback = ref<Record<string, string>>({})
 const GARMENT_PLACEHOLDER = `${baseUrl}dataset/loading.jpg`
+
+function getGarmentThumbUrl(garmentId: string): string {
+  return `${baseUrl}thumbnail/${props.outfitId}/images/garments/${garmentId}/${garmentId}.jpg`
+}
 
 function getGarmentImageSrc(garmentId: string): string {
   const key = `${props.outfitId}:${garmentId}`
   const fallback = garmentImageFallback.value[key]
   if (fallback) return fallback
-  return `${baseUrl}dataset/${props.outfitId}/images/garments/${garmentId}/${garmentId}.jpg`
+  return getGarmentThumbUrl(garmentId)
 }
 
 function onGarmentImageError(garmentId: string) {
   const key = `${props.outfitId}:${garmentId}`
-  const existing = garmentImageFallback.value[key]
-  if (!existing) {
-    garmentImageFallback.value = {
-      ...garmentImageFallback.value,
-      [key]: `${baseUrl}dataset/${props.outfitId}/images/garments/${garmentId}/${garmentId}.png`,
-    }
-  } else if (existing.endsWith('.png')) {
+  const current = garmentImageFallback.value[key] ?? getGarmentThumbUrl(garmentId)
+  const fullJpg = `${baseUrl}dataset/${props.outfitId}/images/garments/${garmentId}/${garmentId}.jpg`
+  const fullPng = `${baseUrl}dataset/${props.outfitId}/images/garments/${garmentId}/${garmentId}.png`
+  if (current === getGarmentThumbUrl(garmentId)) {
+    garmentImageFallback.value = { ...garmentImageFallback.value, [key]: fullJpg }
+  } else if (current === fullJpg) {
+    garmentImageFallback.value = { ...garmentImageFallback.value, [key]: fullPng }
+  } else if (current === fullPng) {
     garmentImageFallback.value = { ...garmentImageFallback.value, [key]: GARMENT_PLACEHOLDER }
+  }
+}
+
+// segment 小图：每个服装只显示一个图，优先 thumbnail，再 dataset 原图
+const segmentImageFallback = ref<Record<string, string>>({})
+
+function getSegmentImageSrc(garmentId: string, segThumb: string, segFull: string): string {
+  const key = `${props.outfitId}:${garmentId}`
+  const fallback = segmentImageFallback.value[key]
+  if (fallback) return fallback
+  return segThumb
+}
+
+function onSegmentImageError(garmentId: string, segThumb: string, segFull: string) {
+  const key = `${props.outfitId}:${garmentId}`
+  const current = segmentImageFallback.value[key]
+  if (!current) {
+    // thumb 失败，尝试原图
+    segmentImageFallback.value = { ...segmentImageFallback.value, [key]: segFull }
+  } else if (current === segFull) {
+    // 原图也失败，最后隐藏
+    segmentImageFallback.value = { ...segmentImageFallback.value, [key]: '' }
   }
 }
 
@@ -138,6 +165,7 @@ watch(
     if (id) {
       lookImageSrc.value = `${baseUrl}dataset/${id}/images/look/${id}.jpg`
       garmentImageFallback.value = {}
+      segmentImageFallback.value = {}
     }
   },
   { immediate: true }
@@ -191,19 +219,17 @@ const garmentRows = computed(() => {
   return Object.entries(outfit).map(([garmentId, name]) => {
     const layer = layeringMap[garmentId] ?? null
     const stylingText = styling[garmentId]
-    const segmentImages: string[] = []
-    // 先尝试 index 0～2，onerror 隐藏加载失败的图片
-    for (let i = 0; i < 3; i++) {
-      segmentImages.push(
-        `/dataset/${props.outfitId}/images/segment/${garmentId}/${garmentId}-${i}.png`
-      )
-    }
+    // 每个服装只显示一个 segment 图（index 0）
+    const segmentIndex = 0
+    const segmentThumb = `${baseUrl}thumbnail/${props.outfitId}/images/segment/${garmentId}/${garmentId}-${segmentIndex}.png`
+    const segmentFull = `${baseUrl}dataset/${props.outfitId}/images/segment/${garmentId}/${garmentId}-${segmentIndex}.png`
     return {
       id: garmentId,
       name,
       styling: stylingText,
       layer,
-      segmentImages,
+      segmentThumb,
+      segmentFull,
     }
   })
 })
@@ -294,19 +320,15 @@ const modelAttrs = computed(
                   <div class="col-garment-segment">
                     <div class="segment-images">
                       <img
-                        v-for="img in row.segmentImages"
-                        :key="img"
-                        :src="img"
+                        v-if="row.segmentThumb && row.segmentFull"
+                        :src="getSegmentImageSrc(row.id, row.segmentThumb, row.segmentFull)"
                         alt="segment"
                         class="segment-thumb"
                         loading="lazy"
-                        @error="($event.target as HTMLImageElement).style.setProperty('display', 'none')"
+                        @error="onSegmentImageError(row.id, row.segmentThumb, row.segmentFull)"
                       />
                       <span
-                        v-if="
-                          !row.segmentImages ||
-                          row.segmentImages.length === 0
-                        "
+                        v-if="!row.segmentThumb || !row.segmentFull"
                         class="text-muted small"
                       >
                         No segment images

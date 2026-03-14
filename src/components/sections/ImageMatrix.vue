@@ -11,6 +11,8 @@ const props = defineProps<{
 const _base = import.meta.env.DEV ? '/' : (import.meta.env.BASE_URL || '/')
 const baseUrl = _base.endsWith('/') ? _base : _base + '/'
 
+// 缩略图约定（优先加载省流，缺失则自动回退原图）：look/thumb/{id}.jpg、segment/thumb/color_segmentation.png、dwpose/thumb/{id}.png
+
 // 最小和最大列数
 const MIN_COLS = 4
 const MAX_COLS = 8
@@ -118,8 +120,11 @@ const goToNextPage = () => {
 type DisplayItem = {
   id: string
   mainSrc: string
+  mainThumbSrc: string
   overlaySrc: string
+  overlayThumbSrc: string
   skeletonSrc: string
+  skeletonThumbSrc: string
 }
 
 // 用于触发每次翻页时的动画（变化时强制重算）
@@ -144,11 +149,18 @@ const displayItems = computed<DisplayItem[]>(() => {
     if (globalIndex < ids.length) {
       const id = ids[globalIndex]
       if (id) {
+        const mainSrc = `${baseUrl}dataset/${id}/images/look/${id}.jpg`
+        const overlaySrc = `${baseUrl}dataset/${id}/images/segment/color_segmentation.png`
+        const skeletonSrc = `${baseUrl}dataset/${id}/images/dwpose/${id}.png`
+
         items.push({
           id,
-          mainSrc: `${baseUrl}dataset/${id}/images/look/${id}.jpg`,
-          overlaySrc: `${baseUrl}dataset/${id}/images/segment/color_segmentation.png`,
-          skeletonSrc: `${baseUrl}dataset/${id}/images/dwpose/${id}.png`,
+          mainSrc,
+          mainThumbSrc: mainSrc.replace(`${baseUrl}dataset/`, `${baseUrl}thumbnail/`),
+          overlaySrc,
+          overlayThumbSrc: overlaySrc.replace(`${baseUrl}dataset/`, `${baseUrl}thumbnail/`),
+          skeletonSrc,
+          skeletonThumbSrc: skeletonSrc.replace(`${baseUrl}dataset/`, `${baseUrl}thumbnail/`),
         })
         continue
       }
@@ -158,29 +170,60 @@ const displayItems = computed<DisplayItem[]>(() => {
     items.push({
       id: `placeholder-${currentPage.value}-${i}`,
       mainSrc: `${baseUrl}dataset/loading.jpg`,
+      mainThumbSrc: `${baseUrl}dataset/loading.jpg`,
       overlaySrc: `${baseUrl}dataset/loading.jpg`,
+      overlayThumbSrc: `${baseUrl}dataset/loading.jpg`,
       skeletonSrc: `${baseUrl}dataset/loading.jpg`,
+      skeletonThumbSrc: `${baseUrl}dataset/loading.jpg`,
     })
   }
 
   return items
 })
 
-// look 图可能是 .jpg 或 .png，加载失败时尝试另一种后缀
+// 矩阵图优先用缩略图（省流），404 再回退原图；look 还有 jpg→png 回退
 const lookUrlCache = ref<Record<string, string>>({})
+const overlayUrlCache = ref<Record<string, string>>({})
+const skeletonUrlCache = ref<Record<string, string>>({})
 
 function getMainLookSrc(item: DisplayItem): string {
-  return lookUrlCache.value[item.id] ?? item.mainSrc
+  return lookUrlCache.value[item.id] ?? item.mainThumbSrc ?? item.mainSrc
 }
 
 function onLookImageError(item: DisplayItem) {
   if (item.id.startsWith('placeholder-')) return
-  const tried = lookUrlCache.value[item.id] ?? item.mainSrc
-  if (tried.endsWith('.jpg')) {
+  const tried = lookUrlCache.value[item.id] ?? item.mainThumbSrc ?? item.mainSrc
+  if (tried === item.mainThumbSrc) {
+    lookUrlCache.value = { ...lookUrlCache.value, [item.id]: item.mainSrc }
+  } else if (tried.endsWith('.jpg')) {
     lookUrlCache.value = {
       ...lookUrlCache.value,
       [item.id]: `${baseUrl}dataset/${item.id}/images/look/${item.id}.png`,
     }
+  }
+}
+
+function getOverlaySrc(item: DisplayItem): string {
+  return overlayUrlCache.value[item.id] ?? item.overlayThumbSrc ?? item.overlaySrc
+}
+
+function onOverlayError(item: DisplayItem) {
+  if (item.id.startsWith('placeholder-')) return
+  const tried = overlayUrlCache.value[item.id] ?? item.overlayThumbSrc ?? item.overlaySrc
+  if (tried === item.overlayThumbSrc) {
+    overlayUrlCache.value = { ...overlayUrlCache.value, [item.id]: item.overlaySrc }
+  }
+}
+
+function getSkeletonSrc(item: DisplayItem): string {
+  return skeletonUrlCache.value[item.id] ?? item.skeletonThumbSrc ?? item.skeletonSrc
+}
+
+function onSkeletonError(item: DisplayItem) {
+  if (item.id.startsWith('placeholder-')) return
+  const tried = skeletonUrlCache.value[item.id] ?? item.skeletonThumbSrc ?? item.skeletonSrc
+  if (tried === item.skeletonThumbSrc) {
+    skeletonUrlCache.value = { ...skeletonUrlCache.value, [item.id]: item.skeletonSrc }
   }
 }
 
@@ -231,15 +274,17 @@ const closeDetail = () => {
                 />
                 <img
                   class="image-overlay"
-                  :src="item.overlaySrc"
+                  :src="getOverlaySrc(item)"
                   alt=""
                   loading="lazy"
+                  @error="onOverlayError(item)"
                 />
                 <img
                   class="image-skeleton"
-                  :src="item.skeletonSrc"
+                  :src="getSkeletonSrc(item)"
                   alt=""
                   loading="lazy"
+                  @error="onSkeletonError(item)"
                 />
                 <button
                   class="image-detail-trigger"
@@ -285,15 +330,17 @@ const closeDetail = () => {
                   />
                   <img
                     class="image-overlay"
-                    :src="item.overlaySrc"
+                    :src="getOverlaySrc(item)"
                     alt=""
                     loading="lazy"
+                    @error="onOverlayError(item)"
                   />
                   <img
                     class="image-skeleton"
-                    :src="item.skeletonSrc"
+                    :src="getSkeletonSrc(item)"
                     alt=""
                     loading="lazy"
+                    @error="onSkeletonError(item)"
                   />
                 </div>
               </div>
