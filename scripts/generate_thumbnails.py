@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-将 dataset/<outfit_id>/images 下所有图片按 540px 高度生成缩略图，
-保持相同目录结构输出到 thumbnail/<outfit_id>/images。
+将 dataset/<outfit_id>/images 下所有图片按高度生成缩略图，
+edited/look 为 540px，其余为 320px，保持相同目录结构输出到 thumbnail/<outfit_id>/images。
 """
 from pathlib import Path
 from PIL import Image
@@ -10,7 +10,8 @@ from PIL import Image
 PUBLIC = Path(__file__).resolve().parent.parent / "public"
 SRC_BASE = PUBLIC / "dataset"
 DST_BASE = PUBLIC / "thumbnail"
-TARGET_HEIGHT = 540
+HEIGHT_EDITED_LOOK = 540
+HEIGHT_OTHER = 160
 
 # 支持的图片扩展名
 IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".bmp", ".gif"}
@@ -26,8 +27,8 @@ def resize_to_height(img: Image.Image, height: int) -> Image.Image:
     return img.resize((new_w, height), Image.Resampling.LANCZOS)
 
 
-def process_image(src_path: Path, dst_path: Path) -> None:
-    """读取图片、缩放到 540 高度、保存到目标路径。"""
+def process_image(src_path: Path, dst_path: Path, target_height: int) -> None:
+    """读取图片、按指定高度缩放、保存到目标路径。"""
     dst_path.parent.mkdir(parents=True, exist_ok=True)
     with Image.open(src_path) as img:
         img.load()
@@ -35,7 +36,7 @@ def process_image(src_path: Path, dst_path: Path) -> None:
             img = img.convert("RGBA")
         else:
             img = img.convert("RGB")
-        thumb = resize_to_height(img, TARGET_HEIGHT)
+        thumb = resize_to_height(img, target_height)
         ext = dst_path.suffix.lower()
         if ext == ".png":
             thumb.save(dst_path, "PNG", optimize=True)
@@ -67,9 +68,13 @@ def main():
 
             rel = src_path.relative_to(images_dir)
             dst_path = DST_BASE / outfit_dir.name / "images" / rel
+            # edited 或 look 子目录下的图用 540 高度，其余用 320
+            parts = rel.parts
+            is_edited_or_look = len(parts) >= 1 and (parts[0].lower() == "edited" or parts[0].lower() == "look")
+            target_height = HEIGHT_EDITED_LOOK if is_edited_or_look else HEIGHT_OTHER
 
             try:
-                process_image(src_path, dst_path)
+                process_image(src_path, dst_path, target_height)
                 total += 1
                 print(f"  {rel}")
             except Exception as e:
