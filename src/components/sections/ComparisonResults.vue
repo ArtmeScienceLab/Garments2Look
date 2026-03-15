@@ -188,12 +188,15 @@ const garmentSrcs = computed(() => {
 
 type MethodItem = { stem: string; displayName: string; strategy: string; src: string }
 
+// 文件名中若有 % 需编码为 %25，否则 URL 会解析错误
+const encodeStemForPath = (stem: string) => stem.replace(/%/g, '%25')
+
 const methodItems = computed<MethodItem[]>(() =>
   filteredMethodStems.value.map(stem => ({
     stem,
     displayName: methodDict[stem].displayName,
     strategy: methodDict[stem].strategy,
-    src: `${baseUrl}results/${currentEntry.value.id}/inpainting-result/${stem}.png`,
+    src: `${baseUrl}results/${currentEntry.value.id}/inpainting-result/${encodeStemForPath(stem)}.png`,
   }))
 )
 
