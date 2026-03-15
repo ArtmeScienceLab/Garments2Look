@@ -1,0 +1,42 @@
+{
+  "source": "mytheresa",
+  "gender": "boys",
+  "outfit_info": {
+    "style": "Outdoor Adventure",
+    "season": "Winter",
+    "occasion": "Outdoor Activities",
+    "color_palette": [
+      "Green",
+      "Navy Blue",
+      "Light Beige",
+      "Brown",
+      "Olive Green"
+    ],
+    "theme": "Vibrant Winter Exploration",
+    "outfit_description": "A young boy sports a functional yet stylish ensemble featuring a colorblocked hooded jacket in green and navy. Paired with patched straight jeans and sturdy hiking boots, the outfit is practical for chilly weather adventures. A light beige t-shirt provides a soft inner layer, creating a cohesive, active, and playful outdoor look.",
+    "model_attributes": {
+      "body": "A young boy with a slender build and focused expression, appearing ready for exploration.",
+      "pose": "Standing frontally, right arm extended, index finger pointing forward, gaze directed towards the front.",
+      "background": "A misty, fantastical market scene with vendors, distant buildings, and floating structures under a hazy sky."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P00727372",
+        "P01109213"
+      ],
+      "styling_techniques": {
+        "P01109213": "partially unzipped",
+        "P00727372": "tucked-out"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": false,
+  "is_official_look": false,
+  "outfit": {
+    "P00727372": "grey cotton jersey t-shirt",
+    "P01109213": "green hooded ski jacket",
+    "P01087638": "blue colorblocked straight jeans",
+    "P00847443": "multicoloured faux leather and mesh boots"
+  }
+}

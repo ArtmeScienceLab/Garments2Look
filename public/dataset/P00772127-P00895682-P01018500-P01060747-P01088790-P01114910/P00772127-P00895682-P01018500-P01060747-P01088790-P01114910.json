@@ -1,0 +1,49 @@
+{
+  "source": "mytheresa",
+  "gender": "boys",
+  "outfit_info": {
+    "style": "Street Casual Style",
+    "season": "Spring",
+    "occasion": "Daily Wear",
+    "color_palette": [
+      "Light Blue",
+      "Red",
+      "Light Purple",
+      "Grey",
+      "White",
+      "Black",
+      "Gold"
+    ],
+    "theme": "Playful Layers and Comfort",
+    "outfit_description": "A vibrant layered ensemble features a patterned red sweater beneath a light purple hoodie and a light blue windbreaker for a modern, relaxed feel. Grey cargo shorts and white sneakers complete this playful yet practical look, topped with an embellished cap, blending comfort with youthful style for a lively appearance.",
+    "model_attributes": {
+      "body": "A young boy with a slender build and curly blonde hair, displaying a calm and confident demeanor.",
+      "pose": "Standing upright and front-facing, with arms relaxed by his sides, exuding a composed and natural posture.",
+      "background": "An ethereal sky filled with soft clouds, golden scales, and cherubic chefs, creating a surreal and dreamy setting."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P01088790",
+        "P01114910",
+        "P01018500"
+      ],
+      "styling_techniques": {
+        "P01018500": "unzipped",
+        "P01088790": "hood out",
+        "P01060747": "worn forward"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": false,
+  "is_official_look": false,
+  "outfit": {
+    "P01088790": "purple cotton jersey hoodie",
+    "P01114910": "red intarsia wool-blend sweater",
+    "P01018500": "blue printed windbreaker",
+    "P00895682": "grey cotton-blend gabardine cargo shorts",
+    "P00772127": "white leather low-top sneakers",
+    "P01060747": "black embellished cotton baseball cap",
+    "UM00047629": "white cotton socks"
+  }
+}

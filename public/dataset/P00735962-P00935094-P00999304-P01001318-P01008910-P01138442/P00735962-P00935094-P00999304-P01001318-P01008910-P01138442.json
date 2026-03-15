@@ -1,0 +1,44 @@
+{
+  "source": "mytheresa",
+  "gender": "men",
+  "outfit_info": {
+    "style": "Casual Street Style",
+    "season": "Autumn",
+    "occasion": "Daily Wear, Outdoor Activities",
+    "color_palette": [
+      "Green",
+      "Black",
+      "Light Grey"
+    ],
+    "theme": "Urban Comfort, Dynamic Contrast",
+    "outfit_description": "A model wears a light-colored polo shirt layered under a vibrant green puffer vest. Black straight jeans are paired with sturdy combat boots. A sleek black messenger bag and a bold logo belt complete this contemporary and practical ensemble. The look projects a casual yet stylish urban appeal.",
+    "model_attributes": {
+      "body": "The model has a lean and athletic physique, exuding a confident and engaging demeanor.",
+      "pose": "The model is captured actively riding a unicycle, leaning forward slightly with hands on the handlebars, conveying movement.",
+      "background": "A vibrant nocturnal carnival scene, featuring a brightly lit Ferris wheel and blurred figures, creating a dynamic backdrop."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P01138442",
+        "P01001318"
+      ],
+      "styling_techniques": {
+        "P01138442": "buttoned up",
+        "P01001318": "fully zipped",
+        "P00935094": "worn cross-body",
+        "P00735962": "visible"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": false,
+  "is_official_look": false,
+  "outfit": {
+    "P01138442": "blue linen and cotton polo shirt",
+    "P01001318": "green quilted down vest",
+    "P00999304": "dark blue straight jeans",
+    "P01008910": "black canvas lace-up combat boots",
+    "P00935094": "black woven leather messenger bag",
+    "P00735962": "black croc-effect leather belt"
+  }
+}

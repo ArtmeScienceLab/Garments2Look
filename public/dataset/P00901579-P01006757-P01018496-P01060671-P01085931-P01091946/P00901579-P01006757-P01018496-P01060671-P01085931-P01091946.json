@@ -1,0 +1,46 @@
+{
+  "source": "mytheresa",
+  "gender": "boys",
+  "outfit_info": {
+    "style": "Playful Casual",
+    "season": "Autumn",
+    "occasion": "Daily Wear",
+    "color_palette": [
+      "Navy",
+      "Red",
+      "Teal",
+      "Light Blue",
+      "Brown",
+      "White"
+    ],
+    "theme": "Comfort and Adventure",
+    "outfit_description": "A vibrant and cozy layered ensemble features a navy ribbed sweater over a bright red hoodie and a striped shirt, paired with teal corduroy cargo pants. A light blue beanie and brown suede sneakers complete this comfortable, adventure-ready look, ideal for cool weather exploration.",
+    "model_attributes": {
+      "body": "A young, slender boy with a healthy complexion, conveying a youthful and energetic presence.",
+      "pose": "Standing upright, he looks upwards and slightly right, holding a glowing crystal, with a curious and serene expression.",
+      "background": "A fantastical sky with fluffy clouds, floating islands, and iridescent crystals, creating a whimsical and dreamy atmosphere."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P01060671",
+        "P01006757",
+        "P01085931"
+      ],
+      "styling_techniques": {
+        "P01060671": "collar_and_cuffs_exposed",
+        "P01006757": "hood_and_drawstrings_exposed"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": false,
+  "is_official_look": false,
+  "outfit": {
+    "P01060671": "blue striped cotton shirt",
+    "P01006757": "red cotton jersey hoodie",
+    "P01085931": "blue ribbed-knit sweater",
+    "P01091946": "blue corduroy cargo pants",
+    "P00901579": "neutral low suede sneakers",
+    "P01018496": "blue wool beanie"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "source": "mytheresa",
+  "gender": "boys",
+  "outfit_info": {
+    "style": "Casual Style",
+    "season": "Autumn",
+    "occasion": "Outdoor",
+    "color_palette": [
+      "Navy Blue",
+      "Bright Blue",
+      "Black",
+      "White"
+    ],
+    "theme": "Layered Comfort, Playful Adventure",
+    "outfit_description": "This vibrant ensemble blends practical warmth with a playful spirit. A dark puffer jacket is layered over a bright blue corduroy shirt and a navy half-zip sweater. Patterned flannel pants add a whimsical touch, complemented by sporty sneakers. The outfit creates a comfortable yet dynamic look, perfectly suited for youthful outdoor activities.",
+    "model_attributes": {
+      "body": "A young boy with a lean build, exuding youthful energy and a natural, joyful demeanor, poised in an active stance.",
+      "pose": "Standing with feet slightly spread, looking upwards with a bright, engaged smile, suggesting wonder and enthusiasm.",
+      "background": "A picturesque coastal landscape with rolling green hills, a serene body of water, and a warm, atmospheric sky at sunset."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P01080182",
+        "P01091935",
+        "P00589852"
+      ],
+      "styling_techniques": {
+        "P01091935": "partially unbuttoned",
+        "P01080182": "partially zipped",
+        "P00589852": "unzipped/open"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": false,
+  "is_official_look": false,
+  "outfit": {
+    "P01080182": "blue wool zip-up sweater",
+    "P01091935": "blue cotton corduroy shirt",
+    "P00589852": "blue hooded down jacket",
+    "P01095271": "blue bandana cotton flannel pants",
+    "P01076940": "blue suede sneakers"
+  }
+}

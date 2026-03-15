@@ -1,0 +1,47 @@
+{
+  "source": "mytheresa",
+  "gender": "boys",
+  "outfit_info": {
+    "style": "Preppy Casual",
+    "season": "Autumn",
+    "occasion": "Daily Wear",
+    "color_palette": [
+      "Red",
+      "Tan",
+      "Black",
+      "Brown",
+      "Pink",
+      "Cream"
+    ],
+    "theme": "Layered Warmth and Heritage Charm",
+    "outfit_description": "A young boy sports a sophisticated yet casual layered look. He wears a striped shirt under a rich red knit sweater, topped by a warm tan puffer jacket. Black sweatpants and brown boots complete the ensemble, with a classic check jacket casually tied at the waist, blending heritage charm with comfort.",
+    "model_attributes": {
+      "body": "A young boy with a slender build, light brown hair, and a composed expression, standing with neat presentation.",
+      "pose": "The model stands upright, facing directly forward, with a calm, steady gaze. He holds a clipboard casually at his side.",
+      "background": "A moody, misty landscape features an imposing stone castle, bare autumn trees, and vintage cars on cobblestones."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P01068730",
+        "P01114908",
+        "P01089929",
+        "P00994134"
+      ],
+      "styling_techniques": {
+        "P00994134": "tied around waist",
+        "P01068730": "layered under sweater"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": false,
+  "is_official_look": false,
+  "outfit": {
+    "P01068730": "pink striped cotton shirt",
+    "P01114908": "burgundy ribbed-knit wool-blend sweater",
+    "P00994134": "beige Burberry check wool jacket",
+    "P01089929": "beige quilted cotton corduroy down jacket",
+    "P00589900": "blue striped logo sweatpants",
+    "UM00044919": "brown leather lace-up boots"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "source": "mytheresa",
+  "gender": "men",
+  "outfit_info": {
+    "style": "Smart Casual Style",
+    "season": "Autumn, Spring",
+    "occasion": "Business Casual, Weekend Social",
+    "color_palette": [
+      "Navy Blue",
+      "Beige",
+      "White",
+      "Burgundy",
+      "Dark Brown",
+      "Grey"
+    ],
+    "theme": "Layered Sophistication, Refined Comfort",
+    "outfit_description": "A refined smart casual ensemble layers a beige blouson over a navy cashmere sweater, striped shirt, and burgundy tie. Dark wash slim jeans are paired with suede loafers, complemented by a sophisticated leather-trimmed canvas bag. The look offers a blend of classic menswear with contemporary ease and texture.",
+    "model_attributes": {
+      "body": "The model has a slender, well-proportioned physique, exuding a confident yet relaxed demeanor with a natural posture.",
+      "pose": "The model stands naturally with one hand casually in his jeans pocket, projecting a relaxed and approachable stance.",
+      "background": "A minimalist, light grey studio background provides a clean and unobtrusive setting, focusing attention solely on the outfit."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P01056034",
+        "P01056113",
+        "P01056009",
+        "P01046394"
+      ],
+      "styling_techniques": {
+        "P01046394": "worn unbuttoned",
+        "P01056034": "collar worn outside sweater neckline",
+        "P01056067": "cuffed hem"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": true,
+  "is_official_look": true,
+  "outfit": {
+    "P01056034": "white striped cotton poplin shirt",
+    "P01056009": "blue cashmere polo sweater",
+    "P01046394": "beige leather blouson",
+    "P01056067": "jeans",
+    "P01056135": "black suede penny loafers",
+    "P00681208": "grey leather-trimmed canvas garment bag",
+    "P01056113": "red striped silk tie",
+    "UM00000657": "dark navy socks"
+  }
+}

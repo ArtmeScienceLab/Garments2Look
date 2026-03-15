@@ -1,0 +1,44 @@
+{
+  "source": "mytheresa",
+  "gender": "boys",
+  "outfit_info": {
+    "style": "Casual Style",
+    "season": "Autumn",
+    "occasion": "Outdoor",
+    "color_palette": [
+      "Brown",
+      "Khaki",
+      "Blue",
+      "Beige",
+      "Navy Blue",
+      "White",
+      "Green"
+    ],
+    "theme": "Layered Comfort and Textured Contrast",
+    "outfit_description": "A young boy wears a casual, layered outfit, featuring a brown and black checked puffer jacket over a blue corduroy shirt. This is paired with practical khaki cargo shorts and completed with multi-colored hook-and-loop sneakers, creating a comfortable and adventurous look suitable for diverse outdoor settings.",
+    "model_attributes": {
+      "body": "A young boy with a lean build and wavy light brown hair, presenting a calm and direct gaze.",
+      "pose": "Standing upright with a neutral posture, arms relaxed at his sides, facing directly forward with a serious expression.",
+      "background": "A surreal, misty landscape featuring a glacial lagoon filled with ice chunks and numerous yellow rubber ducks."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P01099386",
+        "P01073867"
+      ],
+      "styling_techniques": {
+        "P01099386": "untucked-in, fully buttoned",
+        "P01073867": "fully unbuttoned"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": false,
+  "is_official_look": false,
+  "outfit": {
+    "P01099386": "blue cotton corduroy overshirt",
+    "P01073867": "green checked puffer jacket",
+    "P01020021": "beige cotton cargo shorts",
+    "P00792759": "multicoloured leather sneakers"
+  }
+}

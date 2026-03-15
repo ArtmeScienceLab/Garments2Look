@@ -1,0 +1,50 @@
+{
+  "source": "mytheresa",
+  "gender": "men",
+  "outfit_info": {
+    "style": "Street Style",
+    "season": "Autumn",
+    "occasion": "Casual Event",
+    "color_palette": [
+      "Black",
+      "Brown",
+      "Light Green",
+      "Navy Blue",
+      "White",
+      "Gold"
+    ],
+    "theme": "Urban Edge and Layered Comfort",
+    "outfit_description": "This urban ensemble layers a black shearling-trimmed bomber jacket over a striped long-sleeve tee, paired with brown cargo jeans. A navy beanie and chunky white sneakers complete the casual yet sophisticated vibe. A malachite necklace and phone case add refined, street-ready accents.",
+    "model_attributes": {
+      "body": "The model has a slender, athletic build with a sharp jawline and an intense, focused expression, conveying confidence.",
+      "pose": "The model strikes a dynamic, slightly crouched pose with clenched fists and legs apart, exuding an energetic and assertive attitude.",
+      "background": "The background is a dimly lit, graffiti-covered arched tunnel featuring ornate golden chandeliers and a modern DJ setup, flanked by an engaged audience."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P01085200",
+        "P01047460",
+        "P01069446",
+        "P01008681"
+      ],
+      "styling_techniques": {
+        "P01069446": "unzipped",
+        "P01085200": "untucked",
+        "P00442628": "crossbody worn",
+        "P01047460": "visible layering"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": false,
+  "is_official_look": false,
+  "outfit": {
+    "P01085200": "green striped cotton jersey T-shirt",
+    "P01069446": "black shearling-trimmed leather bomber jacket",
+    "P01068439": "brown belted cargo jeans",
+    "P00963452": "white chunky sneakers",
+    "P01008681": "blue cotton and cashmere beanie",
+    "P01047460": "green beaded necklace with malachite",
+    "P00442628": "black leather phone case with logo"
+  }
+}

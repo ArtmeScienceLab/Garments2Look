@@ -1,0 +1,42 @@
+{
+  "source": "mytheresa",
+  "gender": "men",
+  "outfit_info": {
+    "style": "Street Style",
+    "season": "Winter",
+    "occasion": "Daily Wear",
+    "color_palette": [
+      "Black",
+      "Light Beige",
+      "Blue",
+      "Brown"
+    ],
+    "theme": "Urban Comfort with Relaxed Silhouette",
+    "outfit_description": "This outfit blends urban practicality with a relaxed aesthetic. A dark puffer jacket provides substantial warmth over a vibrant blue tee, paired with oversized light-colored jeans. Chunky sneakers complete this comfortable, contemporary look, ideal for cold weather outings, offering both style and coziness.",
+    "model_attributes": {
+      "body": "The model displays a lean and athletic physique, conveying a casual and effortless confidence.",
+      "pose": "Standing with one hand casually in a pocket, the model presents a relaxed and natural posture.",
+      "background": "A clean, minimalist light gray background highlights the outfit without any distractions."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P01026005",
+        "P00714367"
+      ],
+      "styling_techniques": {
+        "P00714367": "partially unzipped",
+        "P01026005": "untucked",
+        "P00980614": "puddled at hem"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": true,
+  "is_official_look": true,
+  "outfit": {
+    "P01026005": "purple short-sleeved t-shirt",
+    "P00714367": "black hooded down jacket",
+    "P00980614": "white wide-leg mid-rise jeans",
+    "P01011866": "white and brown leather sneakers"
+  }
+}
