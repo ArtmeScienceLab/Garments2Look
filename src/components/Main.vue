@@ -1,6 +1,7 @@
 <script>
 import Title from './sections/Title.vue'
 import ImageMatrix from './sections/ImageMatrix.vue'
+import ComparisonResults from './sections/ComparisonResults.vue'
 import Abstract from './sections/Abstract.vue'
 import Markdown from './sections/Markdown.vue'
 import BibTeX from './sections/BibTeX.vue'
@@ -9,6 +10,7 @@ export default {
   components: {
     Title,
     ImageMatrix,
+    ComparisonResults,
     Abstract,
     Markdown,
     BibTeX,
@@ -114,5 +116,6 @@ export default {
   <ImageMatrix :order-pages="imageOrderPages" />
   <Abstract/>
   <Markdown/>
+  <ComparisonResults />
   <BibTeX/>
 </template>
