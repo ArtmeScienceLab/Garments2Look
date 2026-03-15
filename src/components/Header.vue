@@ -110,6 +110,25 @@ a {
 	color: inherit;
 }
 
+/* 小屏手机：缩小导航边距，避免文字被裁或换行 */
+@media (max-width: 480px) {
+	.el-menu--horizontal {
+		padding-left: 4px;
+		padding-right: 4px;
+	}
+	.el-menu--horizontal > .el-menu-item,
+	.el-menu--horizontal > .el-sub-menu > .el-sub-menu__title {
+		padding-left: 8px;
+		padding-right: 8px;
+		font-size: 13px;
+		min-width: 0;
+	}
+	.el-menu--horizontal > .el-menu-item .el-icon,
+	.el-menu--horizontal > .el-sub-menu .el-icon {
+		margin-right: 4px;
+	}
+}
+
 </style>
 
   

@@ -53,7 +53,7 @@ const authors = [
 const addresses = [
   {
     address_flag: "1",
-    name: "The Hong Kong Polytechnic University",
+    name: "PolyU",
     icon: "https://www.polyu.edu.hk/-/media/department/home/setting/favicon.ico",
     homepage: "https://www.polyu.edu.hk/"
   },
@@ -155,7 +155,7 @@ const buttons = [
     </el-row>
 
     <!-- 地址名单 -->
-    <el-row justify="center">
+    <el-row justify="center" class="address-row">
       <a :href=address.homepage v-for="address in addresses">
         <el-button class="title-button" type="primary" text>
           <el-avatar v-if="address.icon" :size="40" :src="address.icon" fit="contain" />
@@ -209,6 +209,11 @@ const buttons = [
 /* 姓名和地址按钮 */
 .title-button {
   margin: 4px 3px;
+}
+
+/* 机构条目上下间距 */
+.address-row .title-button {
+  margin: 12px 3px;
 }
 
 /* 引导材料按钮 */
