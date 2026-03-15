@@ -655,7 +655,7 @@ onBeforeUnmount(() => document.removeEventListener('click', onDocClick))
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
   .cr-gt-col {
     --cr-cell-width: 90px;
   }

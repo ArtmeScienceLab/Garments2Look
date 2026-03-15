@@ -42,17 +42,26 @@ const AUTO_PLAY_INTERVAL = 10000
 let autoPlayTimer: number | undefined
 // 用于驱动自动翻页进度条动画重启
 const progressSeed = ref(0)
+/** 是否开启自动播放（默认开启） */
+const autoPlayEnabled = ref(true)
 
 const resetAutoPlay = () => {
   if (typeof window === 'undefined') return
   if (autoPlayTimer !== undefined) {
     window.clearInterval(autoPlayTimer)
+    autoPlayTimer = undefined
   }
-  autoPlayTimer = window.setInterval(() => {
-    goToNextPage()
-  }, AUTO_PLAY_INTERVAL)
-  // 重启进度条动画
+  if (autoPlayEnabled.value) {
+    autoPlayTimer = window.setInterval(() => {
+      goToNextPage()
+    }, AUTO_PLAY_INTERVAL)
+  }
   progressSeed.value++
+}
+
+const toggleAutoPlay = () => {
+  autoPlayEnabled.value = !autoPlayEnabled.value
+  resetAutoPlay()
 }
 
 onMounted(() => {
@@ -120,7 +129,9 @@ const goToNextPage = () => {
 type DisplayItem = {
   id: string
   mainSrc: string
+  mainSrcPng: string
   mainThumbSrc: string
+  mainThumbSrcPng: string
   overlaySrc: string
   overlayThumbSrc: string
   skeletonSrc: string
@@ -161,13 +172,18 @@ const displayItems = computed<DisplayItem[]>(() => {
       const id = ids[indexInPage]
       if (id) {
         const mainSrc = `${baseUrl}dataset/${id}/images/look/${id}.jpg`
+        const mainSrcPng = `${baseUrl}dataset/${id}/images/look/${id}.png`
+        const mainThumbSrc = `${baseUrl}thumbnail/${id}/images/look/${id}.jpg`
+        const mainThumbSrcPng = `${baseUrl}thumbnail/${id}/images/look/${id}.png`
         const overlaySrc = `${baseUrl}dataset/${id}/images/segment/color_segmentation.png`
         const skeletonSrc = `${baseUrl}dataset/${id}/images/dwpose/${id}.png`
 
         items.push({
           id,
           mainSrc,
-          mainThumbSrc: mainSrc.replace(`${baseUrl}dataset/`, `${baseUrl}thumbnail/`),
+          mainSrcPng,
+          mainThumbSrc,
+          mainThumbSrcPng,
           overlaySrc,
           overlayThumbSrc: overlaySrc.replace(`${baseUrl}dataset/`, `${baseUrl}thumbnail/`),
           skeletonSrc,
@@ -178,39 +194,42 @@ const displayItems = computed<DisplayItem[]>(() => {
     }
 
     // 没有显式指定 id 的格子统一使用 loading 占位图
+    const loading = `${baseUrl}dataset/loading.jpg`
     items.push({
       id: `placeholder-${currentPage.value}-${i}`,
-      mainSrc: `${baseUrl}dataset/loading.jpg`,
-      mainThumbSrc: `${baseUrl}dataset/loading.jpg`,
-      overlaySrc: `${baseUrl}dataset/loading.jpg`,
-      overlayThumbSrc: `${baseUrl}dataset/loading.jpg`,
-      skeletonSrc: `${baseUrl}dataset/loading.jpg`,
-      skeletonThumbSrc: `${baseUrl}dataset/loading.jpg`,
+      mainSrc: loading,
+      mainSrcPng: loading,
+      mainThumbSrc: loading,
+      mainThumbSrcPng: loading,
+      overlaySrc: loading,
+      overlayThumbSrc: loading,
+      skeletonSrc: loading,
+      skeletonThumbSrc: loading,
     })
   }
 
   return items
 })
 
-// 矩阵图优先用缩略图（省流），404 再回退原图；look 还有 jpg→png 回退
+// look 图回退顺序：thumbnail jpg → thumbnail png → dataset jpg → dataset png
 const lookUrlCache = ref<Record<string, string>>({})
 const overlayUrlCache = ref<Record<string, string>>({})
 const skeletonUrlCache = ref<Record<string, string>>({})
 
+const LOOK_FALLBACK_ORDER = (item: DisplayItem) =>
+  [item.mainThumbSrc, item.mainThumbSrcPng, item.mainSrc, item.mainSrcPng] as const
+
 function getMainLookSrc(item: DisplayItem): string {
-  return lookUrlCache.value[item.id] ?? item.mainThumbSrc ?? item.mainSrc
+  return lookUrlCache.value[item.id] ?? item.mainThumbSrc
 }
 
 function onLookImageError(item: DisplayItem) {
   if (item.id.startsWith('placeholder-')) return
-  const tried = lookUrlCache.value[item.id] ?? item.mainThumbSrc ?? item.mainSrc
-  if (tried === item.mainThumbSrc) {
-    lookUrlCache.value = { ...lookUrlCache.value, [item.id]: item.mainSrc }
-  } else if (tried.endsWith('.jpg')) {
-    lookUrlCache.value = {
-      ...lookUrlCache.value,
-      [item.id]: `${baseUrl}dataset/${item.id}/images/look/${item.id}.png`,
-    }
+  const order = LOOK_FALLBACK_ORDER(item)
+  const tried = lookUrlCache.value[item.id] ?? item.mainThumbSrc
+  const idx = order.indexOf(tried)
+  if (idx >= 0 && idx < order.length - 1) {
+    lookUrlCache.value = { ...lookUrlCache.value, [item.id]: order[idx + 1] }
   }
 }
 
@@ -364,7 +383,7 @@ const closeDetail = () => {
               :key="progressSeed"
               :style="{
                 animationDuration: AUTO_PLAY_INTERVAL + 'ms',
-                animationPlayState: isDetailVisible ? 'paused' : 'running',
+                animationPlayState: isDetailVisible || !autoPlayEnabled ? 'paused' : 'running',
               }"
             ></div>
           </div>
@@ -389,6 +408,13 @@ const closeDetail = () => {
             >
               ›
             </button>
+            <span class="auto-play-wrap">
+              <span class="auto-play-label">Auto-play</span>
+              <label class="auto-play-switch" :title="autoPlayEnabled ? 'Disable auto-play' : 'Enable auto-play'">
+                <input type="checkbox" :checked="autoPlayEnabled" @change="toggleAutoPlay" />
+                <span class="auto-play-slider"></span>
+              </label>
+            </span>
           </div>
 
           <OutfitDetailModal
@@ -562,6 +588,63 @@ const closeDetail = () => {
 .nav-btn[disabled]:active {
   background: #f0f0f0;
   transform: none;
+}
+
+/* 自动播放：文字 + 开关 */
+.auto-play-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #666666;
+}
+
+.auto-play-label {
+  user-select: none;
+}
+
+.auto-play-switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 22px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.auto-play-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.auto-play-slider {
+  position: absolute;
+  inset: 0;
+  border-radius: 22px;
+  background: #d0d0d0;
+  transition: background 0.25s ease;
+}
+
+.auto-play-slider::before {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  left: 2px;
+  top: 2px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: transform 0.25s ease;
+}
+
+.auto-play-switch input:checked + .auto-play-slider {
+  background: #409eff;
+}
+
+.auto-play-switch input:checked + .auto-play-slider::before {
+  transform: translateX(18px);
 }
 
 .nav-btn:hover {
