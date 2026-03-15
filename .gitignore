@@ -28,5 +28,8 @@ coverage
 *.sw?
 yarn.lock
 public/dataset/*.zip
-public/dataset/*/images/**/*.jpg
-public/dataset/*/images/**/*.png
+public/dataset/*/images/dwpose
+public/dataset/*/images/edited
+public/dataset/*/images/garments
+public/dataset/*/images/mask
+public/dataset/*/images/segment
