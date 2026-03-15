@@ -2,9 +2,9 @@
 import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 import OutfitDetailModal from './OutfitDetailModal.vue'
 
-// 展示顺序由父组件传入，例如：['P01006072_b1', 'P00787009_b1', ...]
+// 按页传入：每一页一个数组，例如 [[page1_ids...], [page2_ids...]]
 const props = defineProps<{
-  orderList: string[]
+  orderPages: string[][]
 }>()
 
 // 本地 dev 时 public 在根路径；部署到 GitHub Pages 时用 BASE_URL（/Garments2Look/），保证末尾有斜杠
@@ -75,8 +75,8 @@ onBeforeUnmount(() => {
 // 计算两行展示所需的格子数量
 const cells = computed(() => cols.value * 2)
 
-// 固定总页数为 4 页
-const TOTAL_PAGES = 2
+// 总页数 = 传入的 orderPages 长度
+const TOTAL_PAGES = computed(() => Math.max(1, (props.orderPages || []).length))
 const currentPage = ref(0)
 // 记录最近一次翻页方向：1 表示向右（下一页），-1 表示向左（上一页）
 const lastDirection = ref<1 | -1>(1)
@@ -106,14 +106,14 @@ const startPageTransition = (updatePage: () => void) => {
 const goToPrevPage = () => {
   lastDirection.value = -1
   startPageTransition(() => {
-    currentPage.value = (currentPage.value - 1 + TOTAL_PAGES) % TOTAL_PAGES
+    currentPage.value = (currentPage.value - 1 + TOTAL_PAGES.value) % TOTAL_PAGES.value
   })
 }
 
 const goToNextPage = () => {
   lastDirection.value = 1
   startPageTransition(() => {
-    currentPage.value = (currentPage.value + 1) % TOTAL_PAGES
+    currentPage.value = (currentPage.value + 1) % TOTAL_PAGES.value
   })
 }
 
@@ -135,19 +135,30 @@ const prevItems = ref<DisplayItem[] | null>(null)
 const isTransitioning = ref(false)
 
 // 使用 loading 占位图补齐两行，每页固定显示同样数量的格子
+// 每页只使用当前页的 ids，不混用其他页。N = 当前页图像总数；第一行 = 第 0～x-1 个，第二行 = 第 N/2～N/2+x-1 个
 const displayItems = computed<DisplayItem[]>(() => {
-  const ids = props.orderList || []
+  const pages = props.orderPages || []
+  const ids = pages[currentPage.value] || []
   const totalPerPage = cells.value
+  const x = cols.value
+  const N = ids.length
 
   if (totalPerPage <= 0) return []
 
   const items: DisplayItem[] = []
 
   for (let i = 0; i < totalPerPage; i++) {
-    // 每页用 totalPerPage 个格子（两行×列数），按页取 orderList 的连续一段
-    const globalIndex = currentPage.value * totalPerPage + i
-    if (globalIndex < ids.length) {
-      const id = ids[globalIndex]
+    let indexInPage: number
+    if (i < x) {
+      // 第一行：当前页的第 0 个到第 x-1 个
+      indexInPage = i
+    } else {
+      // 第二行：当前页的第 N/2 个到第 N/2+x-1 个
+      const half = Math.floor(N / 2)
+      indexInPage = half + (i - x)
+    }
+    if (indexInPage < N) {
+      const id = ids[indexInPage]
       if (id) {
         const mainSrc = `${baseUrl}dataset/${id}/images/look/${id}.jpg`
         const overlaySrc = `${baseUrl}dataset/${id}/images/segment/color_segmentation.png`

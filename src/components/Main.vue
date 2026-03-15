@@ -64,14 +64,14 @@ export default {
     }
   },
   computed: {
-    // 四页按顺序拼成一条列表传给矩阵（第 1 页 0–15，第 2 页 16–31，第 3 页 32–47，第 4 页 48–63）
-    imageOrder() {
+    // 按页传：每一页只显示该页自己的图像列表，不混用
+    imageOrderPages() {
       return [
-        ...this.imageOrderPage1,
-        ...this.imageOrderPage2,
-        // ...this.imageOrderPage3,
-        // ...this.imageOrderPage4,
-      ]
+        this.imageOrderPage1,
+        this.imageOrderPage2,
+        // this.imageOrderPage3,
+        // this.imageOrderPage4,
+      ].filter((page) => Array.isArray(page) && page.length > 0)
     },
   },
 }
@@ -79,7 +79,7 @@ export default {
 
 <template>
   <Title/>
-  <ImageMatrix :order-list="imageOrder" />
+  <ImageMatrix :order-pages="imageOrderPages" />
   <Abstract/>
   <Markdown/>
   <BibTeX/>
