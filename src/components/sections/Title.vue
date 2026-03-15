@@ -158,7 +158,7 @@ const buttons = [
     <el-row justify="center" class="address-row">
       <a :href=address.homepage v-for="address in addresses">
         <el-button class="title-button" type="primary" text>
-          <el-avatar v-if="address.icon" :size="40" :src="address.icon" fit="contain" />
+          <el-avatar v-if="address.icon" :size="24" :src="address.icon" fit="contain" />
           <span class="address">
             <sup v-if="address.address_flag" class="address_sup">{{ address.address_flag }}</sup>{{ address.name }}
           </span>
@@ -201,8 +201,9 @@ const buttons = [
 .paper-title {
   font-family: "MyFont", Verdana, sans-serif;
   letter-spacing: 2px;
-  font-size: 30px;
-  margin: 10px;
+  font-size: 24px;
+  margin: 4px 10px;
+  padding: 0;
   text-align: center;
 }
 
