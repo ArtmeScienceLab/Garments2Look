@@ -1,0 +1,44 @@
+{
+  "source": "mytheresa",
+  "gender": "men",
+  "outfit_info": {
+    "style": "Smart Casual",
+    "season": "Autumn",
+    "occasion": "Leisurely Travel, Smart Casual Outing",
+    "color_palette": [
+      "Dark Grey",
+      "Cream",
+      "Olive Green",
+      "Dark Brown",
+      "Black"
+    ],
+    "theme": "Refined Comfort, Explorer's Aesthetic",
+    "outfit_description": "A sophisticated smart casual ensemble, featuring a cream knit top layered under a dark grey bomber jacket, paired with olive green drawstring pants and classic leather boat shoes. Accessories include a dark wallet and briefcase, creating a polished yet comfortable look suitable for a leisurely coastal escape.",
+    "model_attributes": {
+      "body": "Lean build, neatly groomed, exuding a confident and thoughtful demeanor, fitting the polished, relaxed aesthetic.",
+      "pose": "Standing upright on a wooden pier, looking intently through binoculars towards a distant horizon, engaged and focused.",
+      "background": "A dramatic sunset sky over a vast, calm ocean, with surreal, stylized sharks circling in the soft, cloud-filled expanse."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P00942824",
+        "P01122609"
+      ],
+      "styling_techniques": {
+        "P00942824": "partially unbuttoned",
+        "P01089574": "drawstring waist visible"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": false,
+  "is_official_look": false,
+  "outfit": {
+    "P00942824": "white wool and silk top",
+    "P01122609": "overshirt",
+    "P01089574": "green cotton satin straight pants",
+    "P01014629": "brown leather boat shoes",
+    "P00956577": "black leather bi-fold wallet",
+    "P01067220": "black leather duffel bag"
+  }
+}

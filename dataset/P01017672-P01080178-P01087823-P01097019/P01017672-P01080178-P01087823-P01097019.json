@@ -1,0 +1,41 @@
+{
+  "source": "mytheresa",
+  "gender": "boys",
+  "outfit_info": {
+    "style": "Heritage Casual Style",
+    "season": "Autumn",
+    "occasion": "Daily Wear, Outdoor",
+    "color_palette": [
+      "Medium Blue",
+      "Forest Green",
+      "Navy",
+      "Brown"
+    ],
+    "theme": "Comfort and Heritage",
+    "outfit_description": "A comfortable yet refined ensemble features a classic logo denim jacket layered over a forest green long-sleeve polo. Dark navy cotton-blend sweatpants offer relaxed appeal, complemented by rich brown suede boots. The look combines utilitarian elements with smart casual comfort, ideal for cool-weather adventures and a rustic backdrop.",
+    "model_attributes": {
+      "body": "Young, slender male with a neat, short haircut, standing upright with a calm, composed demeanor and direct gaze.",
+      "pose": "Model stands front-facing, with hands relaxed at the sides, maintaining a steady and symmetrical posture, looking directly at the viewer.",
+      "background": "Features ancient, ruined stone arches against a dramatic twilight sky, with falconry stands, birds, and an attendant nearby, creating an evocative scene."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P01080178",
+        "P01017672"
+      ],
+      "styling_techniques": {
+        "P01080178": "fully buttoned",
+        "P01017672": "unbuttoned"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": false,
+  "is_official_look": false,
+  "outfit": {
+    "P01080178": "green cashmere polo sweater",
+    "P01017672": "blue logo denim jacket",
+    "P01087823": "blue cotton-blend sweatpants",
+    "P01097019": "brown suede boots"
+  }
+}

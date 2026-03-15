@@ -1,0 +1,48 @@
+{
+  "source": "mytheresa",
+  "gender": "men",
+  "outfit_info": {
+    "style": "Street Style",
+    "season": "Autumn",
+    "occasion": "Daily Wear",
+    "color_palette": [
+      "Navy Blue",
+      "Light Blue",
+      "Black",
+      "Cream",
+      "Brown"
+    ],
+    "theme": "Urban Comfort and Layering",
+    "outfit_description": "A relaxed urban ensemble features a navy tee beneath a light blue denim jacket with a cozy collar. Dark track pants with side stripes, chunky sneakers, and a black newsboy cap complete the look. A crossbody bag and pendant necklace add practical and stylish details, perfect for a casual outing.",
+    "model_attributes": {
+      "body": "Average build, well-proportioned, exuding a comfortable and self-assured demeanor.",
+      "pose": "Standing casually, holding a drink, with a relaxed and contemplative side glance.",
+      "background": "A dark, futuristic space illuminated by vibrant neon lights, hinting at a retro-tech arcade or cyber environment."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P01006785",
+        "P01124415",
+        "P01078459"
+      ],
+      "styling_techniques": {
+        "P01078459": "Unbuttoned",
+        "P01082463": "Crossbody",
+        "P01124415": "Worn over t-shirt"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": false,
+  "is_official_look": false,
+  "outfit": {
+    "P01006785": "blue cotton jersey T-shirt",
+    "P01078459": "blue denim field jacket with brown collar",
+    "P01042654": "blue cotton-blend velour track pants",
+    "P01011880": "beige chunky sneakers",
+    "P01082463": "brown leather crossbody bag",
+    "P01068324": "black wool-blend newsboy cap",
+    "P01124415": "silver pendant necklace",
+    "UM00049067": "white cotton socks"
+  }
+}

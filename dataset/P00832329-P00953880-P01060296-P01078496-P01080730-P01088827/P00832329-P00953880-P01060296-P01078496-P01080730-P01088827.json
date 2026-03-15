@@ -1,0 +1,43 @@
+{
+  "source": "mytheresa",
+  "gender": "men",
+  "outfit_info": {
+    "style": "Smart Casual",
+    "season": "Autumn",
+    "occasion": "Commuting",
+    "color_palette": [
+      "navy blue",
+      "brown",
+      "beige",
+      "black"
+    ],
+    "theme": "Sophisticated layering and sleek neutrals",
+    "outfit_description": "The outfit combines a brown cotton fleece sweatshirt with a navy wool cardigan, paired with beige wool suit pants. The look is refined with leather Chelsea boots and a braided suede belt. The ensemble balances comfort and elegance, suitable for transitional weather and smart daily occasions.",
+    "model_attributes": {
+      "body": "Athletic and well-proportioned with a confident and dynamic demeanor.",
+      "pose": "Mid-air jump with one leg bent, arms creating asymmetrical shapes expressing fluid motion.",
+      "background": "Underwater-themed with ancient ruins and vibrant aquatic flora scattered on the seabed."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P01078496",
+        "P00832329"
+      ],
+      "styling_techniques": {
+        "P00832329": "Unbuttoned",
+        "P01078496": "Tucked-in"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": false,
+  "is_official_look": false,
+  "outfit": {
+    "P01078496": "green cotton fleece sweatshirt",
+    "P00832329": "blue wool cardigan with heart logo",
+    "P01080730": "beige wool suit pants",
+    "P01060296": "black leather Chelsea boots",
+    "P01088827": "brown braided leather bracelet",
+    "P00953880": "blue braided suede belt"
+  }
+}

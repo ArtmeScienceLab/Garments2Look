@@ -1,0 +1,42 @@
+{
+  "source": "mytheresa",
+  "gender": "boys",
+  "outfit_info": {
+    "style": "Casual Style",
+    "season": "Autumn",
+    "occasion": "Daily Wear, Outdoor",
+    "color_palette": [
+      "Navy Blue",
+      "Light Grey",
+      "Light Blue",
+      "Green"
+    ],
+    "theme": "Layered Comfort and Youthful Exploration",
+    "outfit_description": "The outfit features a cozy, layered look with a grey hooded sweater beneath a chunky navy cardigan. Light blue cargo pants add a utilitarian touch, complemented by green boat shoes. This ensemble conveys comfort and readiness for casual adventures in cooler weather.",
+    "model_attributes": {
+      "body": "A young, slender child stands upright with a contemplative expression.",
+      "pose": "Standing front-facing, head slightly tilted, gazing attentively upwards into the distance.",
+      "background": "A dramatic, volcanic landscape with glowing lava and an array of illuminated drones in the twilight sky."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "UM00047907",
+        "P01085932",
+        "P01085732"
+      ],
+      "styling_techniques": {
+        "P01085732": "Unbuttoned"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": false,
+  "is_official_look": false,
+  "outfit": {
+    "UM00047907": "white cotton t-shirt",
+    "P01085932": "grey cotton hooded sweater",
+    "P01085732": "blue wool cardigan",
+    "P01081922": "blue cotton cargo pants",
+    "P01055299": "green leather boat shoes"
+  }
+}

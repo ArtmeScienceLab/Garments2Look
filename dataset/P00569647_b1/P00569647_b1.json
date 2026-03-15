@@ -1,0 +1,41 @@
+{
+  "source": "mytheresa",
+  "gender": "men",
+  "outfit_info": {
+    "style": "Street Style",
+    "season": "Spring, Autumn",
+    "occasion": "Daily Wear, Casual Outing",
+    "color_palette": [
+      "Black",
+      "Light Blue",
+      "Grey"
+    ],
+    "theme": "Urban Comfort, Relaxed Silhouette",
+    "outfit_description": "This outfit showcases a relaxed, contemporary streetwear aesthetic. An oversized black tee is paired with loose-fitting, wide-leg light blue jeans. A distressed grey hoodie is casually tied around the waist, adding an effortless layer and urban flair. Chunky black sneakers complete the comfortable and stylish ensemble.",
+    "model_attributes": {
+      "body": "The model possesses a lean and athletic physique, standing with a casual and poised demeanor.",
+      "pose": "The model stands in a straightforward, relaxed pose with hands naturally positioned at the sides.",
+      "background": "A minimalist, plain light grey studio background offers a clean and unobtrusive setting."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P00569647",
+        "P01010127"
+      ],
+      "styling_techniques": {
+        "P01010127": "tied around waist",
+        "P00569647": "tucked-out",
+        "P00990302": "pooled at ankles"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": true,
+  "is_official_look": true,
+  "outfit": {
+    "P00569647": "black logo-print oversized T-shirt",
+    "P01010127": "grey distressed cotton jersey hoodie",
+    "P00990302": "blue wide-leg high-rise jeans",
+    "P01010143": "black chunky leather sneakers"
+  }
+}

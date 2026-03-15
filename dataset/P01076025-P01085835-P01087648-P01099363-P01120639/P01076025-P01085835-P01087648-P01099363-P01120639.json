@@ -1,0 +1,46 @@
+{
+  "source": "mytheresa",
+  "gender": "boys",
+  "outfit_info": {
+    "style": "Casual Outdoor Style",
+    "season": "Winter",
+    "occasion": "Outdoor",
+    "color_palette": [
+      "beige",
+      "blue",
+      "green",
+      "grey",
+      "white",
+      "brown"
+    ],
+    "theme": "Warmth and Exploration",
+    "outfit_description": "The outfit combines a checked teddy fleece jacket with a patterned cotton sweater and virgin wool straight pants. The fleece jacket’s colorful check adds vibrancy, while the wool pants provide structured comfort. Paired with leather sneakers and a colorblocked fleece hat, it emphasizes warmth and practicality for outdoor activities.",
+    "model_attributes": {
+      "body": "The model is a child with a compact physique, presenting a focused and curious demeanor in a natural outdoor setting.",
+      "pose": "Standing sideways, head slightly tilted down, holding a magnifying glass and notebook, engaged in observation and writing.",
+      "background": "A rugged volcanic terrain with bright glowing moss, snowy mountains, and a vivid aurora borealis lighting the night sky."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P01099363",
+        "P01087648"
+      ],
+      "styling_techniques": {
+        "P01087648": "upzipped",
+        "P01099363": "visible under jacket",
+        "P01120639": "hat worn fully on head"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": false,
+  "is_official_look": false,
+  "outfit": {
+    "P01099363": "multicoloured jacquard cotton sweater",
+    "P01087648": "beige checked teddy fleece jacket",
+    "P01085835": "grey virgin wool straight pants",
+    "P01076025": "white leather sneakers",
+    "P01120639": "multicoloured colorblocked fleece hat",
+    "UM00047879": "white cotton socks"
+  }
+}

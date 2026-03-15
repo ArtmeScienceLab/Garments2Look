@@ -1,0 +1,46 @@
+{
+  "source": "mytheresa",
+  "gender": "men",
+  "outfit_info": {
+    "style": "Casual Style",
+    "season": "Autumn",
+    "occasion": "Outdoor",
+    "color_palette": [
+      "Blue",
+      "Black",
+      "Grey",
+      "Brown"
+    ],
+    "theme": "Comfort and Layers",
+    "outfit_description": "A multi-layered ensemble features a black t-shirt, blue denim-style shirt, and grey puffer vest, paired with light-wash wide-leg jeans. Brown suede desert boots, a matching belt, and a black woven crossbody bag complete the comfortable and practical look, ideal for a casual outdoor setting.",
+    "model_attributes": {
+      "body": "Lean physique, well-groomed hair, and a warm, approachable expression, suggesting a relaxed confidence.",
+      "pose": "Standing casually with a slight turn, holding a coffee cup, looking right with a pleasant, natural smile.",
+      "background": "Rolling green hills under a cloudy sky, with a rustic stone wall and people in the distance."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P00941829",
+        "P00896044",
+        "P00954111"
+      ],
+      "styling_techniques": {
+        "P00896044": "Unbuttoned and worn open",
+        "P00941829": "Tucked-in",
+        "P00995526": "Visibly worn"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": false,
+  "is_official_look": false,
+  "outfit": {
+    "P00941829": "black logo cotton jersey t-shirt",
+    "P00896044": "blue cotton and linen shirt",
+    "P00954111": "vest",
+    "P00883531": "blue low-rise wide-leg jeans",
+    "P00828534": "brown suede desert boots",
+    "P01059740": "grey leather crossbody bag",
+    "P00995526": "blue suede belt"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "source": "mytheresa",
+  "gender": "boys",
+  "outfit_info": {
+    "style": "Casual Style",
+    "season": "Autumn",
+    "occasion": "Outdoor",
+    "color_palette": [
+      "Brown",
+      "Cream",
+      "Navy",
+      "Lilac",
+      "Grey",
+      "Green"
+    ],
+    "theme": "Layered Warmth and Playful Spirit",
+    "outfit_description": "A young boy sports a cozy, layered ensemble featuring a shearling-trimmed coat, a vibrant lilac sweatshirt, and dark pants. A ribbed beanie and ski goggles add a playful, adventurous touch. The look is completed with casual sandals, blending warmth with a relaxed, outdoor-ready vibe.",
+    "model_attributes": {
+      "body": "A small boy, appearing healthy and natural, with a friendly, slightly shy demeanor.",
+      "pose": "Standing upright, facing forward, with hands clasped loosely in front, showcasing a confident stance.",
+      "background": "A vast, misty polo field at sunrise or sunset, with distant horse riders and mountains in soft focus."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P01127631",
+        "P01086122",
+        "P00987671",
+        "P01096102"
+      ],
+      "styling_techniques": {
+        "P01127631": "untucked",
+        "P01096102": "unbuttoned",
+        "P00987671": "worn around the neck"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": false,
+  "is_official_look": false,
+  "outfit": {
+    "P01127631": "blue cotton shirt",
+    "P01086122": "multicoloured logo cotton sweatshirt",
+    "P01096102": "brown shearling-trimmed leather coat",
+    "P01073791": "black cotton straight pants",
+    "P01029444": "blue suede-trimmed leather sandals",
+    "P01058009": "grey ribbed-knit wool and cashmere beanie",
+    "P00987671": "green logo ski goggles"
+  }
+}

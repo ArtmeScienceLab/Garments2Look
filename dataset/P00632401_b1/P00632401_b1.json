@@ -1,0 +1,43 @@
+{
+  "source": "mytheresa",
+  "gender": "men",
+  "outfit_info": {
+    "style": "Contemporary Smart Casual",
+    "season": "Autumn",
+    "occasion": "Daily Wear",
+    "color_palette": [
+      "Dark Brown",
+      "Taupe",
+      "Cream",
+      "Red",
+      "Black"
+    ],
+    "theme": "Modern Sophistication and Dynamic Contrast",
+    "outfit_description": "This contemporary ensemble features a relaxed brown leather jacket over a striped shirt and tailored taupe trousers. Bold white and red sneakers add a playful, modern edge. The look balances classic elements with street-inspired comfort, creating a stylish and versatile aesthetic suitable for everyday wear.",
+    "model_attributes": {
+      "body": "The model possesses a slender, athletic build and stands with a composed, confident demeanor.",
+      "pose": "Standing naturally with one hand casually tucked into a trouser pocket, portraying a relaxed and poised stance.",
+      "background": "A minimalist, pristine white studio background accentuates the outfit by providing a clean, distraction-free setting."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P01011673",
+        "P01013257"
+      ],
+      "styling_techniques": {
+        "P01011673": "partially unbuttoned, tucked-in",
+        "P01013257": "unbuttoned"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": true,
+  "is_official_look": true,
+  "outfit": {
+    "P01011673": "white striped cotton poplin shirt",
+    "P01013257": "brown leather jacket",
+    "P00980735": "beige virgin wool canvas straight pants",
+    "P00632401": "white leather sneakers",
+    "UM00001048": "black leather belt"
+  }
+}

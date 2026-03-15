@@ -1,0 +1,42 @@
+{
+  "source": "mytheresa",
+  "gender": "boys",
+  "outfit_info": {
+    "style": "Preppy Casual",
+    "season": "Autumn",
+    "occasion": "Daily Wear",
+    "color_palette": [
+      "Navy Blue",
+      "Ecru",
+      "Black",
+      "Tan",
+      "Red"
+    ],
+    "theme": "Classic Comfort & Preppy Layers",
+    "outfit_description": "A young boy sports a preppy casual look: a navy corduroy shirt over a striped tee. Dark blue trousers, cuffed to reveal a classic check, are paired with tan suede boots. The ensemble balances comfort with a refined, timeless appeal, ideal for daily wear.",
+    "model_attributes": {
+      "body": "Lean, youthful physique, exuding a calm and earnest demeanor, characteristic of a thoughtful young individual.",
+      "pose": "Standing upright, hands relaxed; one rests on a chessboard. Model maintains a direct, steady gaze forward with poised confidence.",
+      "background": "Rustic attic study, filled with bookshelves, taxidermy, a chessboard, and an older gentleman reading in an armchair."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P00824144",
+        "P01091937"
+      ],
+      "styling_techniques": {
+        "P01091937": "unbuttoned",
+        "P01135755": "cuffed"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": false,
+  "is_official_look": false,
+  "outfit": {
+    "P00824144": "white embroidered striped cotton T-shirt",
+    "P01091937": "blue Dakar cotton corduroy shirt",
+    "P01135755": "black cotton pants with check cuffs",
+    "P01101656": "beige suede desert boots"
+  }
+}

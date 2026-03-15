@@ -1,0 +1,46 @@
+{
+  "source": "mytheresa",
+  "gender": "boys",
+  "outfit_info": {
+    "style": "Adventure Casual",
+    "season": "Spring/Summer",
+    "occasion": "Outdoor Activity",
+    "color_palette": [
+      "Blue",
+      "White",
+      "Red",
+      "Grey",
+      "Green"
+    ],
+    "theme": "Dynamic Adventure, Layered Comfort",
+    "outfit_description": "A young adventurer is depicted in a layered, comfortable ensemble suitable for stormy weather. A striped jacket is worn over a blue hoodie and logo tank top, paired with grey Bermuda shorts and green boat shoes, completed by a backpack for a practical and dynamic look.",
+    "model_attributes": {
+      "body": "A young boy with a lean build, conveying agility and youthful energy.",
+      "pose": "Captured mid-stride on a wet wooden dock, clutching a vinyl record, with a determined gaze.",
+      "background": "A dramatic, stormy harbor scene featuring heavy rain, lightning, dark ships, and turbulent dark water."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P01003387",
+        "P00919111",
+        "P01093180"
+      ],
+      "styling_techniques": {
+        "P01093180": "worn open",
+        "P00919111": "hood pulled out",
+        "P01080700": "worn on back"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": false,
+  "is_official_look": false,
+  "outfit": {
+    "P01003387": "white logo printed cotton tank top",
+    "P00919111": "grey cotton-blend hoodie",
+    "P01093180": "multicoloured striped jacket",
+    "P01057999": "grey logo cotton fleece Bermuda shorts",
+    "P01055299": "green leather boat shoes",
+    "P01080700": "blue printed backpack"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "source": "mytheresa",
+  "gender": "men",
+  "outfit_info": {
+    "style": "Performance Sportswear",
+    "season": "Spring/Summer",
+    "occasion": "Outdoor Activities",
+    "color_palette": [
+      "Orange",
+      "Dark Grey",
+      "Olive Green",
+      "Light Grey",
+      "Neon Green",
+      "Black"
+    ],
+    "theme": "Performance and Utility",
+    "outfit_description": "This athletic ensemble features a vibrant orange distressed T-shirt layered under a functional dark grey utility vest. Perforated olive shorts are worn over light grey performance tights, creating a dynamic bottom half. The look is completed with bold, multi-colored sneakers, signaling readiness for active outdoor pursuits with a blend of comfort and technical design.",
+    "model_attributes": {
+      "body": "The model possesses a lean, athletic physique, presenting the performance-oriented garments effectively and naturally.",
+      "pose": "Standing upright with a relaxed, slightly angled stance, the model clearly displays the complete athletic outfit from head to toe.",
+      "background": "A minimalist, solid light grey studio background is utilized, ensuring the entire focus remains exclusively on the styled outfit."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P01026012",
+        "P01011109"
+      ],
+      "styling_techniques": {
+        "P01011109": "unzipped",
+        "P01026012": "tucked-in",
+        "P01026021": "layered over tights",
+        "P01026025": "layered under shorts"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": true,
+  "is_official_look": true,
+  "outfit": {
+    "P01026012": "orange cotton jersey T-shirt",
+    "P01011109": "grey technical vest",
+    "P01026021": "green technical shorts",
+    "P01026025": "brown running tights",
+    "P01061467": "green and grey technical sneakers",
+    "UM00026344": "orange cotton socks"
+  }
+}

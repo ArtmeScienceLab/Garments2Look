@@ -1,0 +1,41 @@
+{
+  "source": "mytheresa",
+  "gender": "men",
+  "outfit_info": {
+    "style": "Formal Evening Wear",
+    "season": "Autumn, Winter",
+    "occasion": "Black Tie Event, Gala, Formal Dinner",
+    "color_palette": [
+      "Black",
+      "White"
+    ],
+    "theme": "Timeless Elegance and Sophistication",
+    "outfit_description": "A classic black tuxedo ensemble exudes refined elegance, featuring a crisp white shirt and a polished bow tie. The dark velvet loafers add a luxurious touch, creating a sharp and sophisticated look perfect for formal occasions. The silhouette is clean and tailored.",
+    "model_attributes": {
+      "body": "The model possesses a slender and well-proportioned physique, standing with a poised and upright demeanor, conveying confidence.",
+      "pose": "The model stands in a full-body, static pose, facing slightly to the side, showcasing the outfit's complete silhouette.",
+      "background": "A minimalist light grey studio background provides a clean, neutral canvas, allowing full focus on the meticulously styled outfit."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P00505690",
+        "P00978184",
+        "P00738108"
+      ],
+      "styling_techniques": {
+        "P00505690": "fully buttoned, cuffs visible",
+        "P00978184": "tied",
+        "P00738108": "jacket buttoned"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": true,
+  "is_official_look": true,
+  "outfit": {
+    "P00505690": "white formal long-sleeved shirt",
+    "P00738108": "black wool-blend tuxedo trousers",
+    "P00808132": "black velvet loafers",
+    "P00978184": "black silk grosgrain bow tie"
+  }
+}

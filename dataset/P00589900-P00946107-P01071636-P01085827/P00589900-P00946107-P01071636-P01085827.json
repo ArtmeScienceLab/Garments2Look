@@ -1,0 +1,41 @@
+{
+  "source": "mytheresa",
+  "gender": "boys",
+  "outfit_info": {
+    "style": "Casual Style",
+    "season": "Autumn",
+    "occasion": "Daily Wear",
+    "color_palette": [
+      "Grey",
+      "Navy",
+      "Red",
+      "Olive Green",
+      "White"
+    ],
+    "theme": "Sporty Comfort and Brand Identity",
+    "outfit_description": "A young model showcases a sophisticated yet comfortable casual look. He wears a grey logo sweater layered over a collared shirt, paired with dark striped track pants. The ensemble is completed with olive green low-top sneakers, creating a relaxed and stylish athletic-inspired outfit, suitable for everyday wear.",
+    "model_attributes": {
+      "body": "A young boy with a neat haircut, standing confidently with an upright posture, conveying a calm and composed demeanor.",
+      "pose": "The model stands squarely facing forward, head slightly turned to the right, gaze distant, showcasing the full outfit.",
+      "background": "A futuristic alien city at dusk with tall spires and a vibrant sky, creating a dramatic and otherworldly setting."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P01085827",
+        "P01071636"
+      ],
+      "styling_techniques": {
+        "P01085827": "collar exposed"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": false,
+  "is_official_look": false,
+  "outfit": {
+    "P01085827": "burgundy logo cotton piqué polo shirt",
+    "P01071636": "grey logo wool sweater",
+    "P00589900": "blue striped logo sweatpants",
+    "P00946107": "green leather low-top sneakers"
+  }
+}

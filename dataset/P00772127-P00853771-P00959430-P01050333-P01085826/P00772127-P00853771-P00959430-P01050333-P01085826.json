@@ -1,0 +1,44 @@
+{
+  "source": "mytheresa",
+  "gender": "boys",
+  "outfit_info": {
+    "style": "Casual Style",
+    "season": "Autumn",
+    "occasion": "Daily Wear",
+    "color_palette": [
+      "Navy",
+      "Maroon",
+      "White",
+      "Light Blue"
+    ],
+    "theme": "Comfort and Layering",
+    "outfit_description": "A young boy sports a layered, casual look perfect for cooler days. A dark blue puffer vest is worn over a matching hoodie, revealing a light blue shirt collar underneath. Rich maroon sweatpants provide a comfortable contrast, while white low-top sneakers complete the practical yet stylish ensemble. The overall feeling is playful and relaxed.",
+    "model_attributes": {
+      "body": "A young boy with a lean physique and a healthy complexion, presenting a friendly and engaging demeanor.",
+      "pose": "Standing confidently with a slight turn, holding an invisible leash, and looking directly at the viewer.",
+      "background": "A surreal, desert-like landscape bathed in soft twilight, featuring iridescent, holographic dog figures and scattered light refractions."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P01050333",
+        "P00853771",
+        "P00959430"
+      ],
+      "styling_techniques": {
+        "P01050333": "collar visible",
+        "P01085826": "drawstring untied",
+        "P00959430": "unzipped"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": false,
+  "is_official_look": false,
+  "outfit": {
+    "P01050333": "blue linen shirt",
+    "P00853771": "black cotton jersey hoodie",
+    "P00959430": "black quilted down vest",
+    "P01085826": "burgundy cotton-blend fleece sweatpants",
+    "P00772127": "white leather low-top sneakers"
+  }
+}

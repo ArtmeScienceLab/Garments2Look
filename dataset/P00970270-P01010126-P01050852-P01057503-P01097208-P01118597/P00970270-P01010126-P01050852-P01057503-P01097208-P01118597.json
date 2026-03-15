@@ -1,0 +1,45 @@
+{
+  "source": "mytheresa",
+  "gender": "men",
+  "outfit_info": {
+    "style": "Casual Style",
+    "season": "Spring",
+    "occasion": "Outdoor Leisure",
+    "color_palette": [
+      "Cream",
+      "White",
+      "Beige",
+      "Black",
+      "Dark Brown",
+      "Navy"
+    ],
+    "theme": "Coastal Comfort and Relaxation",
+    "outfit_description": "A relaxed, layered ensemble perfect for a cool evening by the sea. It features light-toned outerwear and bottoms, contrasted with a dark inner shirt and accessories. The look blends comfort with effortless style, ideal for leisurely outdoor moments at sunset.",
+    "model_attributes": {
+      "body": "An athletic male physique with a calm, focused demeanor, conveying a sense of mindful presence and well-being.",
+      "pose": "A balanced, outstretched arm pose with legs apart, evoking a yoga or stretching movement, reflecting tranquility and balance.",
+      "background": "A serene beach at sunset, with soft golden light over the ocean and clouds, enhancing a peaceful, natural vibe."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P00970270",
+        "P01010126"
+      ],
+      "styling_techniques": {
+        "P01010126": "partially unzipped",
+        "P01118597": "worn crossbody"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": false,
+  "is_official_look": false,
+  "outfit": {
+    "P00970270": "black cotton polo shirt",
+    "P01010126": "white cotton-blend zip-up cardigan",
+    "P01097208": "white cotton and silk straight pants",
+    "P01050852": "blue canvas espadrilles",
+    "P01118597": "black woven leather crossbody bag",
+    "P01057503": "beige ribbed-knit cashmere beanie"
+  }
+}

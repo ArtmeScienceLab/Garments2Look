@@ -1,0 +1,46 @@
+{
+  "source": "mytheresa",
+  "gender": "men",
+  "outfit_info": {
+    "style": "Preppy Casual",
+    "season": "Spring",
+    "occasion": "Daily Wear",
+    "color_palette": [
+      "Navy Blue",
+      "Light Blue",
+      "Khaki",
+      "Brown",
+      "Cream"
+    ],
+    "theme": "Layered Comfort and Classic Elements",
+    "outfit_description": "This outfit showcases a sophisticated yet relaxed preppy style, featuring a light blue shirt, a navy cable-knit cardigan, and khaki linen pants. A plaid shirt casually draped over the shoulders adds a touch of effortless charm. Dark brown boat shoes complete this comfortable, refined look.",
+    "model_attributes": {
+      "body": "The model has a lean build, presenting a poised and confident demeanor, with a natural, relaxed posture.",
+      "pose": "The model stands casually, hands in pockets, looking slightly upward and to the side, conveying an unpretentious ease.",
+      "background": "The background is a clean, minimalist light gray, providing a neutral and uncluttered setting for the outfit."
+    },
+    "dressing_details": {
+      "layering_structure": [
+        "P01051877",
+        "P01067615",
+        "P01067638"
+      ],
+      "styling_techniques": {
+        "P01051877": "partially unbuttoned, tucked-in",
+        "P01067615": "unbuttoned",
+        "P01067638": "tied around shoulders"
+      }
+    }
+  },
+  "section": "train",
+  "is_official_outfit": true,
+  "is_official_look": true,
+  "outfit": {
+    "P01051877": "blue linen shirt",
+    "P01067615": "navy blue cable-knit cardigan",
+    "P01067638": "multicoloured plaid cotton shirt",
+    "P01048871": "beige linen suit pants",
+    "P01067592": "brown suede boat shoes",
+    "UM00027413": "brown leather belt"
+  }
+}
