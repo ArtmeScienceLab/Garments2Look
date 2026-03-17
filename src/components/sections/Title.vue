@@ -77,13 +77,15 @@ const emphases = [
 // 提供引导资料链接
 const buttons = [
   {
-    disabled: true,
+    disabled: false,
     name: "Paper",
+    link: "https://arxiv.org/abs/2603.14153",
     component: Document,
   },
   {
-    disabled: true,
+    disabled: false,
     name: "中译版",
+    link: "https://github.com/ArtmeScienceLab/Garments2Look/blob/main/docs/Garments2Look-Chinese.pdf",
     component: Document,
   },
   {
