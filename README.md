@@ -4,7 +4,7 @@
 >
 > **Authors**: [Junyao Hu](https://junyaohu.github.io/), [Zhongwei Cheng](https://scholar.google.com/citations?user=ayN-dVwAAAAJ), [Waikeung Wong](https://research.polyu.edu.hk/en/persons/wai-keung-wong-2/), [Xingxing Zou](https://scholar.google.com/citations?user=UhnQA3UAAAAJ)
 
-- Paper: arXiv (TBD), CVPR (TBD)
+- Paper: [arXiv](https://arxiv.org/abs/2603.14153), CVPR (TBD), [中译版](./docs/Garments2Look-Chinese.pdf)
 - [Project Page](https://artmesciencelab.github.io/Garments2Look/)
 - [Dataset](https://huggingface.co/datasets/ArtmeScienceLab/Garments2Look)
 - [Comparison Results on Test Set](https://huggingface.co/datasets/ArtmeScienceLab/Garments2Look-Test-Set-Results)
