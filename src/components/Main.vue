@@ -5,6 +5,7 @@ import ComparisonResults from './sections/ComparisonResults.vue'
 import Abstract from './sections/Abstract.vue'
 import Markdown from './sections/Markdown.vue'
 import BibTeX from './sections/BibTeX.vue'
+import Video from './sections/Video.vue'
 
 export default {
   components: {
@@ -14,6 +15,7 @@ export default {
     Abstract,
     Markdown,
     BibTeX,
+    Video,
   },
   data() {
     return {
@@ -114,6 +116,7 @@ export default {
 <template>
   <Title/>
   <ImageMatrix :order-pages="imageOrderPages" />
+  <Video/>
   <Abstract/>
   <Markdown/>
   <ComparisonResults />
