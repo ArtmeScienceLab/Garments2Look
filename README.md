@@ -4,8 +4,9 @@
 >
 > **Authors**: [Junyao Hu](https://junyaohu.github.io/), [Zhongwei Cheng](https://scholar.google.com/citations?user=ayN-dVwAAAAJ), [Waikeung Wong](https://research.polyu.edu.hk/en/persons/wai-keung-wong-2/), [Xingxing Zou](https://scholar.google.com/citations?user=UhnQA3UAAAAJ)
 
-- Paper: [arXiv](https://arxiv.org/abs/2603.14153), CVPR (TBD), [中译版](./docs/Garments2Look-Chinese.pdf)
+- Paper: [arXiv](https://arxiv.org/abs/2603.14153), [CVPR](https://openaccess.thecvf.com/content/CVPR2026/html/Hu_Garments2Look_A_Multi-Reference_Dataset_for_High-Fidelity_Outfit-Level_Virtual_Try-On_with_CVPR_2026_paper.html), [中译版](./docs/Garments2Look-Chinese.pdf)
 - [Project Page](https://artmesciencelab.github.io/Garments2Look/)
+- [Poster](./docs/Garments2Look-Poster.pdf)
 - [Dataset](https://huggingface.co/datasets/ArtmeScienceLab/Garments2Look)
 - [Comparison Results on Test Set](https://huggingface.co/datasets/ArtmeScienceLab/Garments2Look-Test-Set-Results)
 
