@@ -84,6 +84,12 @@ const buttons = [
   },
   {
     disabled: false,
+    name: "CVPR 2026",
+    link: "https://openaccess.thecvf.com/content/CVPR2026/html/Hu_Garments2Look_A_Multi-Reference_Dataset_for_High-Fidelity_Outfit-Level_Virtual_Try-On_with_CVPR_2026_paper.html",
+    component: Document,
+  },
+  {
+    disabled: false,
     name: "中译版",
     link: "https://github.com/ArtmeScienceLab/Garments2Look/blob/main/docs/Garments2Look-Chinese.pdf",
     component: Document,
@@ -101,8 +107,9 @@ const buttons = [
     component: Files,
   },
   {
-    disabled: true,
+    disabled: false,
     name: "Poster",
+    link: "https://github.com/ArtmeScienceLab/Garments2Look/blob/main/docs/poster.pdf",
     component: Picture,
   },
   {
