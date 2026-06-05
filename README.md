@@ -1,4 +1,4 @@
-# Garments2Look
+# Garments2Look [CVPR 2026]
 
 > **Paper**: Garments2Look: A Multi-Reference Dataset for High-Fidelity Outfit-Level Virtual Try-On with Clothing and Accessories
 >
@@ -6,7 +6,7 @@
 
 - Paper: [arXiv](https://arxiv.org/abs/2603.14153), [CVPR](https://openaccess.thecvf.com/content/CVPR2026/html/Hu_Garments2Look_A_Multi-Reference_Dataset_for_High-Fidelity_Outfit-Level_Virtual_Try-On_with_CVPR_2026_paper.html), [中译版](./docs/Garments2Look-Chinese.pdf)
 - [Project Page](https://artmesciencelab.github.io/Garments2Look/)
-- [Poster](./docs/Garments2Look-Poster.pdf)
+- [Poster](./docs/poster.pdf)
 - [Dataset](https://huggingface.co/datasets/ArtmeScienceLab/Garments2Look)
 - [Comparison Results on Test Set](https://huggingface.co/datasets/ArtmeScienceLab/Garments2Look-Test-Set-Results)
 
