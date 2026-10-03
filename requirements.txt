@@ -1,0 +1,21 @@
+# Versions used to validate these scripts on an H200 (CUDA 12.8).
+# Install torch/torchvision from the CUDA wheel index as documented in README.
+torch==2.7.1
+torchvision==0.22.1
+transformers==5.16.1
+Pillow==12.3.0
+numpy==2.2.6
+accelerate==1.14.0
+peft==0.20.0
+safetensors==0.8.0
+einops==0.8.2
+tqdm==4.70.0
+modelscope==1.39.1
+huggingface_hub==1.29.0
+pandas==2.3.3
+datasets==5.0.1
+ftfy==6.3.1
+sentencepiece==0.2.2
+protobuf==7.36.1
+imageio==2.37.4
+imageio-ffmpeg==0.6.0

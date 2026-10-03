@@ -1,0 +1,5 @@
+Garments2Look training and inference code incorporates DiffSynth-Studio
+https://github.com/modelscope/DiffSynth-Studio
+Local source revision: 945e6816156fa0a3d80ff9d0aab2b3258544f95f
+Copyright ModelScope Team and contributors. Licensed under Apache-2.0.
+Garments2Look-specific dataset, metadata, and task scripts are adapted by the Garments2Look authors.

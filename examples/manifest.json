@@ -1,0 +1,27 @@
+{
+  "selection_seed": 91,
+  "split": "test",
+  "prompt_inpainting": "Keep the woman's identity, pose, background in Figure 1 unchanged, wearing the outfit in Figure 2, include (1) a top (partially unbuttoned, tucked-in), (2) a sweater (unbuttoned), (3) pants, (4) loafers, (5) a bag, (6) a belt (worn around waist). Layering Order: (1) -> (6) -> (2).",
+  "prompt_editing": "Keep the woman's identity, pose, background in Figure 1 unchanged, wearing the outfit in Figure 2, include (1) a top (partially unbuttoned, tucked-in), (2) a sweater (unbuttoned), (3) pants, (4) loafers, (5) a bag, (6) a belt (worn around waist). Layering Order: (1) -> (6) -> (2).",
+  "inference_seed": 123,
+  "num_inference_steps": 40,
+  "cfg_scale": 4.0,
+  "base_model": "Qwen/Qwen-Image-Edit-2509",
+  "checkpoint_round": 2,
+  "checkpoints": {
+    "inpainting": "Qwen-Image-Edit-2509-LoRA-2-refer-20k-inpainting-epoch-1.safetensors",
+    "editing": "Qwen-Image-Edit-2509-LoRA-2-refer-20k-editing-epoch-1.safetensors"
+  },
+  "target_source": "mytheresa/looks-resized/women/P01112302_b1.jpg",
+  "python_version": "3.10.21",
+  "torch_version": "2.7.1+cu128",
+  "transformers_version": "5.16.1",
+  "device": "NVIDIA H200",
+  "annotation_version": "v1.1_2512 (local paired test metadata)",
+  "checkpoint_sha256": {
+    "inpainting": "a24c55687842849303b97e7c9db32408b5a05a7b6fe795788990ccaca1fd911c",
+    "editing": "77b88c2d5a97b9264e1380b166065e3c763d0e0d83a0aaa424df5eb5f5173b9e"
+  },
+  "selection_method": "User selected option B from three white-studio outfit candidates before generation.",
+  "reference_items": 6
+}
