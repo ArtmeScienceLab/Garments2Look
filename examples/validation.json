@@ -1,0 +1,38 @@
+{
+  "metadata_preparation": {
+    "task": "inpainting",
+    "split": "train",
+    "samples": 1,
+    "skipped": 0,
+    "seed": 42
+  },
+  "training_smoke": {
+    "task": "inpainting",
+    "samples": 1,
+    "epochs": 1,
+    "steps": 1,
+    "max_pixels": 65536,
+    "seed": 42,
+    "loss": 0.039105381816625595,
+    "checkpoint_tensor_count": 1440,
+    "checkpoint_all_finite": true
+  },
+  "inference": {
+    "tasks": [
+      "inpainting",
+      "editing"
+    ],
+    "samples_per_task": 1,
+    "steps": 40,
+    "seed": 123,
+    "width": 960,
+    "height": 1088,
+    "cfg_scale": 4.0,
+    "checkpoint_training_samples": 20000,
+    "checkpoint_epochs": 2
+  },
+  "limitations": [
+    "Single-GPU smoke training only; full-scale and distributed training not re-run.",
+    "Complete editing inputs and trained LoRA downloads are pending public release."
+  ]
+}

@@ -8,6 +8,7 @@
 - [Project Page](https://artmesciencelab.github.io/Garments2Look/)
 - [Poster](./docs/poster.pdf)
 - [Dataset](https://huggingface.co/datasets/ArtmeScienceLab/Garments2Look)
+- [LoRA Models](https://huggingface.co/ArtmeScienceLab/Garments2Look-LoRA)
 - [Comparison Results on Test Set](https://huggingface.co/datasets/ArtmeScienceLab/Garments2Look-Test-Set-Results)
 
 https://github.com/user-attachments/assets/a2926af9-8ab2-435b-9afc-5b2587458efa
@@ -15,17 +16,18 @@ https://github.com/user-attachments/assets/a2926af9-8ab2-435b-9afc-5b2587458efa
 
 ## News and updates
 
+- **[2026-10-04]** Released [Qwen-Image-Edit-2509 LoRAs](https://huggingface.co/ArtmeScienceLab/Garments2Look-LoRA) for inpainting and editing.
+
 - **[2026-04-09]** Garments2Look was accepted to **CVPR 2026**.
 - **[2026-03-17]** Released the [Garments2Look dataset](https://huggingface.co/datasets/ArtmeScienceLab/Garments2Look), including all image data and inputs for the inpainting task setting.
 - **[2026-03-14]** Submitted the first version of our paper to [arXiv](https://arxiv.org/abs/2603.14153).
 
 ## TODO
 
-- [ ] Release evaluation scripts.
+- [x] Release [Qwen 2509 LoRAs](https://huggingface.co/ArtmeScienceLab/Garments2Look-LoRA) for inpainting and editing.
+- [x] Add dataset preparation, training, inference, and examples.
 - [ ] Release editing-task inputs.
-- [ ] Release Qwen 2509 LoRAs for inpainting and editing.
 - [ ] Train and open-source Qwen Image 2.1 LoRAs.
-- [ ] Update the dataset loader and examples.
 
 ## Overview
 
@@ -45,9 +47,38 @@ Virtual try-on (VTON) has advanced single-garment visualization, yet real-world 
 
 **Sample outfits and annotations.** Each sample pairs multiple reference items with a look image and annotations describing the outfit, layering, and styling.
 
-## Download and preparation
+## Qwen-Image-Edit-2509 LoRA
 
-Download the annotations and image archives from [Hugging Face](https://huggingface.co/datasets/ArtmeScienceLab/Garments2Look/tree/main):
+For inference, download the base model and released LoRAs below, then use the bundled [`examples/`](./examples/) inputs or your own prepared images. You do not need the full dataset.
+
+Both tasks use two reference images: **Figure 1** is the masked person (inpainting) or source person (editing); **Figure 2** is an OOTD collage of the target items. Use a separate LoRA checkpoint for each task.
+
+### Installation
+
+```bash
+git clone https://github.com/ArtmeScienceLab/Garments2Look.git
+cd Garments2Look
+```
+
+Run commands from the repository root. The tested environment uses Python 3.10, PyTorch 2.7.1 with CUDA 12.8, and an NVIDIA H200:
+
+```bash
+conda create -n g2l-lora python=3.10 -y
+conda activate g2l-lora
+python -m pip install torch==2.7.1 torchvision==0.22.1 --index-url https://download.pytorch.org/whl/cu128
+python -m pip install -r requirements.txt
+python -m pip install -e . --no-deps
+hf download Qwen/Qwen-Image-Edit-2509 --local-dir models/Qwen-Image-Edit-2509
+hf download ArtmeScienceLab/Garments2Look-LoRA --local-dir models/Garments2Look-LoRA
+```
+
+The repository vendors the DiffSynth implementation used by the original experiments. No Slurm installation is required. Model weights, full data, training logs, and local server configuration are excluded from Git.
+
+### Download training dataset
+
+**Skip this section for inference with the bundled examples or your own prepared input images.** Full dataset downloads are needed for training and dataset analysis.
+
+For training or dataset analysis, download the annotations and image archives from [Hugging Face](https://huggingface.co/datasets/ArtmeScienceLab/Garments2Look/tree/main):
 
 ```bash
 python -m pip install -U huggingface_hub
@@ -60,13 +91,14 @@ The image archives and JSON annotations total approximately **284 GB (264 GiB) c
 On Linux, inspect archive member paths first (repeat for other archives):
 
 ```bash
-cd /path/to/Garments2Look-data
-tar -tzf polyvore/images.tar.gz | head
+tar -tzf /path/to/Garments2Look-data/polyvore/images.tar.gz | head
 ```
 
 If archive members start with `images/`, `looks-resized/`, or `annotations/`, extract into the corresponding subset directory:
 
 ```bash
+(
+cd /path/to/Garments2Look-data
 cat mytheresa/images.tar.gz.part-* | tar -xzf - -C mytheresa
 cat mytheresa/looks-resized.tar.gz.part-* | tar -xzf - -C mytheresa
 tar -xzf mytheresa/annotations.tar.gz -C mytheresa
@@ -74,6 +106,7 @@ tar -xzf mytheresa/annotations.tar.gz -C mytheresa
 tar -xzf polyvore/images.tar.gz -C polyvore
 tar -xzf polyvore/looks-resized.tar.gz -C polyvore
 tar -xzf polyvore/annotations.tar.gz -C polyvore
+)
 ```
 
 If members already begin with `mytheresa/` or `polyvore/`, extract into the dataset root instead. Streaming the split archives avoids storing an extra combined archive. Keep the released filenames and organize the extracted data as follows:
@@ -94,6 +127,123 @@ Garments2Look-data/
     └── annotations/mask-sam3-resized/
 ```
 
+### Prepare training data
+
+The current public dataset contains v1.0 outfit annotations. The loader also accepts extended v1.1 annotations and prefers them when supplied; the original 20K LoRA runs used the extended local data, so training from the public release alone does not exactly reproduce those runs. It uses the original split fields. Inpainting inputs are created by replacing mask foreground pixels with gray (128); masks use `mask-v3-look-resized/<gender>/<id>.png` when available, otherwise `mask-sam3-resized/<gender>/<id>/merged_mask.png`. Missing OOTD collages are generated from reference item images in prompt order.
+
+Editing additionally requires source images in `<subset>/edited/banana/<id>.png`. The full editing-input release is **TODO**; use your own prepared source images in this layout, or provide a metadata JSON directly. The bundled example contains one paired test sample for checking inference, not a training benchmark.
+
+```bash
+python scripts/data_gen/generate_2-refer.py --task inpainting --section train \
+  --dataset-root /path/to/Garments2Look-data --num-samples 20000 \
+  --num-workers 4 --seed 123 --output data/metadata/train-inpainting.json
+
+# Requires editing source images.
+python scripts/data_gen/generate_2-refer.py --task editing --section train \
+  --dataset-root /path/to/Garments2Look-data --num-samples 20000 \
+  --num-workers 4 --seed 123 --output data/metadata/train-editing.json
+```
+
+Metadata is a JSON list. Each record contains a target `image`, full `prompt`, and two `edit_image` paths in Figure 1 / Figure 2 order. Paths may be absolute or relative to `DATASET_ROOT`; generated metadata uses local paths, so regenerate it when moving data to another machine. Check the reported written/skipped counts before training.
+
+```json
+[
+  {
+    "image": "path/to/target-look.png",
+    "prompt": "Keep the person's identity, pose, background in Figure 1 unchanged, wearing the outfit in Figure 2...",
+    "edit_image": ["path/to/source-person.png", "path/to/ootd.png"]
+  }
+]
+```
+
+### Training
+
+Select the task and its metadata. The defaults match the original LoRA recipe: rank 32, learning rate 1e-4, two epochs, gradient checkpointing, and a 1,048,576-pixel budget.
+
+```bash
+export MODEL_DIR="$PWD/models/Qwen-Image-Edit-2509"
+export DATASET_ROOT=/path/to/Garments2Look-data
+export TASK=inpainting
+export METADATA="$PWD/data/metadata/train-inpainting.json"
+export OUTPUT_DIR="$PWD/models/train/$TASK"
+NPROC=1 SEED=123 bash scripts/train/train_lora.sh
+
+# Editing training (requires editing-task inputs).
+export TASK=editing
+export METADATA="$PWD/data/metadata/train-editing.json"
+export OUTPUT_DIR="$PWD/models/train/$TASK"
+NPROC=1 SEED=123 bash scripts/train/train_lora.sh
+
+# Optional: train the selected task on two GPUs.
+CUDA_VISIBLE_DEVICES=0,1 NPROC=2 SEED=123 bash scripts/train/train_lora.sh
+```
+
+Checkpoint filenames are zero-indexed: `epoch-0.safetensors` is saved after the first epoch and `epoch-1.safetensors` after the second. Losses are written to `training.jsonl`. The example runs use second-epoch checkpoints trained on 20K samples, not newly trained smoke-test weights. Both task-specific adapters are available from [Hugging Face](https://huggingface.co/ArtmeScienceLab/Garments2Look-LoRA); use their downloaded paths with `--lora`.
+
+### Example files
+
+The self-contained [`examples/`](./examples/) folder includes the original inputs, target outfit collage, full prompts, and generated outputs:
+
+```text
+examples/
+├── input-inpainting.png     # Original masked person input
+├── input-editing.png        # Original source person input
+├── ootd.png                 # Target outfit reference collage
+├── target.png               # Dataset target look (not used as inference input)
+├── prompt-inpainting.txt
+├── prompt-editing.txt
+├── output-inpainting.png    # Seed 123
+├── output-editing.png       # Seed 123
+├── comparison.jpg / .png    # Five columns and two full-width prompt lines
+└── manifest.json / validation.json
+```
+
+Only the two input images (`input-<task>.png` and `ootd.png`) and the corresponding prompt file are needed for inference; no full dataset download is required for these examples. Supply the base model and the task-specific LoRA checkpoint separately.
+
+### Inference
+
+```bash
+python scripts/inference/inference.py --task inpainting \
+  --model-dir models/Qwen-Image-Edit-2509 \
+  --lora models/Garments2Look-LoRA/Qwen-Image-Edit-2509-LoRA-2-refer-20k-inpainting-epoch-1.safetensors \
+  --origin examples/input-inpainting.png --ootd examples/ootd.png \
+  --prompt-file examples/prompt-inpainting.txt \
+  --output output/inpainting.png --seed 123 --steps 40
+
+python scripts/inference/inference.py --task editing \
+  --model-dir models/Qwen-Image-Edit-2509 \
+  --lora models/Garments2Look-LoRA/Qwen-Image-Edit-2509-LoRA-2-refer-20k-editing-epoch-1.safetensors \
+  --origin examples/input-editing.png --ootd examples/ootd.png \
+  --prompt-file examples/prompt-editing.txt \
+  --output output/editing.png --seed 123 --steps 40
+```
+
+The script saves a PNG and a JSON run record with the prompt, parameters, and weight paths. It aligns the source image dimensions to multiples of 16, within the training pixel budget. `--task` labels the run; the input image and task-specific LoRA determine its behavior. Default guidance is 4.0.
+
+### Validation
+
+Validated on one H200: metadata generation for one training sample, one optimization step at a 65,536-pixel budget (finite loss and saved LoRA), and one 40-step inference per task at 960 × 1088. Full-scale and distributed training were not re-run. See [`validation.json`](./examples/validation.json) for the recorded checks.
+
+### Output example
+
+**Seed 123**
+
+![Inpainting and editing example, seed 123](./examples/comparison.jpg)
+
+Columns: **OOTD**, **inpainting input**, **inpainting output**, **editing input**, **editing output**. Full task prompts are printed as two separate lines below the images, spanning the entire figure width.
+
+This white-studio test example contains six items: a light-blue shirt, patterned cardigan, gray trousers, brown loafers, a bag, and a belt. Styling annotations specify a partially unbuttoned and tucked-in shirt, an unbuttoned cardigan, and a belt around the waist; the layering order is shirt → belt → cardigan. The outfit was selected by the author from three candidates before inference. Sample provenance and parameters are recorded in [`manifest.json`](./examples/manifest.json), with individual images and prompt files alongside it. Both tasks use inference seed 123, second-epoch task-specific LoRAs, 40 steps, and guidance 4.0. This example is not an aggregate evaluation.
+
+The default inference seed is **123**. Inputs, full prompts, outputs, and run records are provided in [`examples/`](./examples/).
+
+After generating both task outputs into an example folder, render the five-column figure with:
+
+```bash
+python scripts/inference/compare_example.py --example-dir examples
+```
+
+To run your own outfit, replace `--origin`, `--ootd`, and `--prompt-file`. Figure 1 must be a masked person for inpainting or a source person for editing. Figure 2 must contain the target items in the same order as the numbered prompt. Include styling instructions and layering order in the prompt, and supply the LoRA trained for the selected task.
+
 ## Benchmark and release contents
 
 See the paper for baseline comparisons, evaluation protocols, and metric definitions. Released model outputs are available in the [test-set comparison results](https://huggingface.co/datasets/ArtmeScienceLab/Garments2Look-Test-Set-Results).
@@ -101,16 +251,17 @@ See the paper for baseline comparisons, evaluation protocols, and metric definit
 | Resource | Location |
 | --- | --- |
 | Dataset annotations and image archives | [Hugging Face dataset](https://huggingface.co/datasets/ArtmeScienceLab/Garments2Look) |
+| Training and inference | [`scripts/`](./scripts/) |
 | Test-set comparison outputs | [Results dataset](https://huggingface.co/datasets/ArtmeScienceLab/Garments2Look-Test-Set-Results) |
 | Paper, poster, and figures | Links above and [`docs/`](./docs/) |
 
-This repository currently provides dataset documentation and paper materials. A replacement dataset loader will be added in a future update. Complete baseline training, inference, and metric implementations are not included here.
+This repository includes dataset preparation and LoRA training/inference for Qwen-Image-Edit-2509. Task-specific LoRA checkpoints are available on [Hugging Face](https://huggingface.co/ArtmeScienceLab/Garments2Look-LoRA). Full editing-task inputs remain a planned release.
 
 ## License
 
 The Garments2Look dataset is released under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0), permitting commercial use, modification, and redistribution under its terms. Retain applicable copyright, attribution, and license notices, including those accompanying third-party materials.
 
-Licenses for code and LoRA weights will be specified upon release.
+The code is licensed under [Apache 2.0](./LICENSE) and includes an adapted [DiffSynth-Studio](https://github.com/modelscope/DiffSynth-Studio) implementation; see [NOTICE](./NOTICE). See the [model repository](https://huggingface.co/ArtmeScienceLab/Garments2Look-LoRA) for LoRA weight licensing information; an explicit adapter license is not yet specified.
 
 ## Citation
 

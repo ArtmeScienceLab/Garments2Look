@@ -1,0 +1,14 @@
+{
+  "task": "inpainting",
+  "prompt": "Keep the woman's identity, pose, background in Figure 1 unchanged, wearing the outfit in Figure 2, include (1) a top (partially unbuttoned, tucked-in), (2) a sweater (unbuttoned), (3) pants, (4) loafers, (5) a bag, (6) a belt (worn around waist). Layering Order: (1) -> (6) -> (2).",
+  "seed": 123,
+  "steps": 40,
+  "cfg_scale": 4.0,
+  "model_dir": "models/Qwen-Image-Edit-2509",
+  "lora": "models/LoRA/Qwen-Image-Edit-2509-LoRA-2-refer-20k-inpainting-epoch-1.safetensors",
+  "origin": "examples/input-inpainting.png",
+  "ootd": "examples/ootd.png",
+  "output": "examples/output-inpainting.png",
+  "width": 960,
+  "height": 1088
+}
