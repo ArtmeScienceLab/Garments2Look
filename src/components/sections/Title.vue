@@ -108,6 +108,12 @@ const buttons = [
   },
   {
     disabled: false,
+    name: "Model",
+    link: "https://huggingface.co/ArtmeScienceLab/Garments2Look-LoRA",
+    component: MagicStick,
+  },
+  {
+    disabled: false,
     name: "Poster",
     link: "https://github.com/ArtmeScienceLab/Garments2Look/blob/main/docs/poster.pdf",
     component: Picture,
