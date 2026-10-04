@@ -16,6 +16,7 @@ https://github.com/user-attachments/assets/a2926af9-8ab2-435b-9afc-5b2587458efa
 
 ## News and updates
 
+- **[2026-10-04]** Updated the [dataset](https://huggingface.co/datasets/ArtmeScienceLab/Garments2Look) to 98,012 outfit records, with five annotation types, refined and dilated v3 masks, OOTD collages, and editing source images.
 - **[2026-10-04]** Released [Qwen-Image-Edit-2509 LoRAs](https://huggingface.co/ArtmeScienceLab/Garments2Look-LoRA) for inpainting and editing.
 
 - **[2026-04-09]** Garments2Look was accepted to **CVPR 2026**.
@@ -26,12 +27,12 @@ https://github.com/user-attachments/assets/a2926af9-8ab2-435b-9afc-5b2587458efa
 
 - [x] Release [Qwen 2509 LoRAs](https://huggingface.co/ArtmeScienceLab/Garments2Look-LoRA) for inpainting and editing.
 - [x] Add dataset preparation, training, inference, and examples.
-- [ ] Release editing-task inputs.
+- [x] Release editing-task inputs, v1.1 outfit annotations, and improved v3 masks.
 - [ ] Train and open-source Qwen Image 2.1 LoRAs.
 
 ## Overview
 
-Virtual try-on (VTON) has advanced single-garment visualization, yet real-world fashion centers on full outfits with multiple garments, accessories, fine-grained categories, layering, and diverse styling, remaining beyond current VTON systems. Existing datasets are category-limited and lack outfit diversity. We introduce Garments2Look, the first large-scale multimodal dataset for outfit-level VTON, comprising 80K many-garments-to-one-look pairs across 40 major categories and 300+ fine-grained subcategories. Each pair includes an outfit with 3-12 reference garment images (4.48 items per outfit on average), a model image wearing the outfit, and detailed item and try-on textual annotations. To balance authenticity and diversity, we propose a synthesis pipeline. It involves heuristically constructing outfit lists before generating try-on results, with the entire process subjected to strict automated filtering and human validation to ensure data quality. To probe task difficulty, we adapt SOTA VTON methods and general-purpose image editing models to establish baselines. Results show current methods struggle to try on complete outfits seamlessly and to infer correct layering and styling, leading to misalignment and artifacts.
+Virtual try-on (VTON) has advanced single-garment visualization, yet real-world fashion centers on full outfits with multiple garments, accessories, fine-grained categories, layering, and diverse styling, remaining beyond current VTON systems. Existing datasets are category-limited and lack outfit diversity. We introduce Garments2Look, the first large-scale multimodal dataset for outfit-level VTON, comprising approximately 80K many-garments-to-one-look pairs in the paper, expanded to 98,012 indexed outfit records in the current dataset across 40 major categories and 300+ fine-grained subcategories. Each pair includes an outfit with 3-12 reference garment images (4.48 items per outfit on average), a model image wearing the outfit, and detailed item and try-on textual annotations. To balance authenticity and diversity, we propose a synthesis pipeline. It involves heuristically constructing outfit lists before generating try-on results, with the entire process subjected to strict automated filtering and human validation to ensure data quality. To probe task difficulty, we adapt SOTA VTON methods and general-purpose image editing models to establish baselines. Results show current methods struggle to try on complete outfits seamlessly and to infer correct layering and styling, leading to misalignment and artifacts.
 
 ![Dataset Comparison](./docs/dataset-compare.jpg)
 
@@ -86,52 +87,44 @@ hf download ArtmeScienceLab/Garments2Look --repo-type dataset \
   --local-dir /path/to/Garments2Look-data
 ```
 
-The image archives and JSON annotations total approximately **284 GB (264 GiB) compressed**; the full download also includes supplementary files. Allow additional space for extracted files. Mytheresa images and looks use numbered archive parts; download all parts of each archive before extracting.
-
-On Linux, inspect archive member paths first (repeat for other archives):
+The current release contains **56 independent `.tar.gz` archives**, approximately **437.54 GB (407.49 GiB)** compressed, plus JSON annotations (approximately **438.1 GB** in total). Each archive includes paths beginning with `mytheresa/` or `polyvore/`. Extract every archive into the dataset root:
 
 ```bash
-tar -tzf /path/to/Garments2Look-data/polyvore/images.tar.gz | head
-```
-
-If archive members start with `images/`, `looks-resized/`, or `annotations/`, extract into the corresponding subset directory:
-
-```bash
-(
 cd /path/to/Garments2Look-data
-cat mytheresa/images.tar.gz.part-* | tar -xzf - -C mytheresa
-cat mytheresa/looks-resized.tar.gz.part-* | tar -xzf - -C mytheresa
-tar -xzf mytheresa/annotations.tar.gz -C mytheresa
-
-tar -xzf polyvore/images.tar.gz -C polyvore
-tar -xzf polyvore/looks-resized.tar.gz -C polyvore
-tar -xzf polyvore/annotations.tar.gz -C polyvore
-)
+sha256sum -c SHA256SUMS
+find mytheresa polyvore -type f -name '*.tar.gz' -print0 |
+  while IFS= read -r -d '' archive; do
+    tar -xzf "$archive" -C .
+  done
 ```
 
-If members already begin with `mytheresa/` or `polyvore/`, extract into the dataset root instead. Streaming the split archives avoids storing an extra combined archive. Keep the released filenames and organize the extracted data as follows:
+Each shard can be extracted independently. Keep the original subset layout:
 
 ```text
 Garments2Look-data/
+├── Garments2Look.py
 ├── mytheresa_image_v1.0_2512.json
 ├── mytheresa_outfit_v1.0_2512.json
+├── mytheresa_outfit_v1.1_2512.json
 ├── polyvore_image_v1.0_2512.json
 ├── polyvore_outfit_v1.0_2512.json
+├── polyvore_outfit_v1.1_2512.json
 ├── mytheresa/
 │   ├── images/
 │   ├── looks-resized/
-│   └── annotations/mask-sam3-resized/
-└── polyvore/
-    ├── images/
-    ├── looks-resized/
-    └── annotations/mask-sam3-resized/
+│   ├── ootd/
+│   ├── edited/banana/
+│   └── annotations/  # ATR, DensePose, DWPose, LIP, and mask-v3-look-resized
+└── polyvore/         # Same asset layout
 ```
+
+The v1.0 JSON index has 80,041 records. The recommended v1.1 index has **98,012 records: 97,068 train and 944 test**, adding 17,971 training records. See the [dataset card](https://huggingface.co/datasets/ArtmeScienceLab/Garments2Look#annotations-and-splits) for counts by source, mask construction, and full asset details.
 
 ### Prepare training data
 
-The current public dataset contains v1.0 outfit annotations. The loader also accepts extended v1.1 annotations and prefers them when supplied; the original 20K LoRA runs used the extended local data, so training from the public release alone does not exactly reproduce those runs. It uses the original split fields. Inpainting inputs are created by replacing mask foreground pixels with gray (128); masks use `mask-v3-look-resized/<gender>/<id>.png` when available, otherwise `mask-sam3-resized/<gender>/<id>/merged_mask.png`. Missing OOTD collages are generated from reference item images in prompt order.
+Use the released v1.1 outfit annotations and retain their `section` assignments. Inpainting inputs replace the foreground of `annotations/mask-v3-look-resized/<gender>/<id>.png` with gray (128). The refined v3 masks improve coverage and include dilation; regenerate agnostic caches when changing masks. The dataset release includes ATR, DensePose, DWPose, LIP, and v3 mask annotations.
 
-Editing additionally requires source images in `<subset>/edited/banana/<id>.png`. The full editing-input release is **TODO**; use your own prepared source images in this layout, or provide a metadata JSON directly. The bundled example contains one paired test sample for checking inference, not a training benchmark.
+Editing source images are available at `<subset>/edited/banana/<id>.png`, and OOTD collages are included at `<subset>/ootd/<gender>/<id>.png`. Missing OOTD collages can be generated from reference item images in prompt order. The bundled example is a paired test sample for checking inference.
 
 ```bash
 python scripts/data_gen/generate_2-refer.py --task inpainting --section train \
@@ -255,7 +248,7 @@ See the paper for baseline comparisons, evaluation protocols, and metric definit
 | Test-set comparison outputs | [Results dataset](https://huggingface.co/datasets/ArtmeScienceLab/Garments2Look-Test-Set-Results) |
 | Paper, poster, and figures | Links above and [`docs/`](./docs/) |
 
-This repository includes dataset preparation and LoRA training/inference for Qwen-Image-Edit-2509. Task-specific LoRA checkpoints are available on [Hugging Face](https://huggingface.co/ArtmeScienceLab/Garments2Look-LoRA). Full editing-task inputs remain a planned release.
+This repository includes dataset preparation and LoRA training/inference for Qwen-Image-Edit-2509. Task-specific LoRA checkpoints are available on [Hugging Face](https://huggingface.co/ArtmeScienceLab/Garments2Look-LoRA). Editing-task inputs and improved v3 masks are available in the updated dataset.
 
 ## License
 
