@@ -27,7 +27,7 @@ https://github.com/user-attachments/assets/a2926af9-8ab2-435b-9afc-5b2587458efa
 
 ## TODO
 
-- [x] Release [Qwen 2509 LoRAs](https://huggingface.co/ArtmeScienceLab/Garments2Look-LoRA) for inpainting and editing.
+- [x] Release Qwen 2509 LoRAs for inpainting and editing.
 - [x] Add dataset preparation, training, inference, and examples.
 - [x] Release editing-task inputs, v1.1 outfit annotations, and improved v3 masks.
 - [x] Train and open-source Qwen Image 2.1 LoRAs.
