@@ -16,6 +16,8 @@ https://github.com/user-attachments/assets/a2926af9-8ab2-435b-9afc-5b2587458efa
 
 ## News and updates
 
+- **[2026-10-11]** Released final [Qwen-Image-2.1 inpainting and editing LoRAs](https://huggingface.co/ArtmeScienceLab/Garments2Look-LoRA), with both-model inference and paired seed-0 examples.
+
 - **[2026-10-04]** Updated the [dataset](https://huggingface.co/datasets/ArtmeScienceLab/Garments2Look) to 98,012 outfit records, with five annotation types, refined and dilated v3 masks, OOTD collages, and editing source images.
 - **[2026-10-04]** Released [Qwen-Image-Edit-2509 LoRAs](https://huggingface.co/ArtmeScienceLab/Garments2Look-LoRA) for inpainting and editing.
 
@@ -28,7 +30,7 @@ https://github.com/user-attachments/assets/a2926af9-8ab2-435b-9afc-5b2587458efa
 - [x] Release [Qwen 2509 LoRAs](https://huggingface.co/ArtmeScienceLab/Garments2Look-LoRA) for inpainting and editing.
 - [x] Add dataset preparation, training, inference, and examples.
 - [x] Release editing-task inputs, v1.1 outfit annotations, and improved v3 masks.
-- [ ] Train and open-source Qwen Image 2.1 LoRAs.
+- [x] Train and open-source Qwen Image 2.1 LoRAs.
 
 ## Overview
 
@@ -48,32 +50,139 @@ Virtual try-on (VTON) has advanced single-garment visualization, yet real-world 
 
 **Sample outfits and annotations.** Each sample pairs multiple reference items with a look image and annotations describing the outfit, layering, and styling.
 
-## Qwen-Image-Edit-2509 LoRA
+<a id="qwen-image-edit-2509-lora"></a>
 
-For inference, download the base model and released LoRAs below, then use the bundled [`examples/`](./examples/) inputs or your own prepared images. You do not need the full dataset.
+## Qwen LoRA models
 
-Both tasks use two reference images: **Figure 1** is the masked person (inpainting) or source person (editing); **Figure 2** is an OOTD collage of the target items. Use a separate LoRA checkpoint for each task.
+## Checkpoints
 
-### Installation
+| Base model | Task | File | Training |
+| --- | --- | --- | --- |
+| Qwen-Image-Edit-2509 | Inpainting | `Qwen-Image-Edit-2509-LoRA-2-refer-20k-inpainting-epoch-1.safetensors` | 20,000 samples; 2 completed epochs; rank 32 |
+| Qwen-Image-Edit-2509 | Editing | `Qwen-Image-Edit-2509-LoRA-2-refer-20k-editing-epoch-1.safetensors` | 20,000 samples; 2 completed epochs; rank 32 |
+| Qwen-Image-2.1 | Inpainting | `Qwen-Image-2.1-LoRA-2-refer-97068-inpainting-epoch-0.safetensors` | 97,068 samples; 1 completed epoch; final step 48,534; rank 32 |
+| Qwen-Image-2.1 | Editing | `Qwen-Image-2.1-LoRA-2-refer-97068-editing-epoch-0.safetensors` | 97,068 samples; 1 completed epoch; final step 48,534; rank 32 |
+
+Epoch numbers are zero-indexed: `epoch-1` means two completed epochs, and `epoch-0` means one completed epoch. Both 2.1 files are the final **step-48534** checkpoints, not step-48000. These are adapters, not full models. Use the matching base model and task. File checksums and training metadata are in [HF manifest.json](https://huggingface.co/ArtmeScienceLab/Garments2Look-LoRA/blob/main/manifest.json).
+
+## Installation and download
+
+Tested with Python 3.10, PyTorch 2.7.1 / CUDA 12.8, Transformers 5.16.1, and H200 GPUs. Run commands from the repository root. Clone the code repository first:
 
 ```bash
 git clone https://github.com/ArtmeScienceLab/Garments2Look.git
 cd Garments2Look
-```
-
-Run commands from the repository root. The tested environment uses Python 3.10, PyTorch 2.7.1 with CUDA 12.8, and an NVIDIA H200:
+``` Download only the base model you intend to use.
 
 ```bash
 conda create -n g2l-lora python=3.10 -y
 conda activate g2l-lora
 python -m pip install torch==2.7.1 torchvision==0.22.1 --index-url https://download.pytorch.org/whl/cu128
-python -m pip install -r requirements.txt
-python -m pip install -e . --no-deps
-hf download Qwen/Qwen-Image-Edit-2509 --local-dir models/Qwen-Image-Edit-2509
+python -m pip install huggingface_hub
 hf download ArtmeScienceLab/Garments2Look-LoRA --local-dir models/Garments2Look-LoRA
+python -m zipfile -e models/Garments2Look-LoRA/qwen-runtime.zip models/Garments2Look-LoRA
+python -m pip install -e models/Garments2Look-LoRA/qwen-runtime
+python -m pip install transformers==5.16.1
+
+hf download Qwen/Qwen-Image-Edit-2509 --local-dir models/Qwen-Image-Edit-2509
+hf download Qwen/Qwen-Image-2.1 --local-dir models/Qwen-Image-2.1
 ```
 
-The repository vendors the DiffSynth implementation used by the original experiments. No Slurm installation is required. Model weights, full data, training logs, and local server configuration are excluded from Git.
+The repository inference script imports the extracted runtime. Adapters use the DiffSynth format; compatibility with other LoRA loaders has not been verified. Set `CUDA_VISIBLE_DEVICES` to choose a GPU.
+
+## Inpainting inference
+
+### Qwen-Image-Edit-2509
+
+```bash
+python scripts/inference/inference.py --model-version 2509 --task inpainting \
+  --model-dir models/Qwen-Image-Edit-2509 \
+  --lora models/Garments2Look-LoRA/Qwen-Image-Edit-2509-LoRA-2-refer-20k-inpainting-epoch-1.safetensors \
+  --origin examples/qwen2509/input-inpainting.png \
+  --ootd examples/qwen2509/ootd.png \
+  --prompt-file examples/qwen2509/prompt-inpainting.txt \
+  --output output/qwen2509-inpainting.png --seed 0 --steps 40 --cfg-scale 4
+```
+
+### Qwen-Image-2.1
+
+```bash
+python scripts/inference/inference.py --model-version 2.1 --task inpainting \
+  --model-dir models/Qwen-Image-2.1 \
+  --lora models/Garments2Look-LoRA/Qwen-Image-2.1-LoRA-2-refer-97068-inpainting-epoch-0.safetensors \
+  --origin examples/qwen21/input-inpainting.png \
+  --ootd examples/qwen21/ootd.png \
+  --prompt-file examples/qwen21/prompt-inpainting.txt \
+  --output output/qwen21-inpainting.png --seed 0 --steps 40 --cfg-scale 1
+```
+
+## Editing inference
+
+### Qwen-Image-Edit-2509
+
+```bash
+python scripts/inference/inference.py --model-version 2509 --task editing \
+  --model-dir models/Qwen-Image-Edit-2509 \
+  --lora models/Garments2Look-LoRA/Qwen-Image-Edit-2509-LoRA-2-refer-20k-editing-epoch-1.safetensors \
+  --origin examples/qwen2509/input-editing.png \
+  --ootd examples/qwen2509/ootd.png \
+  --prompt-file examples/qwen2509/prompt-editing.txt \
+  --output output/qwen2509-editing.png --seed 0 --steps 40 --cfg-scale 4
+```
+
+### Qwen-Image-2.1
+
+```bash
+python scripts/inference/inference.py --model-version 2.1 --task editing \
+  --model-dir models/Qwen-Image-2.1 \
+  --lora models/Garments2Look-LoRA/Qwen-Image-2.1-LoRA-2-refer-97068-editing-epoch-0.safetensors \
+  --origin examples/qwen21/input-editing.png \
+  --ootd examples/qwen21/ootd.png \
+  --prompt-file examples/qwen21/prompt-editing.txt \
+  --output output/qwen21-editing.png --seed 0 --steps 40 --cfg-scale 1
+```
+
+Default seed is **0**, with 40 steps. If CFG is omitted, the script uses 4 for 2509 and 1 for 2.1. Images use a 1,048,576-pixel budget, aligned to multiples of 16 for 2509 and 32 for 2.1. Each invocation saves its PNG and a JSON parameter record. For custom outfits, replace Figure 1, the collage, and the full prompt.
+
+## Paired example: P00958796_b1
+
+This five-item test outfit includes a top, jacket, shorts, sandals, and bag. Styling specifies a **tucked-in top** and an **unbuttoned jacket**; layering is **top → jacket**. Both task prompts are supplied in the example folders.
+
+### Qwen-Image-Edit-2509 LoRA
+
+![2509 inpainting and editing, seed 0](./examples/qwen2509/comparison.jpg)
+
+### Qwen-Image-2.1 LoRA
+
+![2.1 inpainting and editing, final step 48534, seed 0](./examples/qwen21/comparison.jpg)
+
+Columns: OOTD, inpainting input, inpainting output, editing input, editing output. Full task prompts are printed below each figure. Both models use seed 0 and 40 steps, with CFG 4 for 2509 and CFG 1 for 2.1. The 2.1 images use the final adapters released above.
+
+**Full prompt (both tasks):**
+
+> Keep the woman's identity, pose, background in Figure 1 unchanged, wearing the outfit in Figure 2, include (1) a top (tucked-in), (2) a jacket (unbuttoned), (3) shorts, (4) sandals, (5) a bag. Layering Order: (1) -> (2).
+
+This example was selected after comparing six candidate outfits at fixed seed 0, four outputs per candidate. It illustrates a selected successful case, not aggregate test performance. The two base models were trained on different data counts and epoch counts. Bag shape, garment hems, and pose may still differ. Selection provenance is in [examples/selection.json](./examples/manifest.json); each output has a parameter JSON, and target images are included.
+
+## Training details
+
+| Setting | 2509 | 2.1 |
+| --- | --- | --- |
+| Training examples | 20,000 | Full 97,068 training split |
+| Completed epochs | 2 | 1 |
+| LoRA rank | 32 | 32 |
+| Learning rate | 1e-4 | 1e-4 |
+| Pixel budget | 1,048,576 | 1,048,576 |
+| Precision | BF16 | BF16 |
+| Gradient checkpointing | Enabled | Enabled |
+| Final step | Epoch-based checkpoint | 48,534 |
+
+The 2.1 runs used two H200 GPUs and global batch size 2. Training took approximately 58h36m (inpainting) and 58h50m (editing). These adapters are later releases than the paper's rebuttal-stage models; the selected examples do not establish aggregate improvements over those models.
+
+For dataset preparation and the public 2509 training workflow, see the code repository. The HF runtime and this repository's inference script support both models. The existing training launcher in this public repository targets 2509; a complete 2.1 training launcher is not included.
+
+
+## Dataset preparation and 2509 training
 
 ### Download training dataset
 
@@ -173,82 +282,6 @@ CUDA_VISIBLE_DEVICES=0,1 NPROC=2 SEED=123 bash scripts/train/train_lora.sh
 
 Checkpoint filenames are zero-indexed: `epoch-0.safetensors` is saved after the first epoch and `epoch-1.safetensors` after the second. Losses are written to `training.jsonl`. The example runs use second-epoch checkpoints trained on 20K samples, not newly trained smoke-test weights. Both task-specific adapters are available from [Hugging Face](https://huggingface.co/ArtmeScienceLab/Garments2Look-LoRA); use their downloaded paths with `--lora`.
 
-### Example files
-
-The self-contained [`examples/`](./examples/) folder includes the original inputs, target outfit collage, full prompts, and generated outputs:
-
-```text
-examples/
-├── input-inpainting.png     # Original masked person input
-├── input-editing.png        # Original source person input
-├── ootd.png                 # Target outfit reference collage
-├── target.png               # Dataset target look (not used as inference input)
-├── prompt-inpainting.txt
-├── prompt-editing.txt
-├── output-inpainting.png    # Seed 123
-├── output-editing.png       # Seed 123
-├── comparison.jpg / .png    # Five columns and two full-width prompt lines
-└── manifest.json / validation.json
-```
-
-Only the two input images (`input-<task>.png` and `ootd.png`) and the corresponding prompt file are needed for inference; no full dataset download is required for these examples. Supply the base model and the task-specific LoRA checkpoint separately.
-
-### Inference
-
-```bash
-python scripts/inference/inference.py --task inpainting \
-  --model-dir models/Qwen-Image-Edit-2509 \
-  --lora models/Garments2Look-LoRA/Qwen-Image-Edit-2509-LoRA-2-refer-20k-inpainting-epoch-1.safetensors \
-  --origin examples/input-inpainting.png --ootd examples/ootd.png \
-  --prompt-file examples/prompt-inpainting.txt \
-  --output output/inpainting.png --seed 123 --steps 40
-
-python scripts/inference/inference.py --task editing \
-  --model-dir models/Qwen-Image-Edit-2509 \
-  --lora models/Garments2Look-LoRA/Qwen-Image-Edit-2509-LoRA-2-refer-20k-editing-epoch-1.safetensors \
-  --origin examples/input-editing.png --ootd examples/ootd.png \
-  --prompt-file examples/prompt-editing.txt \
-  --output output/editing.png --seed 123 --steps 40
-```
-
-The script saves a PNG and a JSON run record with the prompt, parameters, and weight paths. It aligns the source image dimensions to multiples of 16, within the training pixel budget. `--task` labels the run; the input image and task-specific LoRA determine its behavior. Default guidance is 4.0.
-
-### Validation
-
-Validated on one H200: metadata generation for one training sample, one optimization step at a 65,536-pixel budget (finite loss and saved LoRA), and one 40-step inference per task at 960 × 1088. Full-scale and distributed training were not re-run. See [`validation.json`](./examples/validation.json) for the recorded checks.
-
-### Output example
-
-**Seed 123**
-
-![Inpainting and editing example, seed 123](./examples/comparison.jpg)
-
-Columns: **OOTD**, **inpainting input**, **inpainting output**, **editing input**, **editing output**. Full task prompts are printed as two separate lines below the images, spanning the entire figure width.
-
-This white-studio test example contains six items: a light-blue shirt, patterned cardigan, gray trousers, brown loafers, a bag, and a belt. Styling annotations specify a partially unbuttoned and tucked-in shirt, an unbuttoned cardigan, and a belt around the waist; the layering order is shirt → belt → cardigan. The outfit was selected by the author from three candidates before inference. Sample provenance and parameters are recorded in [`manifest.json`](./examples/manifest.json), with individual images and prompt files alongside it. Both tasks use inference seed 123, second-epoch task-specific LoRAs, 40 steps, and guidance 4.0. This example is not an aggregate evaluation.
-
-The default inference seed is **123**. Inputs, full prompts, outputs, and run records are provided in [`examples/`](./examples/).
-
-After generating both task outputs into an example folder, render the five-column figure with:
-
-```bash
-python scripts/inference/compare_example.py --example-dir examples
-```
-
-To run your own outfit, replace `--origin`, `--ootd`, and `--prompt-file`. Figure 1 must be a masked person for inpainting or a source person for editing. Figure 2 must contain the target items in the same order as the numbered prompt. Include styling instructions and layering order in the prompt, and supply the LoRA trained for the selected task.
-
-## Benchmark and release contents
-
-See the paper for baseline comparisons, evaluation protocols, and metric definitions. Released model outputs are available in the [test-set comparison results](https://huggingface.co/datasets/ArtmeScienceLab/Garments2Look-Test-Set-Results).
-
-| Resource | Location |
-| --- | --- |
-| Dataset annotations and image archives | [Hugging Face dataset](https://huggingface.co/datasets/ArtmeScienceLab/Garments2Look) |
-| Training and inference | [`scripts/`](./scripts/) |
-| Test-set comparison outputs | [Results dataset](https://huggingface.co/datasets/ArtmeScienceLab/Garments2Look-Test-Set-Results) |
-| Paper, poster, and figures | Links above and [`docs/`](./docs/) |
-
-This repository includes dataset preparation and LoRA training/inference for Qwen-Image-Edit-2509. Task-specific LoRA checkpoints are available on [Hugging Face](https://huggingface.co/ArtmeScienceLab/Garments2Look-LoRA). Editing-task inputs and improved v3 masks are available in the updated dataset.
 
 ## License
 
