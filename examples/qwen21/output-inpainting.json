@@ -2,10 +2,10 @@
   "outfit_id": "P00958796_b1",
   "test_index": 23,
   "seed": 0,
-  "model": "Qwen-Image-Edit-2509",
-  "task": "editing",
-  "lora": "Qwen-Image-Edit-2509-LoRA-2-refer-20k-editing-epoch-1.safetensors",
+  "model": "Qwen-Image-2.1",
+  "task": "inpainting",
+  "lora": "step-48534.safetensors",
   "steps": 40,
-  "cfg_scale": 4,
+  "cfg_scale": 1,
   "prompt": "Keep the woman's identity, pose, background in Figure 1 unchanged, wearing the outfit in Figure 2, include (1) a top (tucked-in), (2) a jacket (unbuttoned), (3) shorts, (4) sandals, (5) a bag. Layering Order: (1) -> (2)."
 }
