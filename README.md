@@ -179,10 +179,10 @@ This example was selected after comparing six candidate outfits at fixed seed 0,
 
 The 2.1 runs used two H200 GPUs and global batch size 2. Training took approximately 58h36m (inpainting) and 58h50m (editing). These adapters are later releases than the paper's rebuttal-stage models; the selected examples do not establish aggregate improvements over those models.
 
-For dataset preparation and the public 2509 training workflow, see the code repository. The HF runtime and this repository's inference script support both models. The existing training launcher in this public repository targets 2509; a complete 2.1 training launcher is not included.
+For dataset preparation and the public 2509 training workflow, see the code repository. The HF runtime and this repository's inference script support both models. The unified training entry point supports both models. The task-specific 2.1 launchers below use the configuration of the released training runs.
 
 
-## Dataset preparation and 2509 training
+## Dataset preparation and training
 
 ### Download training dataset
 
@@ -258,7 +258,37 @@ Metadata is a JSON list. Each record contains a target `image`, full `prompt`, a
 ]
 ```
 
-### Training
+### Qwen-Image-2.1 training
+
+Install and extract the released runtime using the commands above before training. `scripts/train/train.py` imports that runtime explicitly for both model versions. For 2.1, it loads RGBA target images, aligns dimensions to multiples of 32, and uses Flex Attention without KV caching, matching the completed runs.
+
+Prepare the **full training split** using `--num-samples 0`; check that each generated JSON contains **97,068 records** and no skipped records before reproducing the released recipe:
+
+```bash
+export MODEL_DIR=/path/to/Qwen-Image-2.1
+export DATASET_ROOT=/path/to/Garments2Look-data
+python scripts/data_gen/generate_2-refer.py --task inpainting --section train \
+  --dataset-root "$DATASET_ROOT" --num-samples 0 --num-workers 8 --seed 42 \
+  --output data/metadata/garments2look-2-refer-inpainting-for-qwen21-train-97068.json
+python scripts/data_gen/generate_2-refer.py --task editing --section train \
+  --dataset-root "$DATASET_ROOT" --num-samples 0 --num-workers 8 --seed 42 \
+  --output data/metadata/garments2look-2-refer-editing-for-qwen21-train-97068.json
+
+CUDA_VISIBLE_DEVICES=0,1 NPROC=2 bash scripts/train/train_qwen21_lora-2-refer-inpainting.sh
+CUDA_VISIBLE_DEVICES=0,1 NPROC=2 bash scripts/train/train_qwen21_lora-2-refer-editing.sh
+
+# Optional Slurm submission, from the repository root with the environment active.
+inpainting_job=$(sbatch --parsable scripts/train/train_qwen21_lora-2-refer-inpainting.slurm)
+sbatch --dependency=afterok:"$inpainting_job" scripts/train/train_qwen21_lora-2-refer-editing.slurm
+```
+
+Defaults: one epoch, global batch size 2 on two GPUs (batch size 1 per process), learning rate `1e-4`, rank 32, BF16, gradient checkpointing, eight data workers, and a 1,048,576-pixel budget. The trained LoRA modules are `to_q,to_k,to_v,to_out.0,img_mlp.proj,img_mlp.gate_layer,img_mlp.out,modulation.1`. `find_unused_parameters=True` matches the released runs. No training seed was specified for those runs; an optional `--seed` can be passed explicitly. This differs from the inference example seed.
+
+Override `METADATA_PATH`, `OUTPUT_PATH`, `NUM_EPOCHS`, `MAX_PIXELS`, `NUM_WORKERS`, `NPROC`, or `MASTER_PORT` as needed. Single-GPU training is supported with `NPROC=1`, but changes the global batch size and step count. Slurm scripts are portable templates; adjust cluster resources before submission.
+
+Checkpoints are saved every 1,000 steps and at the final step even if it is not a multiple of 1,000. With 97,068 records and two processes, the final file is `step-48534.safetensors`. CSV loss logs are written under the output directory. Released HF files were renamed from this final checkpoint. The two completed H200 runs took about 59 hours each; other hardware may differ.
+
+### Qwen-Image-Edit-2509 training
 
 Select the task and its metadata. The defaults match the original LoRA recipe: rank 32, learning rate 1e-4, two epochs, gradient checkpointing, and a 1,048,576-pixel budget.
 
