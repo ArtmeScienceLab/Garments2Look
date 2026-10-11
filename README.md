@@ -258,59 +258,72 @@ Metadata is a JSON list. Each record contains a target `image`, full `prompt`, a
 ]
 ```
 
-### Qwen-Image-2.1 training
+### LoRA training
 
-Install and extract the released runtime using the commands above before training. `scripts/train/train.py` imports that runtime explicitly for both model versions. For 2.1, it loads RGBA target images, aligns dimensions to multiples of 32, and uses Flex Attention without KV caching, matching the completed runs.
+Both Qwen-Image-Edit-2509 and Qwen-Image-2.1 use the same DiffSynth LoRA training workflow and two-reference metadata format. Garments2Look supplies dataset preparation, task inputs, and launch configurations; the model implementations and training algorithm come from DiffSynth. Both models use `scripts/train/train.py`, selected with `--model_version`. Inpainting and editing use separate metadata and produce separate adapters.
 
-Prepare the **full training split** using `--num-samples 0`; check that each generated JSON contains **97,068 records** and no skipped records before reproducing the released recipe:
+Install and extract the released runtime using the installation commands above. The training entry point explicitly imports `models/Garments2Look-LoRA/qwen-runtime` for both models. Shared settings are learning rate `1e-4`, LoRA rank 32, BF16, gradient checkpointing, and a 1,048,576-pixel budget.
+
+| Configuration | Qwen-Image-Edit-2509 | Qwen-Image-2.1 |
+| --- | --- | --- |
+| Pipeline | `QwenImagePipeline` | `QwenImage21Pipeline` |
+| Target image processing | RGB; dimensions divisible by 16 | RGBA; dimensions divisible by 32 |
+| Released training recipe | 20,000 samples; 2 epochs | Full 97,068 training records; 1 epoch |
+| Launcher | `train_lora.sh` with `TASK` | Task-specific `train_qwen21_lora-2-refer-*.sh` |
+| Checkpoint defaults | End of each epoch | Every 1,000 steps and final step |
+| Loss logs | `training.jsonl` | CSV logs |
+
+The LoRA target layers follow each model's architecture. For 2509: `to_q,to_k,to_v,add_q_proj,add_k_proj,add_v_proj,to_out.0,to_add_out,img_mlp.net.2,img_mod.1,txt_mlp.net.2,txt_mod.1`. For 2.1: `to_q,to_k,to_v,to_out.0,img_mlp.proj,img_mlp.gate_layer,img_mlp.out,modulation.1`. The 2.1 training configuration enables Flex Attention and disables KV caching. Both launchers enable `find_unused_parameters`.
+
+#### Prepare metadata
+
+Use the common data preparation instructions above for either model. The 20K commands reproduce the data count of the released 2509 recipe. For the full 2.1 split, use `--num-samples 0`:
 
 ```bash
-export MODEL_DIR=/path/to/Qwen-Image-2.1
 export DATASET_ROOT=/path/to/Garments2Look-data
-python scripts/data_gen/generate_2-refer.py --task inpainting --section train \
-  --dataset-root "$DATASET_ROOT" --num-samples 0 --num-workers 8 --seed 42 \
-  --output data/metadata/garments2look-2-refer-inpainting-for-qwen21-train-97068.json
-python scripts/data_gen/generate_2-refer.py --task editing --section train \
-  --dataset-root "$DATASET_ROOT" --num-samples 0 --num-workers 8 --seed 42 \
-  --output data/metadata/garments2look-2-refer-editing-for-qwen21-train-97068.json
-
-CUDA_VISIBLE_DEVICES=0,1 NPROC=2 bash scripts/train/train_qwen21_lora-2-refer-inpainting.sh
-CUDA_VISIBLE_DEVICES=0,1 NPROC=2 bash scripts/train/train_qwen21_lora-2-refer-editing.sh
-
-# Optional Slurm submission, from the repository root with the environment active.
-inpainting_job=$(sbatch --parsable scripts/train/train_qwen21_lora-2-refer-inpainting.slurm)
-sbatch --dependency=afterok:"$inpainting_job" scripts/train/train_qwen21_lora-2-refer-editing.slurm
+for task in inpainting editing; do
+  python scripts/data_gen/generate_2-refer.py --task "$task" --section train \
+    --dataset-root "$DATASET_ROOT" --num-samples 0 --num-workers 8 --seed 42 \
+    --output "data/metadata/garments2look-2-refer-${task}-for-qwen21-train-97068.json"
+done
 ```
 
-Defaults: one epoch, global batch size 2 on two GPUs (batch size 1 per process), learning rate `1e-4`, rank 32, BF16, gradient checkpointing, eight data workers, and a 1,048,576-pixel budget. The trained LoRA modules are `to_q,to_k,to_v,to_out.0,img_mlp.proj,img_mlp.gate_layer,img_mlp.out,modulation.1`. `find_unused_parameters=True` matches the released runs. No training seed was specified for those runs; an optional `--seed` can be passed explicitly. This differs from the inference example seed.
+Check that each full-split JSON contains 97,068 records with no skipped records. Metadata sampling seeds are separate from training and inference seeds.
 
-Override `METADATA_PATH`, `OUTPUT_PATH`, `NUM_EPOCHS`, `MAX_PIXELS`, `NUM_WORKERS`, `NPROC`, or `MASTER_PORT` as needed. Single-GPU training is supported with `NPROC=1`, but changes the global batch size and step count. Slurm scripts are portable templates; adjust cluster resources before submission.
+<a id="qwen-image-edit-2509-training"></a>
 
-Checkpoints are saved every 1,000 steps and at the final step even if it is not a multiple of 1,000. With 97,068 records and two processes, the final file is `step-48534.safetensors`. CSV loss logs are written under the output directory. Released HF files were renamed from this final checkpoint. The two completed H200 runs took about 59 hours each; other hardware may differ.
-
-### Qwen-Image-Edit-2509 training
-
-Select the task and its metadata. The defaults match the original LoRA recipe: rank 32, learning rate 1e-4, two epochs, gradient checkpointing, and a 1,048,576-pixel budget.
+#### Launch 2509
 
 ```bash
 export MODEL_DIR="$PWD/models/Qwen-Image-Edit-2509"
 export DATASET_ROOT=/path/to/Garments2Look-data
-export TASK=inpainting
-export METADATA="$PWD/data/metadata/train-inpainting.json"
-export OUTPUT_DIR="$PWD/models/train/$TASK"
-NPROC=1 SEED=123 bash scripts/train/train_lora.sh
-
-# Editing training (requires editing-task inputs).
-export TASK=editing
-export METADATA="$PWD/data/metadata/train-editing.json"
-export OUTPUT_DIR="$PWD/models/train/$TASK"
-NPROC=1 SEED=123 bash scripts/train/train_lora.sh
-
-# Optional: train the selected task on two GPUs.
-CUDA_VISIBLE_DEVICES=0,1 NPROC=2 SEED=123 bash scripts/train/train_lora.sh
+for task in inpainting editing; do
+  TASK="$task" METADATA="$PWD/data/metadata/train-${task}.json" \
+    OUTPUT_DIR="$PWD/models/train/qwen2509-${task}" \
+    NPROC=1 SEED=123 bash scripts/train/train_lora.sh
+done
 ```
 
-Checkpoint filenames are zero-indexed: `epoch-0.safetensors` is saved after the first epoch and `epoch-1.safetensors` after the second. Losses are written to `training.jsonl`. The example runs use second-epoch checkpoints trained on 20K samples, not newly trained smoke-test weights. Both task-specific adapters are available from [Hugging Face](https://huggingface.co/ArtmeScienceLab/Garments2Look-LoRA); use their downloaded paths with `--lora`.
+Set `NPROC=2` and `CUDA_VISIBLE_DEVICES=0,1` for two GPUs. Override `EPOCHS`, `LEARNING_RATE`, `NUM_WORKERS`, or `MASTER_PORT` as needed. Epoch filenames are zero-indexed: `epoch-1.safetensors` is saved after the second epoch.
+
+<a id="qwen-image-21-training"></a>
+
+#### Launch 2.1
+
+```bash
+export MODEL_DIR=/path/to/Qwen-Image-2.1
+export DATASET_ROOT=/path/to/Garments2Look-data
+CUDA_VISIBLE_DEVICES=0,1 NPROC=2 bash scripts/train/train_qwen21_lora-2-refer-inpainting.sh
+CUDA_VISIBLE_DEVICES=0,1 NPROC=2 bash scripts/train/train_qwen21_lora-2-refer-editing.sh
+
+# Optional Slurm submission from the repository root, with the environment active.
+inpainting_job=$(sbatch --parsable scripts/train/train_qwen21_lora-2-refer-inpainting.slurm)
+sbatch --dependency=afterok:"$inpainting_job" scripts/train/train_qwen21_lora-2-refer-editing.slurm
+```
+
+The released 2.1 runs used two H200 GPUs with batch size 1 per process (global batch size 2), eight data workers, and no explicit training seed. An optional `--seed` can be passed to the launcher. Override `METADATA_PATH`, `OUTPUT_PATH`, `NUM_EPOCHS`, `MAX_PIXELS`, `NUM_WORKERS`, `NPROC`, or `MASTER_PORT` as needed. `NPROC=1` supports a single GPU but changes the global batch size and step count. Adjust the Slurm templates for your cluster.
+
+With 97,068 records and two processes, the final checkpoint is `step-48534.safetensors`; it is saved even though 48,534 is not a multiple of 1,000. The released HF adapters were renamed from this final checkpoint. Each completed H200 run took about 59 hours; timing depends on hardware.
 
 
 ## License
